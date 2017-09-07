@@ -29,7 +29,6 @@ func _on_network_peer_disconnected(id):
 
 func _on_connected_to_server():
 	logger.debug("connected_to_server()")
-	get_node("/root/main-menu").insert_message("Connected to server!")
 	rpc_id(
 		server_id,
 		"register_player",
@@ -37,7 +36,6 @@ func _on_connected_to_server():
 		player_name,
 		player_texture
 	)
-	enable_chat()
 
 func next_texture():
 	player_texture = (player_texture + 1) % _textures.size()

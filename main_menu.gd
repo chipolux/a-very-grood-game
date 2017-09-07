@@ -13,6 +13,7 @@ func _ready():
 	get_node("prev_texture").connect("pressed", self, "_prev_texture")
 	get_node("next_texture").connect("pressed", self, "_next_texture")
 
+	get_tree().connect("connected_to_server", self, "_on_connected_to_server")
 	get_tree().connect("connection_failed", self, "_on_connection_failed")
 	get_tree().connect("server_disconnected", self, "_on_server_disconnected")
 
@@ -70,6 +71,10 @@ func _prev_texture():
 func _next_texture():
 	game_state.next_texture()
 	get_node("sprite").set_texture(game_state.get_texture(game_state.player_texture))
+
+func _on_connected_to_server():
+	insert_message("Connected to server!")
+	enable_chat()
 
 func _on_connection_failed():
 	logger.debug("connection_failed()")
