@@ -16,6 +16,29 @@ var player_texture = 0
 var player_name
 var players
 
+func _ready():
+	get_tree().connect("network_peer_disconnected", self, "_on_network_peer_disconnected")
+	get_tree().connect("connected_to_server", self, "_on_connected_to_server")
+	get_tree().connect("connection_failed", self, "_on_connection_failed")
+	get_tree().connect("server_disconnected", self, "_on_server_disconnected")
+
+func _on_network_peer_disconnected(id):
+	logger.debug("network_peer_disconnected(%s)" % id)
+	get_node("/root/main-menu").insert_message("%s disconnected." % players[id]["name"])
+	players.erase(id)
+
+func _on_connected_to_server():
+	logger.debug("connected_to_server()")
+	get_node("/root/main-menu").insert_message("Connected to server!")
+	rpc_id(
+		server_id,
+		"register_player",
+		get_tree().get_network_unique_id(),
+		player_name,
+		player_texture
+	)
+	enable_chat()
+
 func next_texture():
 	player_texture = (player_texture + 1) % _textures.size()
 

@@ -2,7 +2,6 @@ extends Control
 
 func _ready():
 	get_node("sprite").set_texture(game_state.get_texture(game_state.player_texture))
-
 	get_node("chat").set_scroll_follow(true)
 	get_node("name-input").connect("text_entered", self, "_name_entered")
 	get_node("host-button").connect("pressed", self, "_host_pressed")
@@ -14,9 +13,6 @@ func _ready():
 	get_node("prev_texture").connect("pressed", self, "_prev_texture")
 	get_node("next_texture").connect("pressed", self, "_next_texture")
 
-	get_tree().connect("network_peer_connected", self, "_on_network_peer_connected")
-	get_tree().connect("network_peer_disconnected", self, "_on_network_peer_disconnected")
-	get_tree().connect("connected_to_server", self, "_on_connected_to_server")
 	get_tree().connect("connection_failed", self, "_on_connection_failed")
 	get_tree().connect("server_disconnected", self, "_on_server_disconnected")
 
@@ -74,27 +70,6 @@ func _prev_texture():
 func _next_texture():
 	game_state.next_texture()
 	get_node("sprite").set_texture(game_state.get_texture(game_state.player_texture))
-
-
-func _on_network_peer_connected(id):
-	logger.debug("network_peer_connected(%s)" % id)
-
-func _on_network_peer_disconnected(id):
-	logger.debug("network_peer_disconnected(%s)" % id)
-	insert_message("%s disconnected." % game_state.players[id]["name"])
-	game_state.players.erase(id)
-
-func _on_connected_to_server():
-	logger.debug("connected_to_server()")
-	insert_message("Connected to server!")
-	game_state.rpc_id(
-		game_state.server_id,
-		"register_player",
-		get_tree().get_network_unique_id(),
-		game_state.player_name,
-		game_state.player_texture
-	)
-	enable_chat()
 
 func _on_connection_failed():
 	logger.debug("connection_failed()")
