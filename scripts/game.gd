@@ -1,6 +1,6 @@
 extends Node2D
 
-var PLAYER_SCENE = load("res://player.tscn")
+var PLAYER_SCENE = load("res://scenes/player.tscn")
 
 func _ready():
 	set_process_input(true)
