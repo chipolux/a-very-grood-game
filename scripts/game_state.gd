@@ -74,7 +74,7 @@ func leave_game():
 sync func start_game():
 	logger.debug("start_game()")
 	game_running = true
-	get_node("/root").add_child(load("res://game.tscn").instance())
+	get_node("/root").add_child(load("res://scenes/game.tscn").instance())
 	get_node("/root/main-menu").hide()
 
 sync func stop_game():
