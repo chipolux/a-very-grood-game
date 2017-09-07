@@ -29,7 +29,7 @@ func _host_pressed():
 	game_state.players = {game_state.server_id: {"name": game_state.player_name, "texture": game_state.player_texture}}
 	if game_state.player_name:
 		var port = get_node("port-input").get_text().to_int()
-		if host_game(port, 20):
+		if game_state.host_game(port, 20):
 			disable_connect()
 			enable_chat()
 			get_node("start-button").set_hidden(false)
@@ -43,7 +43,7 @@ func _connect_pressed():
 	if game_state.player_name:
 		var port = get_node("port-input").get_text().to_int()
 		var ip = get_node("ip-input").get_text()
-		if join_game(ip, port):
+		if game_state.join_game(ip, port):
 			disable_connect()
 			insert_message("Connecting to server...")
 	else:
@@ -74,26 +74,6 @@ func _prev_texture():
 func _next_texture():
 	game_state.next_texture()
 	get_node("sprite").set_texture(game_state.get_texture(game_state.player_texture))
-
-func host_game(port, max_peers):
-	logger.debug("host_game(%s, %s)" % [port, max_peers])
-	var host = NetworkedMultiplayerENet.new()
-	if host.create_server(port, max_peers) == OK:
-		logger.debug("create_server(%s, %s)" % [port, max_peers])
-		get_tree().set_network_peer(host)
-		return true
-	logger.error("create_server failed")
-	return false
-
-func join_game(ip, port):
-	logger.debug("join_game(%s, %s)" % [ip, port])
-	var host = NetworkedMultiplayerENet.new()
-	if host.create_client(ip, port) == OK:
-		logger.debug("create_client(%s, %s)" % [ip, port])
-		get_tree().set_network_peer(host)
-		return true
-	logger.error("create_client failed")
-	return false
 
 func leave_game():
 	logger.debug("leave_game()")

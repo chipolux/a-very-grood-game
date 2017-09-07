@@ -25,6 +25,26 @@ func prev_texture():
 func get_texture(id):
 	return _textures[id]
 
+func host_game(port, max_peers):
+	logger.debug("host_game(%s, %s)" % [port, max_peers])
+	var host = NetworkedMultiplayerENet.new()
+	if host.create_server(port, max_peers) == OK:
+		logger.debug("create_server(%s, %s)" % [port, max_peers])
+		get_tree().set_network_peer(host)
+		return true
+	logger.error("create_server failed")
+	return false
+
+func join_game(ip, port):
+	logger.debug("join_game(%s, %s)" % [ip, port])
+	var host = NetworkedMultiplayerENet.new()
+	if host.create_client(ip, port) == OK:
+		logger.debug("create_client(%s, %s)" % [ip, port])
+		get_tree().set_network_peer(host)
+		return true
+	logger.error("create_client failed")
+	return false
+
 sync func start_game():
 	logger.debug("start_game()")
 	game_running = true
