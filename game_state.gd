@@ -45,6 +45,11 @@ func join_game(ip, port):
 	logger.error("create_client failed")
 	return false
 
+func leave_game():
+	if game_running:
+		stop_game()
+	get_tree().set_network_peer(null)
+
 sync func start_game():
 	logger.debug("start_game()")
 	game_running = true

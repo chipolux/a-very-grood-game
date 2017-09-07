@@ -75,15 +75,6 @@ func _next_texture():
 	game_state.next_texture()
 	get_node("sprite").set_texture(game_state.get_texture(game_state.player_texture))
 
-func leave_game():
-	logger.debug("leave_game()")
-	if game_state.game_running:
-		game_state.stop_game()
-	get_tree().set_network_peer(null)
-	enable_connect()
-	disable_chat()
-	get_node("start-button").set_hidden(true)
-	insert_message("Disconnected...")
 
 func _on_network_peer_connected(id):
 	logger.debug("network_peer_connected(%s)" % id)
@@ -123,6 +114,13 @@ func send_message(text):
 sync func insert_message(message):
 	get_node("chat").add_text(message)
 	get_node("chat").newline()
+
+func leave_game():
+	game_state.leave_game()
+	enable_connect()
+	disable_chat()
+	get_node("start-button").set_hidden(true)
+	insert_message("Disconnected...")
 
 remote func register_player(id, name, texture):
 	if get_tree().is_network_server():
