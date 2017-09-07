@@ -61,3 +61,21 @@ sync func stop_game():
 	game_running = false
 	get_node("/root/game").queue_free()
 	get_node("/root/main-menu").show()
+
+remote func register_player(id, name, texture):
+	if get_tree().is_network_server():
+		for player_id in players:
+			if player_id != server_id:
+				rpc_id(player_id, "register_player", id, name, texture)
+	players[id] = {"name": name, "texture": texture}
+	rpc_id(id, "register_players", players)
+	get_node("/root/main-menu").insert_message("%s connected!" % name)
+
+remote func register_players(existing_players):
+	players = existing_players
+	var message = "Already Online: "
+	for player_id in players:
+		if player_id != get_tree().get_network_unique_id():
+			message += players[player_id]["name"] + ", "
+	message = message.left(message.length() - 2)
+	get_node("/root/main-menu").insert_message(message)

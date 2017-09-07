@@ -87,7 +87,7 @@ func _on_network_peer_disconnected(id):
 func _on_connected_to_server():
 	logger.debug("connected_to_server()")
 	insert_message("Connected to server!")
-	rpc_id(
+	game_state.rpc_id(
 		game_state.server_id,
 		"register_player",
 		get_tree().get_network_unique_id(),
@@ -121,25 +121,6 @@ func leave_game():
 	disable_chat()
 	get_node("start-button").set_hidden(true)
 	insert_message("Disconnected...")
-
-remote func register_player(id, name, texture):
-	if get_tree().is_network_server():
-
-		for player_id in game_state.players:
-			if player_id != game_state.server_id:
-				rpc_id(player_id, "register_player", id, name, texture)
-	game_state.players[id] = {"name": name, "texture": texture}
-	rpc_id(id, "register_players", game_state.players)
-	insert_message("%s connected!" % name)
-
-remote func register_players(existing_players):
-	game_state.players = existing_players
-	var message = "Already Online: "
-	for player_id in game_state.players:
-		if player_id != get_tree().get_network_unique_id():
-			message += game_state.players[player_id]["name"] + ", "
-	message = message.left(message.length() - 2)
-	insert_message(message)
 
 func enable_connect():
 	get_node("host-button").set_disabled(false)
