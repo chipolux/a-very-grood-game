@@ -11,6 +11,7 @@ var _textures = [
 	load("res://images/shelby.png"),
 	load("res://images/shroom.png"),
 	load("res://images/top_hat.png"),
+	load("res://images/mohawk.png"),
 ]
 var player_texture = 0
 var player_name
