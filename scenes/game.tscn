@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
 
 [node name="game" type="Node2D"]
 
@@ -18,8 +19,8 @@ margin/right = 800.0
 margin/bottom = 600.0
 color = Color( 0.164063, 0.164063, 0.164063, 1 )
 
-[node name="players" type="Node2D" parent="."]
+[node name="player" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 400, 300 )
+transform/pos = Vector2( 380.599, 330.261 )
 
 
