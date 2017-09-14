@@ -3,9 +3,11 @@ extends RigidBody2D
 const MOVEMENT_SPEED = 300
 
 var current_anim = ""
+var interactable
 
 func _ready():
 	set_fixed_process(true)
+	set_process_input(true)
 
 func _fixed_process(delta):
 	var motion = Vector2()
@@ -34,6 +36,10 @@ func _fixed_process(delta):
 		get_node("anim").play(current_anim)
 
 	set_linear_velocity(motion * MOVEMENT_SPEED)
+
+func _input(event):
+	if event.is_action_pressed('ui_accept') and interactable:
+		interactable.interact(self)
 
 func set_player_sprite(texture):
 	get_node("sprite").set_texture(texture)
