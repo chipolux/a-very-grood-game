@@ -25,10 +25,10 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
-margin/top = 20.0
+margin/top = 50.0
 margin/right = 0.0
-margin/bottom = 34.0
-custom_colors/font_color = Color( 0.835938, 0.835938, 0.835938, 1 )
+margin/bottom = 70.0
+custom_colors/font_color = Color( 0.875, 0.875, 0.875, 1 )
 text = "A Very Grood Game"
 align = 1
 valign = 1
@@ -38,14 +38,18 @@ max_lines_visible = -1
 
 [node name="name-input" type="LineEdit" parent="."]
 
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 20.0
-margin/top = 80.0
-margin/right = 170.0
-margin/bottom = 104.0
+margin/left = 75.0
+margin/top = 90.0
+margin/right = -75.0
+margin/bottom = 65.0
 placeholder/text = "Name"
 placeholder/alpha = 0.6
 expand_to_len = false
@@ -53,104 +57,20 @@ focus_mode = 2
 caret/caret_blink = false
 caret/caret_blink_speed = 0.65
 
-[node name="ip-input" type="LineEdit" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 20.0
-margin/top = 120.0
-margin/right = 170.0
-margin/bottom = 144.0
-text = "68.0.117.205"
-placeholder/text = "IPv4 Address"
-placeholder/alpha = 0.6
-expand_to_len = false
-focus_mode = 2
-caret/caret_blink = false
-caret/caret_blink_speed = 0.65
-
-[node name="port-input" type="LineEdit" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 20.0
-margin/top = 160.0
-margin/right = 170.0
-margin/bottom = 184.0
-text = "1337"
-placeholder/text = "Port"
-placeholder/alpha = 0.6
-expand_to_len = false
-focus_mode = 2
-caret/caret_blink = false
-caret/caret_blink_speed = 0.65
-
-[node name="connect-button" type="Button" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 20.0
-margin/top = 210.0
-margin/right = 170.0
-margin/bottom = 240.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Connect"
-flat = false
-
-[node name="host-button" type="Button" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 20.0
-margin/top = 260.0
-margin/right = 170.0
-margin/bottom = 290.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Host"
-flat = false
-
-[node name="disconnect-button" type="Button" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 20.0
-margin/top = 310.0
-margin/right = 170.0
-margin/bottom = 340.0
-disabled = true
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Disconnect"
-flat = false
-
 [node name="start-button" type="Button" parent="."]
 
-visibility/visible = false
-anchor/top = 1
-anchor/bottom = 1
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 20.0
-margin/top = 100.0
-margin/right = 170.0
-margin/bottom = 70.0
+margin/left = 60.0
+margin/top = -90.0
+margin/right = -60.0
+margin/bottom = -120.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -159,7 +79,7 @@ flat = false
 
 [node name="sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( 95, 410 )
+transform/pos = Vector2( 400, 316 )
 transform/scale = Vector2( 5, 5 )
 texture = ExtResource( 2 )
 vframes = 12
@@ -168,14 +88,18 @@ frame = 1
 
 [node name="prev_texture" type="Button" parent="."]
 
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 20.0
-margin/top = 400.0
-margin/right = 40.0
-margin/bottom = 420.0
+margin/left = 90.0
+margin/top = 0.0
+margin/right = 60.0
+margin/bottom = -30.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -184,75 +108,23 @@ flat = false
 
 [node name="next_texture" type="Button" parent="."]
 
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 150.0
-margin/top = 400.0
-margin/right = 170.0
-margin/bottom = 420.0
+margin/left = -60.0
+margin/top = 0.0
+margin/right = -90.0
+margin/bottom = -30.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = ">"
 flat = false
-
-[node name="chat" type="RichTextLabel" parent="."]
-
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 200.0
-margin/top = 80.0
-margin/right = 20.0
-margin/bottom = 70.0
-custom_constants/table_vseparation = 0
-bbcode/enabled = false
-bbcode/bbcode = ""
-visible_characters = -1
-
-[node name="send-button" type="Button" parent="."]
-
-anchor/top = 1
-anchor/bottom = 1
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 20.0
-margin/top = 50.0
-margin/right = 170.0
-margin/bottom = 20.0
-disabled = true
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Send"
-flat = false
-
-[node name="message-input" type="LineEdit" parent="."]
-
-anchor/top = 1
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 200.0
-margin/top = 50.0
-margin/right = 20.0
-margin/bottom = 20.0
-placeholder/alpha = 0.6
-editable = false
-expand_to_len = false
-focus_mode = 0
-caret/caret_blink = false
-caret/caret_blink_speed = 0.65
 
 [node name="error" type="AcceptDialog" parent="."]
 

@@ -1,35 +1,25 @@
-extends KinematicBody2D
+extends RigidBody2D
 
-const MOVEMENT_SPEED = 300
+const MOVEMENT_SPEED = 200
 
-slave var slave_pos = Vector2()
-slave var slave_motion = Vector2()
 var current_anim = ""
+var interactable
 
 func _ready():
-	slave_pos = get_pos()
 	set_fixed_process(true)
+	set_process_input(true)
 
 func _fixed_process(delta):
 	var motion = Vector2()
-
-	if is_network_master():
-		if Input.is_action_pressed("ui_left"):
-			motion += Vector2(-1, 0)
-		if Input.is_action_pressed("ui_right"):
-			motion += Vector2(1, 0)
-		if Input.is_action_pressed("ui_up"):
-			motion += Vector2(0, -1)
-		if Input.is_action_pressed("ui_down"):
-			motion += Vector2(0, 1)
-
-		motion *= delta
-
-		rset("slave_motion", motion)
-		rset("slave_pos", get_pos())
-	else:
-		set_pos(slave_pos)
-		motion = slave_motion
+	if Input.is_action_pressed("ui_left"):
+		motion += Vector2(-1, 0)
+	if Input.is_action_pressed("ui_right"):
+		motion += Vector2(1, 0)
+	if Input.is_action_pressed("ui_up"):
+		motion += Vector2(0, -1)
+	if Input.is_action_pressed("ui_down"):
+		motion += Vector2(0, 1)
+	#motion *= delta
 
 	var new_anim = "standing"
 	if (motion.y < 0):
@@ -45,13 +35,11 @@ func _fixed_process(delta):
 		current_anim = new_anim
 		get_node("anim").play(current_anim)
 
-	move(motion * MOVEMENT_SPEED)
+	set_linear_velocity(motion * MOVEMENT_SPEED)
 
-	if not is_network_master():
-		slave_pos = get_pos()  # to avoid jitter?
-
-func set_player_name(name):
-	get_node("label").set_text(name)
+func _input(event):
+	if event.is_action_pressed('ui_accept') and interactable:
+		interactable.interact(self)
 
 func set_player_sprite(texture):
 	get_node("sprite").set_texture(texture)
