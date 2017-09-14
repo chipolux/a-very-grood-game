@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends RigidBody2D
 
 const MOVEMENT_SPEED = 300
 
@@ -17,7 +17,7 @@ func _fixed_process(delta):
 		motion += Vector2(0, -1)
 	if Input.is_action_pressed("ui_down"):
 		motion += Vector2(0, 1)
-	motion *= delta
+	#motion *= delta
 
 	var new_anim = "standing"
 	if (motion.y < 0):
@@ -33,7 +33,7 @@ func _fixed_process(delta):
 		current_anim = new_anim
 		get_node("anim").play(current_anim)
 
-	move(motion * MOVEMENT_SPEED)
+	set_linear_velocity(motion * MOVEMENT_SPEED)
 
 func set_player_sprite(texture):
 	get_node("sprite").set_texture(texture)
