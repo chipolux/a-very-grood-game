@@ -11,8 +11,12 @@ func show_error(message):
 	get_node("error").popup_centered_minsize()
 
 func _start_pressed():
-	game_state.player_name = get_node("name-input").get_text()
-	game_state.start_game()
+	var name = get_node("name-input").get_text()
+	if not name:
+		show_error("You must have a name!")
+	else:
+		game_state.player_name = name
+		game_state.start_game()
 
 func _prev_texture():
 	game_state.prev_texture()
