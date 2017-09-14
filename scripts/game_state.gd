@@ -21,12 +21,12 @@ func prev_texture():
 	var i = _textures.find(player_texture)
 	player_texture = _textures[(i - 1) % _textures.size()]
 
-sync func start_game():
+func start_game():
 	logger.debug("start_game()")
 	get_node("/root").add_child(load("res://scenes/game.tscn").instance())
 	get_node("/root/main-menu").hide()
 
-sync func stop_game():
+func stop_game():
 	logger.debug("stop_game()")
 	get_node("/root/game").queue_free()
 	get_node("/root/main-menu").show()
