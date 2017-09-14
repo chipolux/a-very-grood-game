@@ -8,13 +8,13 @@ func _ready():
 func body_entered(body):
 	if body.get_name() == "player":
 		get_node("speech").show()
-#		body.interactable = self
+		body.interactable = self
 
 func body_exited(body):
 	if body.get_name() == "player":
 		get_node("speech").hide()
-#	if body.get_name() == "player" and body.interactable == self:
-#		body.interactable = null
+		if body.interactable == self:
+			body.interactable = null
 
-#func interact(player):
-#	print("hey " + game_state.player_name + "! how ya doin!")
+func interact(player):
+	get_node("speech/text").set_bbcode("HEY! I SAID DON'T TOUCH THAT!")
