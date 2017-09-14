@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-const MOVEMENT_SPEED = 300
+const MOVEMENT_SPEED = 200
 
 var current_anim = ""
 var interactable
