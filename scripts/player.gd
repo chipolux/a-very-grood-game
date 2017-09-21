@@ -8,6 +8,7 @@ var interactable
 func _ready():
 	set_fixed_process(true)
 	set_process_input(true)
+	get_node("sprite").set_texture(game_state.player_texture)
 
 func _fixed_process(delta):
 	var motion = Vector2()
