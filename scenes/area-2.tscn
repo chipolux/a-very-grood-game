@@ -49,6 +49,7 @@ margin/right = 800.0
 margin/bottom = 600.0
 texture = ExtResource( 2 )
 stretch_mode = 0
+__meta__ = { "_edit_lock_":true }
 
 [node name="shroom-boy" type="Node2D" parent="."]
 
@@ -110,10 +111,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -110.0
-margin/top = -100.0
-margin/right = 110.0
-margin/bottom = -50.0
+margin/left = -32.0
+margin/top = -84.0
+margin/right = 188.0
+margin/bottom = -34.0
 
 [node name="text" type="RichTextLabel" parent="shroom-boy/speech"]
 
@@ -224,6 +225,7 @@ margin/right = 799.0
 margin/bottom = 600.0
 texture = ExtResource( 7 )
 stretch_mode = 0
+__meta__ = { "_edit_lock_":true }
 
 [node name="walls" type="StaticBody2D" parent="."]
 
