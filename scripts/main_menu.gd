@@ -3,7 +3,8 @@ extends Control
 func _ready():
 	get_node("sprite").set_texture(game_state.player_texture)
 	get_node("start-button").connect("pressed", self, "_start_pressed")
-	get_node("prev_texture").connect("pressed", self, "_prev_texture")
+	get_node("prev_texture
+").connect("pressed", self, "_prev_texture")
 	get_node("next_texture").connect("pressed", self, "_next_texture")
 
 func show_error(message):
