@@ -1,20 +1,12 @@
 [gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://images/bridge.png" type="Texture" id=1]
-[ext_resource path="res://scripts/shroom_boy.gd" type="Script" id=2]
+[ext_resource path="res://scenes/npc.tscn" type="PackedScene" id=2]
 [ext_resource path="res://images/shroom.png" type="Texture" id=3]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://images/bridge_overlay.png" type="Texture" id=5]
-
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 20, 20 )
-
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 40, 40 )
+[ext_resource path="res://images/hobo.png" type="Texture" id=5]
+[ext_resource path="res://images/top_hat.png" type="Texture" id=6]
+[ext_resource path="res://images/bridge_overlay.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=3]
 
@@ -45,94 +37,37 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 0.0
-margin/right = 800.0
-margin/bottom = 600.0
+margin/top = -200.0
+margin/right = 2400.0
+margin/bottom = 800.0
 texture = ExtResource( 1 )
 stretch_mode = 0
-__meta__ = { "_edit_lock_":true }
 
-[node name="shroom-boy" type="Node2D" parent="."]
+[node name="shroom-boi" parent="." instance=ExtResource( 2 )]
 
-editor/display_folded = true
-transform/pos = Vector2( 580, 200 )
-script/script = ExtResource( 2 )
-
-[node name="sprite" type="Sprite" parent="shroom-boy"]
-
-transform/scale = Vector2( 3, 3 )
+transform/pos = Vector2( 554.085, 203.193 )
+transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 3 )
-vframes = 12
-hframes = 6
-frame = 1
-
-[node name="body" type="StaticBody2D" parent="shroom-boy"]
-
-editor/display_folded = true
-input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="shape" type="CollisionShape2D" parent="shroom-boy/body"]
-
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
-
-[node name="interaction" type="Area2D" parent="shroom-boy"]
-
-input/pickable = true
-shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="shape" type="CollisionShape2D" parent="shroom-boy/interaction"]
-
-shape = SubResource( 2 )
-trigger = false
-_update_shape_index = 0
-
-[node name="speech" type="Panel" parent="shroom-boy"]
-
-editor/display_folded = true
-visibility/visible = false
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -110.0
-margin/top = -100.0
-margin/right = 110.0
-margin/bottom = -50.0
-
-[node name="text" type="RichTextLabel" parent="shroom-boy/speech"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 10.0
-margin/top = 10.0
-margin/right = 210.0
-margin/bottom = 40.0
-bbcode/enabled = false
-bbcode/bbcode = "Hey there! I\'m a shroom boi! Don\'t touch my shroom!"
-visible_characters = -1
+phrase = "Hey boyo! I\'m a shroomby!"
 
 [node name="player" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 435.316, 329.417 )
+transform/pos = Vector2( 504.504, 310.337 )
+
+[node name="hobo-boi" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 796.699, 455.879 )
+transform/scale = Vector2( 1, 1 )
+texture = ExtResource( 5 )
+phrase = "Hmm, maybe I could take a bath in the river..."
+
+[node name="toppem-hat" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 1098.13, 248.622 )
+transform/scale = Vector2( 1, 1 )
+texture = ExtResource( 6 )
+frame = 13
+phrase = "I hear the city to the East is pretty cool."
 
 [node name="overlay" type="TextureFrame" parent="."]
 
@@ -144,7 +79,7 @@ margin/left = -1.0
 margin/top = 0.0
 margin/right = 2399.0
 margin/bottom = 600.0
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
 stretch_mode = 0
 __meta__ = { "_edit_lock_":true }
 

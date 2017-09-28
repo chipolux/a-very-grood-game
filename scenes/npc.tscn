@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://scripts/npc.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 20, 20 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 40, 40 )
+
+[node name="npc" type="Node2D"]
+
+script/script = ExtResource( 1 )
+texture = null
+vframes = 12
+hframes = 6
+frame = 1
+phrase = null
+
+[node name="sprite" type="Sprite" parent="."]
+
+transform/scale = Vector2( 3, 3 )
+vframes = 12
+hframes = 6
+frame = 1
+
+[node name="body" type="StaticBody2D" parent="."]
+
+editor/display_folded = true
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="shape" type="CollisionShape2D" parent="body"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="interaction" type="Area2D" parent="."]
+
+editor/display_folded = true
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="shape" type="CollisionShape2D" parent="interaction"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="speech" type="Panel" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -110.0
+margin/top = -100.0
+margin/right = 110.0
+margin/bottom = -50.0
+
+[node name="text" type="RichTextLabel" parent="speech"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 10.0
+margin/right = 210.0
+margin/bottom = 40.0
+bbcode/enabled = false
+bbcode/bbcode = ""
+visible_characters = -1
+
+
