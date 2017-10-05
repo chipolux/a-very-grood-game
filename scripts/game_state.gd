@@ -34,8 +34,8 @@ func stop_game():
 	get_node("/root/main-menu").show()
 
 func set_scene(scene):
-	var old_scene = get_node("/root/current_scene")
-	if old_scene:
+	if get_node("/root").has_node("current_scene"):
+		var old_scene = get_node("/root/current_scene")
 		old_scene.set_name("old_scene")
 		old_scene.queue_free()
 	var new_scene = load(scene).instance()
