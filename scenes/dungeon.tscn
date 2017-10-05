@@ -1,7 +1,13 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=15 format=1]
 
 [ext_resource path="res://images/dungeon.png" type="Texture" id=1]
-[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/transition.gd" type="Script" id=2]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=11]
+
+custom_solver_bias = 0.0
+extents = Vector2( 5, 5 )
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -29,27 +35,27 @@ extents = Vector2( 9.11914, 69.1469 )
 custom_solver_bias = 0.0
 extents = Vector2( 9.11914, 226.327 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 49.9985 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
 extents = Vector2( 9.11914, 179.519 )
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=8]
 
 custom_solver_bias = 0.0
 radius = 59.0073
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=9]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 115.87 )
 
-[sub_resource type="CapsuleShape2D" id=9]
+[sub_resource type="CapsuleShape2D" id=10]
 
 custom_solver_bias = 0.0
 radius = 61.661
@@ -71,12 +77,60 @@ texture = ExtResource( 1 )
 stretch_mode = 0
 __meta__ = { "_edit_lock_":true }
 
-[node name="player" parent="." instance=ExtResource( 2 )]
+[node name="to_bridge" type="Area2D" parent="."]
+
+transform/pos = Vector2( 1870.55, 608.55 )
+input/pickable = true
+shapes/0/shape = SubResource( 11 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 2 )
+scene = "res://scenes/bridge.tscn"
+
+[node name="ColorFrame" type="ColorFrame" parent="to_bridge"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -20.0
+margin/top = -20.0
+margin/right = 20.0
+margin/bottom = 20.0
+color = Color( 0.196533, 0.546875, 0.358019, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to_bridge"]
+
+shape = SubResource( 11 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Label" type="Label" parent="to_bridge"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -30.0
+margin/top = -37.0
+margin/right = 30.0
+margin/bottom = -23.0
+text = "To Bridge"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="player" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1987.42, 611.988 )
 
 [node name="walls" type="StaticBody2D" parent="."]
 
+editor/display_folded = true
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 2005.45, 542.801 )
@@ -93,19 +147,19 @@ shapes/3/trigger = false
 shapes/4/shape = SubResource( 5 )
 shapes/4/transform = Matrix32( 1, 0, 0, 1, 1680.27, 1067.47 )
 shapes/4/trigger = false
-shapes/5/shape = SubResource( 10 )
+shapes/5/shape = SubResource( 6 )
 shapes/5/transform = Matrix32( 0.707107, 0.707107, -0.707107, 0.707107, 1711.12, 864.853 )
 shapes/5/trigger = false
-shapes/6/shape = SubResource( 6 )
+shapes/6/shape = SubResource( 7 )
 shapes/6/transform = Matrix32( 0.984808, -0.173648, 0.173648, 0.984808, 2300.84, 972.345 )
 shapes/6/trigger = false
-shapes/7/shape = SubResource( 7 )
+shapes/7/shape = SubResource( 8 )
 shapes/7/transform = Matrix32( 1, 0, 0, 1, 2314.88, 1207.18 )
 shapes/7/trigger = false
-shapes/8/shape = SubResource( 8 )
+shapes/8/shape = SubResource( 9 )
 shapes/8/transform = Matrix32( 0.965926, -0.258819, 0.258819, 0.965926, 2309.58, 1346.35 )
 shapes/8/trigger = false
-shapes/9/shape = SubResource( 9 )
+shapes/9/shape = SubResource( 10 )
 shapes/9/transform = Matrix32( 0.906308, -0.422618, 0.422618, 0.906308, 1695.65, 729.961 )
 shapes/9/trigger = false
 collision/layers = 1
@@ -155,7 +209,7 @@ _update_shape_index = 4
 
 transform/pos = Vector2( 1711.12, 864.853 )
 transform/rot = -45.0
-shape = SubResource( 10 )
+shape = SubResource( 6 )
 trigger = false
 _update_shape_index = 5
 
@@ -163,14 +217,14 @@ _update_shape_index = 5
 
 transform/pos = Vector2( 2300.84, 972.345 )
 transform/rot = 10.0
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 trigger = false
 _update_shape_index = 6
 
 [node name="wall8" type="CollisionShape2D" parent="walls"]
 
 transform/pos = Vector2( 2314.88, 1207.18 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 trigger = false
 _update_shape_index = 7
 
@@ -178,7 +232,7 @@ _update_shape_index = 7
 
 transform/pos = Vector2( 2309.58, 1346.35 )
 transform/rot = 15.0
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 trigger = false
 _update_shape_index = 8
 
@@ -186,7 +240,7 @@ _update_shape_index = 8
 
 transform/pos = Vector2( 1695.65, 729.961 )
 transform/rot = 25.0
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 trigger = false
 _update_shape_index = 9
 

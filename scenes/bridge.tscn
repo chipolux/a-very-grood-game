@@ -1,12 +1,18 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://images/bridge.png" type="Texture" id=1]
-[ext_resource path="res://scenes/npc.tscn" type="PackedScene" id=2]
-[ext_resource path="res://images/shroom.png" type="Texture" id=3]
-[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://images/hobo.png" type="Texture" id=5]
-[ext_resource path="res://images/top_hat.png" type="Texture" id=6]
-[ext_resource path="res://images/bridge_overlay.png" type="Texture" id=7]
+[ext_resource path="res://scripts/transition.gd" type="Script" id=2]
+[ext_resource path="res://scenes/npc.tscn" type="PackedScene" id=3]
+[ext_resource path="res://images/shroom.png" type="Texture" id=4]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://images/hobo.png" type="Texture" id=6]
+[ext_resource path="res://images/top_hat.png" type="Texture" id=7]
+[ext_resource path="res://images/bridge_overlay.png" type="Texture" id=8]
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 5, 5 )
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -26,7 +32,7 @@ extents = Vector2( 1134.5, 10 )
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 148.155 )
+extents = Vector2( 10, 135.478 )
 
 [node name="bridge" type="Node2D"]
 
@@ -43,26 +49,74 @@ margin/bottom = 800.0
 texture = ExtResource( 1 )
 stretch_mode = 0
 
-[node name="shroom-boi" parent="." instance=ExtResource( 2 )]
+[node name="to_dungeon" type="Area2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 288.204, 320.254 )
+input/pickable = true
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 2 )
+scene = "res://scenes/dungeon.tscn"
+
+[node name="ColorFrame" type="ColorFrame" parent="to_dungeon"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -20.0
+margin/top = -19.0
+margin/right = 20.0
+margin/bottom = 21.0
+color = Color( 0.295258, 0.32517, 0.351563, 1 )
+
+[node name="shape" type="CollisionShape2D" parent="to_dungeon"]
+
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Label" type="Label" parent="to_dungeon"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -37.0
+margin/top = -38.0
+margin/right = 39.0
+margin/bottom = -24.0
+text = "To Dungeon"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="shroom-boi" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 554.085, 203.193 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 phrase = "Hey boyo! I\'m a shroomby!"
 
-[node name="player" parent="." instance=ExtResource( 4 )]
+[node name="player" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 504.504, 310.337 )
 
-[node name="hobo-boi" parent="." instance=ExtResource( 2 )]
+[node name="hobo-boi" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 796.699, 455.879 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 phrase = "Hmm, maybe I could take a bath in the river..."
 
-[node name="toppem-hat" parent="." instance=ExtResource( 2 )]
+[node name="toppem-hat" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1098.13, 248.622 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 frame = 13
 phrase = "I hear the city to the East is pretty cool."
 
@@ -76,12 +130,13 @@ margin/left = -1.0
 margin/top = 0.0
 margin/right = 2399.0
 margin/bottom = 600.0
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 stretch_mode = 0
 __meta__ = { "_edit_lock_":true }
 
 [node name="walls" type="StaticBody2D" parent="."]
 
+editor/display_folded = true
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 1204.1, 154.532 )
@@ -96,10 +151,10 @@ shapes/3/shape = SubResource( 3 )
 shapes/3/transform = Matrix32( 1, 0, 0, 1, 1201.69, 490 )
 shapes/3/trigger = false
 shapes/4/shape = SubResource( 4 )
-shapes/4/transform = Matrix32( 1, 0, 0, 1, 69.7079, 334.651 )
+shapes/4/transform = Matrix32( 1, 0, 0, 1, 68.5104, 350.817 )
 shapes/4/trigger = false
 shapes/5/shape = SubResource( 4 )
-shapes/5/transform = Matrix32( 1, 0, 0, 1, 2329.53, 335.439 )
+shapes/5/transform = Matrix32( 1, 0, 0, 1, 2331.69, 351.65 )
 shapes/5/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -141,14 +196,14 @@ _update_shape_index = 3
 
 [node name="left-wall" type="CollisionShape2D" parent="walls"]
 
-transform/pos = Vector2( 69.7079, 334.651 )
+transform/pos = Vector2( 68.5104, 350.817 )
 shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 4
 
 [node name="right-wall" type="CollisionShape2D" parent="walls"]
 
-transform/pos = Vector2( 2329.53, 335.439 )
+transform/pos = Vector2( 2331.69, 351.65 )
 shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 5
