@@ -79,6 +79,7 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="to_bridge" type="Area2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 1870.55, 608.55 )
 input/pickable = true
 shapes/0/shape = SubResource( 11 )
