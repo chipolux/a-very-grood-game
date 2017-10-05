@@ -1,79 +1,193 @@
-[gd_scene load_steps=17 format=1]
+[gd_scene load_steps=21 format=1]
 
-[ext_resource path="res://images/bridge.png" type="Texture" id=1]
-[ext_resource path="res://images/tree_trunk_bottom.png" type="Texture" id=2]
-[ext_resource path="res://scripts/transition.gd" type="Script" id=3]
+[ext_resource path="res://images/field.png" type="Texture" id=1]
+[ext_resource path="res://images/bridge_bottom.png" type="Texture" id=2]
+[ext_resource path="res://images/bridge_overlay.png" type="Texture" id=3]
 [ext_resource path="res://scenes/npc.tscn" type="PackedScene" id=4]
 [ext_resource path="res://images/shroom.png" type="Texture" id=5]
-[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://images/hobo.png" type="Texture" id=7]
-[ext_resource path="res://images/top_hat.png" type="Texture" id=8]
-[ext_resource path="res://images/tree_trunk_top.png" type="Texture" id=9]
-[ext_resource path="res://images/bridge_overlay.png" type="Texture" id=10]
+[ext_resource path="res://images/hobo.png" type="Texture" id=6]
+[ext_resource path="res://images/top_hat.png" type="Texture" id=7]
+[ext_resource path="res://images/tree_trunk_top.png" type="Texture" id=8]
+[ext_resource path="res://images/tree_trunk_bottom.png" type="Texture" id=9]
+[ext_resource path="res://scripts/transition.gd" type="Script" id=10]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=11]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 1142, 53 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 167.559, 297.163, 66.2486, 297.163, 66.0489, 195.829, 168.132, 195.829, 245.625, 270.044 )
+
+[sub_resource type="ConvexPolygonShape2D" id=15]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 382.384, 269.85, 278.168, 270.044, 245.625, 270.044, 168.132, 195.829, 244.97, 169.637, 384.446, 169.953, 453.282, 244.474 )
+
+[sub_resource type="ConvexPolygonShape2D" id=16]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 1917.8, 244.064, 453.282, 244.474, 384.446, 169.953, 455.604, 145.497, 468.858, 145.497, 1933.82, 145.662, 2004.66, 169.802 )
+
+[sub_resource type="ConvexPolygonShape2D" id=17]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 1936.01, 244.073, 1917.8, 244.064, 2004.66, 169.802 )
+
+[sub_resource type="ConvexPolygonShape2D" id=18]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 2143.82, 269.992, 2007.18, 269.992, 1936.01, 244.073, 2004.66, 169.802, 2144.45, 169.802, 2221.45, 195.52 )
+
+[sub_resource type="ConvexPolygonShape2D" id=19]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 2221.45, 298.234, 2143.82, 269.992, 2221.45, 195.52, 2324.63, 195.678, 2324.63, 298.234 )
+
+[sub_resource type="RectangleShape2D" id=13]
+
+custom_solver_bias = 0.0
+extents = Vector2( 56, 4 )
 
 [sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 5, 5 )
 
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 735.268, 10 )
-
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 203.998, 10 )
-
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 1134.5, 10 )
-
-[sub_resource type="RectangleShape2D" id=4]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 93.7959 )
-
-[sub_resource type="RectangleShape2D" id=6]
-
-custom_solver_bias = 0.0
-extents = Vector2( 53.3864, 2.76634 )
-
 [node name="bridge" type="Node2D"]
 
-[node name="background" type="TextureFrame" parent="."]
+[node name="background" type="Sprite" parent="."]
 
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -770.0
-margin/top = -125.0
-margin/right = 2399.0
-margin/bottom = 875.0
+transform/pos = Vector2( 762.038, 392.943 )
 texture = ExtResource( 1 )
-stretch_mode = 0
-
-[node name="tree_bottom" type="TextureFrame" parent="."]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -492.0
-margin/top = 196.0
-margin/right = -269.0
-margin/bottom = 236.0
-texture = ExtResource( 2 )
-stretch_mode = 0
 __meta__ = { "_edit_lock_":true }
 
-[node name="to_dungeon" type="Area2D" parent="."]
+[node name="bridge" type="Node2D" parent="."]
 
 editor/display_folded = true
-transform/pos = Vector2( -391.35, 149.073 )
+transform/pos = Vector2( 1187, 417 )
+__meta__ = { "_edit_group_":true }
+
+[node name="bridge_bottom" type="Sprite" parent="bridge"]
+
+texture = ExtResource( 2 )
+
+[node name="bridge_top" type="Sprite" parent="bridge"]
+
+z/z = 1
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="bridge"]
+
+editor/display_folded = true
+visibility/visible = false
+input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -4, 196 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 14 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, -1202.47, -355.676 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 15 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, -1202.47, -355.676 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 16 )
+shapes/3/transform = Matrix32( 1, 0, 0, 1, -1202.47, -355.676 )
+shapes/3/trigger = false
+shapes/4/shape = SubResource( 17 )
+shapes/4/transform = Matrix32( 1, 0, 0, 1, -1202.47, -355.676 )
+shapes/4/trigger = false
+shapes/5/shape = SubResource( 18 )
+shapes/5/transform = Matrix32( 1, 0, 0, 1, -1202.47, -355.676 )
+shapes/5/trigger = false
+shapes/6/shape = SubResource( 19 )
+shapes/6/transform = Matrix32( 1, 0, 0, 1, -1202.47, -355.676 )
+shapes/6/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bridge/StaticBody2D"]
+
+transform/pos = Vector2( -4, 196 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bridge/StaticBody2D"]
+
+transform/pos = Vector2( -1202.47, -355.676 )
+transform/scale = Vector2( 1, 1 )
+build_mode = 0
+polygon = Vector2Array( 66.2486, 297.163, 167.559, 297.163, 245.625, 270.044, 278.168, 270.044, 382.384, 269.85, 453.282, 244.474, 1917.8, 244.064, 1936.01, 244.073, 2007.18, 269.992, 2143.82, 269.992, 2221.45, 298.234, 2324.63, 298.234, 2324.63, 195.678, 2221.45, 195.52, 2144.45, 169.802, 2004.66, 169.802, 1933.82, 145.662, 468.858, 145.497, 455.604, 145.497, 384.446, 169.953, 244.97, 169.637, 168.132, 195.829, 66.0489, 195.829 )
+shape_range = Vector2( 1, 6 )
+trigger = false
+
+[node name="shroom-boi" parent="bridge" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -545, -89 )
+texture = ExtResource( 5 )
+phrase = "Hey boyo! I\'m a shroomby!"
+
+[node name="hobo-boi" parent="bridge" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -383, 97 )
+texture = ExtResource( 6 )
+phrase = "Hmm, maybe I could take a bath in the river..."
+
+[node name="toppem-hat" parent="bridge" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 43, -46 )
+texture = ExtResource( 7 )
+frame = 13
+phrase = "I hear the city to the East is pretty cool."
+
+[node name="tree" type="Node2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( -328, 170 )
+__meta__ = { "_edit_group_":true }
+
+[node name="tree_top" type="Sprite" parent="tree"]
+
+z/z = 1
+texture = ExtResource( 8 )
+
+[node name="tree_bottom" type="Sprite" parent="tree"]
+
+transform/pos = Vector2( 8, 66 )
+texture = ExtResource( 9 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="tree"]
+
+editor/display_folded = true
+input/pickable = false
+shapes/0/shape = SubResource( 13 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -3, 48 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tree/StaticBody2D"]
+
+transform/pos = Vector2( -3, 48 )
+shape = SubResource( 13 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Area2D" type="Area2D" parent="tree"]
+
+editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 5 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -82,138 +196,17 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 3 )
+script/script = ExtResource( 10 )
 scene = "res://scenes/dungeon.tscn"
 
-[node name="shape" type="CollisionShape2D" parent="to_dungeon"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tree/Area2D"]
 
 shape = SubResource( 5 )
 trigger = false
 _update_shape_index = 0
 
-[node name="shroom-boi" parent="." instance=ExtResource( 4 )]
+[node name="player" parent="." instance=ExtResource( 11 )]
 
-transform/pos = Vector2( 638.085, 281.193 )
-texture = ExtResource( 5 )
-phrase = "Hey boyo! I\'m a shroomby!"
-
-[node name="player" parent="." instance=ExtResource( 6 )]
-
-transform/pos = Vector2( -344.533, 251.265 )
-
-[node name="hobo-boi" parent="." instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 796.699, 455.879 )
-texture = ExtResource( 7 )
-phrase = "Hmm, maybe I could take a bath in the river..."
-
-[node name="toppem-hat" parent="." instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 1162.13, 406.621 )
-texture = ExtResource( 8 )
-frame = 13
-phrase = "I hear the city to the East is pretty cool."
-
-[node name="tree_top" type="TextureFrame" parent="."]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -445.0
-margin/top = 96.0
-margin/right = -332.0
-margin/bottom = 196.0
-texture = ExtResource( 9 )
-stretch_mode = 0
-__meta__ = { "_edit_lock_":true }
-
-[node name="overlay" type="TextureFrame" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -1.0
-margin/top = 0.0
-margin/right = 2399.0
-margin/bottom = 600.0
-texture = ExtResource( 10 )
-stretch_mode = 0
-__meta__ = { "_edit_lock_":true }
-
-[node name="walls" type="StaticBody2D" parent="."]
-
-editor/display_folded = true
-input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 1204.1, 254.532 )
-shapes/0/trigger = false
-shapes/1/shape = SubResource( 2 )
-shapes/1/transform = Matrix32( 0.987688, -0.156434, 0.156434, 0.987688, 276.161, 281.303 )
-shapes/1/trigger = false
-shapes/2/shape = SubResource( 2 )
-shapes/2/transform = Matrix32( 0.987688, 0.156434, -0.156434, 0.987688, 2125.79, 282.911 )
-shapes/2/trigger = false
-shapes/3/shape = SubResource( 3 )
-shapes/3/transform = Matrix32( 1, 0, 0, 1, 1201.69, 490 )
-shapes/3/trigger = false
-shapes/4/shape = SubResource( 4 )
-shapes/4/transform = Matrix32( 1, 0, 0, 1, 2329.89, 400.746 )
-shapes/4/trigger = false
-shapes/5/shape = SubResource( 6 )
-shapes/5/transform = Matrix32( 1, 0, 0, 1, -392.257, 194.648 )
-shapes/5/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = { "_edit_lock_":true }
-
-[node name="bridge-top" type="CollisionShape2D" parent="walls"]
-
-transform/pos = Vector2( 1204.1, 254.532 )
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
-
-[node name="bridge-top-left" type="CollisionShape2D" parent="walls"]
-
-transform/pos = Vector2( 276.161, 281.303 )
-transform/rot = 9.0
-shape = SubResource( 2 )
-trigger = false
-_update_shape_index = 1
-
-[node name="bridge-top-right" type="CollisionShape2D" parent="walls"]
-
-transform/pos = Vector2( 2125.79, 282.911 )
-transform/rot = -9.0
-shape = SubResource( 2 )
-trigger = false
-_update_shape_index = 2
-
-[node name="bottom-wall" type="CollisionShape2D" parent="walls"]
-
-transform/pos = Vector2( 1201.69, 490 )
-shape = SubResource( 3 )
-trigger = false
-_update_shape_index = 3
-
-[node name="right-wall" type="CollisionShape2D" parent="walls"]
-
-transform/pos = Vector2( 2329.89, 400.746 )
-shape = SubResource( 4 )
-trigger = false
-_update_shape_index = 4
-
-[node name="tree" type="CollisionShape2D" parent="walls"]
-
-transform/pos = Vector2( -392.257, 194.648 )
-shape = SubResource( 6 )
-trigger = false
-_update_shape_index = 5
+transform/pos = Vector2( -18, 441 )
 
 
