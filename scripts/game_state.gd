@@ -13,6 +13,7 @@ var _textures = [
 var player_texture = _textures[0]
 var player_name
 var players
+var current_scene
 
 func next_texture():
 	var i = _textures.find(player_texture)
@@ -24,10 +25,20 @@ func prev_texture():
 
 func start_game():
 	logger.debug("start_game()")
-	get_node("/root").add_child(load("res://scenes/game.tscn").instance())
+	set_scene("res://scenes/bridge.tscn")
 	get_node("/root/main-menu").hide()
 
 func stop_game():
 	logger.debug("stop_game()")
-	get_node("/root/game").queue_free()
+	get_node("/root/current_scene").queue_free()
 	get_node("/root/main-menu").show()
+
+func set_scene(scene):
+	var old_scene = get_node("/root/current_scene")
+	if old_scene:
+		old_scene.set_name("old_scene")
+		old_scene.queue_free()
+	var new_scene = load(scene).instance()
+	new_scene.set_name("current_scene")
+	get_node("/root").add_child(new_scene)
+	current_scene = scene

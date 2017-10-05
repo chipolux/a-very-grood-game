@@ -41,6 +41,8 @@ func _fixed_process(delta):
 func _input(event):
 	if event.is_action_pressed('ui_accept') and interactable:
 		interactable.interact(self)
+	if event.is_action_pressed("ui_cancel"):
+		game_state.stop_game()
 
 func set_player_sprite(texture):
 	get_node("sprite").set_texture(texture)
