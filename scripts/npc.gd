@@ -14,18 +14,12 @@ func _ready():
 	get_node("sprite").set_hframes(hframes)
 	get_node("sprite").set_vframes(vframes)
 	get_node("sprite").set_frame(frame)
-	get_node("speech/text").set_bbcode(phrase)
 
 func body_entered(body):
 	if body.get_name() == "player":
-		get_node("speech").show()
-#		body.interactable = self
+		body.interactable = self
 
 func body_exited(body):
 	if body.get_name() == "player":
-		get_node("speech").hide()
-#		if body.interactable == self:
-#			body.interactable = null
-
-#func interact(player):
-#	get_node("speech/text").set_bbcode("HEY! I SAID DON'T TOUCH THAT!")
+		if body.interactable == self:
+			body.interactable = null

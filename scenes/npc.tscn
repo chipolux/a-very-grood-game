@@ -66,31 +66,4 @@ shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
-[node name="speech" type="Panel" parent="."]
-
-editor/display_folded = true
-visibility/visible = false
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -110.0
-margin/top = -100.0
-margin/right = 110.0
-margin/bottom = -50.0
-
-[node name="text" type="RichTextLabel" parent="speech"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 10.0
-margin/top = 10.0
-margin/right = 210.0
-margin/bottom = 40.0
-bbcode/enabled = false
-bbcode/bbcode = ""
-visible_characters = -1
-
 

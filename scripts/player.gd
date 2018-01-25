@@ -4,6 +4,7 @@ const MOVEMENT_SPEED = 200
 
 var current_anim = "stand_down"
 var interactable
+var in_conversation = false
 
 func _ready():
 	set_fixed_process(true)
@@ -12,13 +13,13 @@ func _ready():
 
 func _fixed_process(delta):
 	var motion = Vector2()
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("ui_left") and not in_conversation:
 		motion += Vector2(-1, 0)
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("ui_right") and not in_conversation:
 		motion += Vector2(1, 0)
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("ui_up") and not in_conversation:
 		motion += Vector2(0, -1)
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("ui_down") and not in_conversation:
 		motion += Vector2(0, 1)
 	# TODO: make adjusting for framerate actually work here
 	# motion *= delta
@@ -43,12 +44,15 @@ func _fixed_process(delta):
 
 func _input(event):
 	if event.is_action_pressed('ui_accept') and interactable:
-		interactable.interact(self)
+		if in_conversation:
+			end_conversation()
+		else:
+			begin_conversation()
 	if event.is_action_pressed("ui_cancel"):
 		game_state.stop_game()
-	if event.is_action_pressed("attack_l"):
+	if event.is_action_pressed("attack_l") and not in_conversation:
 		attack_with_left_hand()
-	if event.is_action_pressed("attack_r"):
+	if event.is_action_pressed("attack_r") and not in_conversation:
 		attack_with_right_hand()
 
 func set_player_sprite(texture):
@@ -65,3 +69,12 @@ func attack_with_right_hand():
 	var weapon = get_node("weapon_right")
 	if weapon:
 		weapon.attack(direction)
+
+func begin_conversation():
+	in_conversation = true
+	get_node("ui/convo_right/text").set_bbcode(interactable.phrase)
+	get_node("ui/convo_right").show()
+
+func end_conversation():
+	in_conversation = false
+	get_node("ui/convo_right").hide()
