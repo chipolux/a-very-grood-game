@@ -60,6 +60,7 @@ flip_v = true
 visibility/visible = false
 transform/pos = Vector2( -3.58484, -24.0185 )
 transform/scale = Vector2( 0.25, 0.25 )
+z/z = 10
 texture = ExtResource( 5 )
 
 [node name="sprite_down" type="Sprite" parent="."]
