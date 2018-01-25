@@ -43,6 +43,16 @@ func _input(event):
 		interactable.interact(self)
 	if event.is_action_pressed("ui_cancel"):
 		game_state.stop_game()
+	if event.is_action_pressed("attack_l"):
+		attack_with_left_hand()
+	if event.is_action_pressed("attack_r"):
+		attack_with_right_hand()
 
 func set_player_sprite(texture):
 	get_node("sprite").set_texture(texture)
+
+func attack_with_left_hand():
+	get_node("weapon_sound").play("sword-swish-1")
+
+func attack_with_right_hand():
+	get_node("weapon_sound").play("sword-swish-2")
