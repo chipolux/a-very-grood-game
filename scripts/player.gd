@@ -60,15 +60,13 @@ func set_player_sprite(texture):
 
 func attack_with_left_hand():
 	var direction = current_anim.split("_")[1]
-	var weapon = get_node("weapon_left")
-	if weapon:
-		weapon.attack(direction)
+	if has_node("weapon_left"):
+		get_node("weapon_left").attack(direction)
 
 func attack_with_right_hand():
 	var direction = current_anim.split("_")[1]
-	var weapon = get_node("weapon_right")
-	if weapon:
-		weapon.attack(direction)
+	if has_node("weapon_right"):
+		get_node("weapon_right").attack(direction)
 
 func begin_conversation():
 	in_conversation = true
