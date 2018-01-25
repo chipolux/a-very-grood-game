@@ -20,9 +20,10 @@ func _fixed_process(delta):
 		motion += Vector2(0, -1)
 	if Input.is_action_pressed("ui_down"):
 		motion += Vector2(0, 1)
-	#motion *= delta
+	# TODO: make adjusting for framerate actually work here
+	# motion *= delta
 
-	var new_anim = "standing"
+	var new_anim = "stand_down"
 	if (motion.y < 0):
 		new_anim = "walk_up"
 	elif (motion.y > 0):
@@ -31,6 +32,8 @@ func _fixed_process(delta):
 		new_anim = "walk_left"
 	elif (motion.x > 0):
 		new_anim = "walk_right"
+	elif current_anim:
+		new_anim = "stand_" + current_anim.split("_")[1]
 
 	if (new_anim != current_anim):
 		current_anim = new_anim

@@ -1,24 +1,71 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=15 format=1]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://images/shroom.png" type="Texture" id=2]
-[ext_resource path="res://animations/standing.tres" type="Animation" id=3]
-[ext_resource path="res://animations/walk_down.tres" type="Animation" id=4]
-[ext_resource path="res://animations/walk_left.tres" type="Animation" id=5]
-[ext_resource path="res://animations/walk_right.tres" type="Animation" id=6]
-[ext_resource path="res://animations/walk_up.tres" type="Animation" id=7]
-[ext_resource path="res://sounds/sword-swish-1.wav" type="Sample" id=8]
-[ext_resource path="res://sounds/sword-swish-2.wav" type="Sample" id=9]
+[ext_resource path="res://animations/walk_down.tres" type="Animation" id=3]
+[ext_resource path="res://animations/walk_left.tres" type="Animation" id=4]
+[ext_resource path="res://animations/walk_right.tres" type="Animation" id=5]
+[ext_resource path="res://animations/walk_up.tres" type="Animation" id=6]
+[ext_resource path="res://sounds/sword-swish-1.wav" type="Sample" id=7]
+[ext_resource path="res://sounds/sword-swish-2.wav" type="Sample" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 25.0
 
+[sub_resource type="Animation" id=4]
+
+resource/name = "stand_down"
+length = 0.01
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 1 ] }
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "stand_left"
+length = 0.01
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 25 ] }
+
+[sub_resource type="Animation" id=5]
+
+resource/name = "stand_right"
+length = 0.01
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 13 ] }
+
+[sub_resource type="Animation" id=6]
+
+resource/name = "stand_up"
+length = 0.01
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 37 ] }
+
 [sub_resource type="SampleLibrary" id=2]
 
-samples/sword-swish-1 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 8 ) }
-samples/sword-swish-2 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 9 ) }
+samples/sword-swish-1 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
+samples/sword-swish-2 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 8 ) }
 
 [node name="player" type="RigidBody2D"]
 
@@ -51,10 +98,11 @@ transform/scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 vframes = 12
 hframes = 6
-frame = 1
+frame = 37
 
 [node name="shape" type="CollisionShape2D" parent="."]
 
+visibility/visible = false
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
@@ -64,11 +112,14 @@ _update_shape_index = 0
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/standing = ExtResource( 3 )
-anims/walk_down = ExtResource( 4 )
-anims/walk_left = ExtResource( 5 )
-anims/walk_right = ExtResource( 6 )
-anims/walk_up = ExtResource( 7 )
+anims/stand_down = SubResource( 4 )
+anims/stand_left = SubResource( 3 )
+anims/stand_right = SubResource( 5 )
+anims/stand_up = SubResource( 6 )
+anims/walk_down = ExtResource( 3 )
+anims/walk_left = ExtResource( 4 )
+anims/walk_right = ExtResource( 5 )
+anims/walk_up = ExtResource( 6 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
