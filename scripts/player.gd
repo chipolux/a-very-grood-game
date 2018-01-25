@@ -2,7 +2,7 @@ extends RigidBody2D
 
 const MOVEMENT_SPEED = 200
 
-var current_anim = ""
+var current_anim = "stand_down"
 var interactable
 
 func _ready():
@@ -32,7 +32,7 @@ func _fixed_process(delta):
 		new_anim = "walk_left"
 	elif (motion.x > 0):
 		new_anim = "walk_right"
-	elif current_anim:
+	else:
 		new_anim = "stand_" + current_anim.split("_")[1]
 
 	if (new_anim != current_anim):
@@ -55,7 +55,13 @@ func set_player_sprite(texture):
 	get_node("sprite").set_texture(texture)
 
 func attack_with_left_hand():
-	get_node("weapon_sound").play("sword-swish-1")
+	var direction = current_anim.split("_")[1]
+	var weapon = get_node("weapon_left")
+	if weapon:
+		weapon.attack(direction)
 
 func attack_with_right_hand():
-	get_node("weapon_sound").play("sword-swish-2")
+	var direction = current_anim.split("_")[1]
+	var weapon = get_node("weapon_right")
+	if weapon:
+		weapon.attack(direction)

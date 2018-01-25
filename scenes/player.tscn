@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://images/shroom.png" type="Texture" id=2]
@@ -6,8 +6,7 @@
 [ext_resource path="res://animations/walk_left.tres" type="Animation" id=4]
 [ext_resource path="res://animations/walk_right.tres" type="Animation" id=5]
 [ext_resource path="res://animations/walk_up.tres" type="Animation" id=6]
-[ext_resource path="res://sounds/sword-swish-1.wav" type="Sample" id=7]
-[ext_resource path="res://sounds/sword-swish-2.wav" type="Sample" id=8]
+[ext_resource path="res://weapons/sword.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -62,11 +61,6 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 37 ] }
 
-[sub_resource type="SampleLibrary" id=2]
-
-samples/sword-swish-1 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
-samples/sword-swish-2 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 8 ) }
-
 [node name="player" type="RigidBody2D"]
 
 input/pickable = false
@@ -98,11 +92,10 @@ transform/scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 vframes = 12
 hframes = 6
-frame = 37
+frame = 1
 
 [node name="shape" type="CollisionShape2D" parent="."]
 
-visibility/visible = false
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
@@ -145,25 +138,6 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
-[node name="weapon_sound" type="SamplePlayer" parent="."]
-
-config/polyphony = 2
-config/samples = SubResource( 2 )
-default/volume_db = 0.0
-default/pitch_scale = 1.0
-default/pan = 0.0
-default/depth = 0.0
-default/height = 0.0
-default/filter/type = 0
-default/filter/cutoff = 5000.0
-default/filter/resonance = 1.0
-default/filter/gain = 1.0
-default/reverb_room = 2
-default/reverb_send = 0.0
-default/chorus_send = 0.0
-
-[node name="weapon_l" type="Node2D" parent="."]
-
-[node name="weapon_r" type="Node2D" parent="."]
+[node name="weapon_left" parent="." instance=ExtResource( 7 )]
 
 
