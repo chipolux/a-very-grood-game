@@ -3,7 +3,7 @@ extends RigidBody2D
 const MOVEMENT_SPEED = 200
 
 var current_anim = "stand_down"
-var interactable
+var npc
 var in_conversation = false
 
 func _ready():
@@ -43,7 +43,7 @@ func _fixed_process(delta):
 	set_linear_velocity(motion * MOVEMENT_SPEED)
 
 func _input(event):
-	if event.is_action_pressed('ui_accept') and interactable:
+	if event.is_action_pressed('ui_accept') and npc:
 		if in_conversation:
 			end_conversation()
 		else:
@@ -70,9 +70,10 @@ func attack_with_right_hand():
 
 func begin_conversation():
 	in_conversation = true
-	get_node("ui/convo_right/text").set_bbcode(interactable.phrase)
-	get_node("ui/convo_right").show()
+	get_node("ui/convo_left/text").set_bbcode("Hi!")
+	get_node("ui/convo_right/text").set_bbcode(npc.phrase)
+	get_node("ui/convo_player").play("in_both")
 
 func end_conversation():
 	in_conversation = false
-	get_node("ui/convo_right").hide()
+	get_node("ui/convo_player").play("out_both")

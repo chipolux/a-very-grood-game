@@ -18,10 +18,10 @@ func _ready():
 func body_entered(body):
 	if body.get_name() == "player":
 		get_node("interaction_key").show()
-		body.interactable = self
+		body.npc = self
 
 func body_exited(body):
 	if body.get_name() == "player":
-		if body.interactable == self:
+		if body.npc == self:
 			get_node("interaction_key").hide()
-			body.interactable = null
+			body.npc = null
