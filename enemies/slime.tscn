@@ -13,7 +13,7 @@ radius = 170.691
 custom_solver_bias = 0.0
 radius = 20.1281
 
-[node name="slime" type="KinematicBody2D"]
+[node name="slime" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 2
@@ -24,6 +24,7 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="sight_area" type="Area2D" parent="." index="0"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -36,17 +37,17 @@ audio_bus_name = "Master"
 
 shape = SubResource( 1 )
 
-[node name="sprite" type="Sprite" parent="." index="1"]
-
-position = Vector2( 1.6, -10 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 2 )
-vframes = 12
-hframes = 6
-_sections_unfolded = [ "Animation", "Transform" ]
-
-[node name="body" type="CollisionShape2D" parent="." index="2"]
+[node name="body" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 2 )
+
+[node name="sprite" type="Sprite" parent="." index="2"]
+
+position = Vector2( 4.46789, -12.1509 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+vframes = 4
+hframes = 4
+_sections_unfolded = [ "Animation", "Region", "Transform" ]
 
 
