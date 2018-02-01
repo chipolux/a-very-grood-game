@@ -28,7 +28,7 @@ extents = Vector2( 56, 4 )
 custom_solver_bias = 0.0
 extents = Vector2( 5, 5 )
 
-[node name="bridge" type="Node2D"]
+[node name="bridge" type="Node2D" index="0"]
 
 [node name="background" type="Sprite" parent="." index="0"]
 
@@ -96,7 +96,7 @@ phrase = "Hmm, maybe I could take a bath in the river..."
 
 position = Vector2( 289.409, -63.3083 )
 texture = ExtResource( 7 )
-frame = 13
+frame = 5
 phrase = "I hear the city to the East is pretty cool."
 
 [node name="tree" type="Node2D" parent="." index="2"]
