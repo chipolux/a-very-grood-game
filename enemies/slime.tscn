@@ -13,13 +13,14 @@ radius = 170.691
 custom_solver_bias = 0.0
 radius = 20.1281
 
-[node name="slime" type="KinematicBody2D" index="0"]
+[node name="slime" type="KinematicBody2D"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 2
+collision_mask = 2
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
 
 [node name="sight_area" type="Area2D" parent="." index="0"]
 
@@ -47,6 +48,5 @@ _sections_unfolded = [ "Animation", "Transform" ]
 [node name="body" type="CollisionShape2D" parent="." index="2"]
 
 shape = SubResource( 2 )
-disabled = true
 
 
