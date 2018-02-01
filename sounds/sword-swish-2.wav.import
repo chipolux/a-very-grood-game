@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sword-swish-2.wav-e3fd41aa7ea5b93bb9a6b3e1ed0dfc73.sample"
+
+[deps]
+
+source_file="res://sounds/sword-swish-2.wav"
+source_md5="3474eb29601fcbb1c8187d2861da5841"
+
+dest_files=[ "res://.import/sword-swish-2.wav-e3fd41aa7ea5b93bb9a6b3e1ed0dfc73.sample" ]
+dest_md5="0c39fa34957605ce6496190a6317a6d6"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
