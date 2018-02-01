@@ -13,7 +13,7 @@ radius = 170.691
 custom_solver_bias = 0.0
 radius = 10.9324
 
-[node name="slime" type="KinematicBody2D" index="0" groups=[
+[node name="slime" type="KinematicBody2D" groups=[
 "enemies",
 ]]
 

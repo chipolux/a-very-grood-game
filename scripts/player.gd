@@ -73,3 +73,6 @@ func begin_conversation():
 func end_conversation():
 	in_conversation = false
 	get_node("ui/convo_player").play_backwards("both")
+
+func targeted_by(enemy):
+	get_node("found").play()

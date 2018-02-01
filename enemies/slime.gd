@@ -57,9 +57,10 @@ func _physics_process(delta):
 
 
 func body_entered(body):
-	if body.get_name() == "player":
+	if not target and body.get_name() == "player":
 		logger.debug("%s sees player" % get_name())
 		target = body
+		body.targeted_by(self)
 
 
 func update_interest_point():
