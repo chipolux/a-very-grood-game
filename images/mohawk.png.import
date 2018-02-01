@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mohawk.png-a2b9994509197fb9c309a16cad5b9ef8.stex"
+path="res://.import/Mohawk.png-52ee1471f8862810cb1efd10c031349d.stex"
 
 [deps]
 
-source_file="res://images/mohawk.png"
+source_file="res://images/Mohawk.png"
 source_md5="157c44268a24db99c1dbdc8465f80a00"
 
-dest_files=[ "res://.import/mohawk.png-a2b9994509197fb9c309a16cad5b9ef8.stex" ]
+dest_files=[ "res://.import/Mohawk.png-52ee1471f8862810cb1efd10c031349d.stex" ]
 dest_md5="72c3c48e8d0474558f94cc981683cd55"
 
 [params]
