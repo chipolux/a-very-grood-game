@@ -1,6 +1,6 @@
-extends RigidBody2D
+extends KinematicBody2D
 
-const MOVEMENT_SPEED = 200
+const MOVEMENT_SPEED = 250
 
 var current_anim = "stand_down"
 var npc
@@ -12,35 +12,31 @@ func _ready():
 	get_node("sprite").set_texture(game_state.player_texture)
 
 func _physics_process(delta):
-	var motion = Vector2()
-	if Input.is_action_pressed("ui_left") and not in_conversation:
-		motion += Vector2(-1, 0)
+	var velocity = Vector2()
 	if Input.is_action_pressed("ui_right") and not in_conversation:
-		motion += Vector2(1, 0)
-	if Input.is_action_pressed("ui_up") and not in_conversation:
-		motion += Vector2(0, -1)
+		velocity.x += MOVEMENT_SPEED
+	if Input.is_action_pressed("ui_left") and not in_conversation:
+		velocity.x -= MOVEMENT_SPEED
 	if Input.is_action_pressed("ui_down") and not in_conversation:
-		motion += Vector2(0, 1)
-	# TODO: make adjusting for framerate actually work here
-	# motion *= delta
+		velocity.y += MOVEMENT_SPEED
+	if Input.is_action_pressed("ui_up") and not in_conversation:
+		velocity.y -= MOVEMENT_SPEED
+	move_and_slide(velocity)
 
 	var new_anim = "stand_down"
-	if (motion.y < 0):
+	if (velocity.y < 0):
 		new_anim = "walk_up"
-	elif (motion.y > 0):
+	elif (velocity.y > 0):
 		new_anim = "walk_down"
-	elif (motion.x < 0):
+	elif (velocity.x < 0):
 		new_anim = "walk_left"
-	elif (motion.x > 0):
+	elif (velocity.x > 0):
 		new_anim = "walk_right"
 	else:
 		new_anim = "stand_" + current_anim.split("_")[1]
-
 	if (new_anim != current_anim):
 		current_anim = new_anim
 		get_node("anim").play(current_anim)
-
-	set_linear_velocity(motion * MOVEMENT_SPEED)
 
 func _input(event):
 	if event.is_action_pressed('ui_accept') and npc:
