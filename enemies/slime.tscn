@@ -11,9 +11,11 @@ radius = 170.691
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 20.1281
+radius = 10.9324
 
-[node name="slime" type="KinematicBody2D" index="0"]
+[node name="slime" type="KinematicBody2D" index="0" groups=[
+"enemies",
+]]
 
 input_pickable = false
 collision_layer = 2
@@ -49,5 +51,12 @@ texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
 _sections_unfolded = [ "Animation", "Region", "Transform" ]
+
+[node name="interest_timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
 
 
