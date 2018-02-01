@@ -7,11 +7,11 @@ var npc
 var in_conversation = false
 
 func _ready():
-	set_fixed_process(true)
+	set_physics_process(true)
 	set_process_input(true)
 	get_node("sprite").set_texture(game_state.player_texture)
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	var motion = Vector2()
 	if Input.is_action_pressed("ui_left") and not in_conversation:
 		motion += Vector2(-1, 0)
@@ -71,9 +71,9 @@ func attack_with_right_hand():
 func begin_conversation():
 	in_conversation = true
 	get_node("ui/convo_left/text").set_bbcode("Hi!")
-	get_node("ui/convo_right/text").set_bbcode(npc.phrase)
-	get_node("ui/convo_player").play("in_both")
+	get_node("ui/convo_right/text").set_bbcode("[right]" + npc.phrase + "[/right]")
+	get_node("ui/convo_player").play("both")
 
 func end_conversation():
 	in_conversation = false
-	get_node("ui/convo_player").play("out_both")
+	get_node("ui/convo_player").play_backwards("both")

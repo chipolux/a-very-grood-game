@@ -7,9 +7,9 @@ func _ready():
 	cooldown.connect("timeout", self, "finish_attack")
 
 func attack(direction):
-	if cooldown.get_time_left() == 0:
+	if cooldown.is_stopped():
 		get_node("sprite_" + direction).show()
-		get_node("sound").play("sword-swish-1")
+		get_node("sound").play()
 		cooldown.start()
 
 func finish_attack():

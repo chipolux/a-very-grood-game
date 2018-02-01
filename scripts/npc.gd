@@ -8,8 +8,8 @@ export(String, MULTILINE) var phrase
 
 func _ready():
 	var interaction = get_node("interaction")
-	interaction.connect("body_enter", self, "body_entered")
-	interaction.connect("body_exit", self, "body_exited")
+	interaction.connect("body_entered", self, "body_entered")
+	interaction.connect("body_exited", self, "body_exited")
 	get_node("sprite").set_texture(texture)
 	get_node("sprite").set_hframes(hframes)
 	get_node("sprite").set_vframes(vframes)
@@ -17,11 +17,13 @@ func _ready():
 
 func body_entered(body):
 	if body.get_name() == "player":
+		logger.debug("player entered npc interaction zone")
 		get_node("interaction_key").show()
 		body.npc = self
 
 func body_exited(body):
 	if body.get_name() == "player":
 		if body.npc == self:
+			logger.debug("player left npc interaction zone")
 			get_node("interaction_key").hide()
 			body.npc = null
