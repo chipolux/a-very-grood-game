@@ -13,7 +13,7 @@ extents = Vector2( 20, 20 )
 custom_solver_bias = 0.0
 extents = Vector2( 40, 40 )
 
-[node name="npc" type="Node2D"]
+[node name="npc" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 texture = null
@@ -61,8 +61,8 @@ shape = SubResource( 2 )
 
 [node name="interaction_key" type="Sprite" parent="." index="3"]
 
+visible = false
 position = Vector2( 0, -20 )
-scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
