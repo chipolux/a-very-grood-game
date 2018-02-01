@@ -95,10 +95,10 @@ _sections_unfolded = [ "Rect" ]
 position = Vector2( 400, 305 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 2 )
-vframes = 12
-hframes = 6
+vframes = 4
+hframes = 4
 frame = 1
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Animation", "Transform" ]
 
 [node name="prev_texture" type="Button" parent="." index="4"]
 

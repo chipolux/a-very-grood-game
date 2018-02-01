@@ -7,10 +7,10 @@ path="res://.import/hobo.png-5b08ea1555dc5fd161a623d9f4f64cef.stex"
 [deps]
 
 source_file="res://images/hobo.png"
-source_md5="1401157585656d06f2bf7dc518ce97c9"
+source_md5="23dc301e4d39f755e66ca1ecd2265962"
 
 dest_files=[ "res://.import/hobo.png-5b08ea1555dc5fd161a623d9f4f64cef.stex" ]
-dest_md5="731617833adfd6b6f08bb204ae5e20c2"
+dest_md5="f1f534b09e4889db2092712cbed3cb34"
 
 [params]
 
