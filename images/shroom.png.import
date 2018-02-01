@@ -7,10 +7,10 @@ path="res://.import/shroom.png-02e74c377a7e5644aca86bfda6616f24.stex"
 [deps]
 
 source_file="res://images/shroom.png"
-source_md5="96531dd3c9090fc7be61f6d5160d5d4f"
+source_md5="0ec867b1f27f11c8c9f49fc11ea280c5"
 
 dest_files=[ "res://.import/shroom.png-02e74c377a7e5644aca86bfda6616f24.stex" ]
-dest_md5="ab8c4d8273891228fe5398d17330e83c"
+dest_md5="6847d259f9afe0d665b15224335a3107"
 
 [params]
 

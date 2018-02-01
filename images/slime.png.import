@@ -7,10 +7,10 @@ path="res://.import/slime.png-5abb4ea395d5bec65996ceaf2d8995f1.stex"
 [deps]
 
 source_file="res://images/slime.png"
-source_md5="aa2f05a613a6b8f1be2539fa173ec2a1"
+source_md5="a1aabccb40e9156e9142fef9ea624dc7"
 
 dest_files=[ "res://.import/slime.png-5abb4ea395d5bec65996ceaf2d8995f1.stex" ]
-dest_md5="11d1a001a1e846e340ca204a80a0cc1e"
+dest_md5="e136964d1ef54deebe976ca2f5c832e6"
 
 [params]
 
