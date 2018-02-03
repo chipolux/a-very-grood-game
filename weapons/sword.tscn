@@ -1,9 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://weapons/sword.gd" type="Script" id=1]
 [ext_resource path="res://sounds/sword-swish-1.wav" type="AudioStream" id=2]
 [ext_resource path="res://weapons/swipe-left.png" type="Texture" id=3]
 [ext_resource path="res://weapons/swipe-up.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 26.5481, 43.2885 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 44.959, 28.3196 )
 
 [node name="sword" type="Node2D"]
 
@@ -60,5 +70,83 @@ texture = ExtResource( 4 )
 flip_h = true
 flip_v = true
 _sections_unfolded = [ "Z Index" ]
+
+[node name="hitbox_left" type="Area2D" parent="." index="6"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="left" type="CollisionShape2D" parent="hitbox_left" index="0"]
+
+position = Vector2( -25.7157, -3.75465 )
+scale = Vector2( 1, 1.05877 )
+shape = SubResource( 1 )
+
+[node name="hitbox_right" type="Area2D" parent="." index="7"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="right" type="CollisionShape2D" parent="hitbox_right" index="0"]
+
+position = Vector2( 22.7655, -0.727463 )
+scale = Vector2( 1, 1.05877 )
+shape = SubResource( 1 )
+
+[node name="hitbox_up" type="Area2D" parent="." index="8"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="up" type="CollisionShape2D" parent="hitbox_up" index="0"]
+
+position = Vector2( -3.69588, -24.597 )
+shape = SubResource( 2 )
+
+[node name="hitbox_down" type="Area2D" parent="." index="9"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="down" type="CollisionShape2D" parent="hitbox_down" index="0"]
+
+position = Vector2( 6.32451, 16.3956 )
+shape = SubResource( 2 )
 
 

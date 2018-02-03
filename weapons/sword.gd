@@ -11,6 +11,10 @@ func attack(direction):
 		get_node("sprite_" + direction).show()
 		get_node("sound").play()
 		cooldown.start()
+		for body in get_node("hitbox_" + direction).get_overlapping_bodies():
+			if body.is_in_group("enemies"):
+				logger.debug("hit %s" % body.get_name())
+				body.queue_free()
 
 func finish_attack():
 	get_node("sprite_up").hide()
