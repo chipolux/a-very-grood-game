@@ -11,6 +11,8 @@ var target
 var anchor_point
 var interest_point
 var interest_timer
+var velocity
+var current_anim = "standing"
 
 
 func _ready():
@@ -22,7 +24,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	var velocity = Vector2()
+	velocity = Vector2()
 	if target:
 		var distance = global_position.distance_to(target.global_position)
 		var direction = (global_position - target.global_position).normalized()
@@ -54,6 +56,23 @@ func _physics_process(delta):
 	elif collision and collision.collider.is_in_group("enemies"):
 		# we are colliding with another enemy
 		move_and_slide(velocity)
+
+
+func _process(delta):
+	var new_anim = "standing"
+	if abs(velocity.x) > abs(velocity.y):
+		if velocity.x < 0:
+			new_anim = "walk_left"
+		else:
+			new_anim = "walk_right"
+	elif abs(velocity.x) < abs(velocity.y):
+		if velocity.y < 0:
+			new_anim = "walk_up"
+		else:
+			new_anim = "walk_down"
+	if (new_anim != current_anim):
+		current_anim = new_anim
+		get_node("anim_player").play(current_anim)
 
 
 func body_entered(body):
