@@ -3,12 +3,13 @@ extends KinematicBody2D
 const MOVEMENT_SPEED = 250
 
 var current_anim = "stand_down"
+var velocity
 
 func _ready():
 	get_node("sprite").set_texture(game_state.player_texture)
 
 func _physics_process(delta):
-	var velocity = Vector2()
+	velocity = Vector2()
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += MOVEMENT_SPEED
 	if Input.is_action_pressed("ui_left"):
@@ -19,6 +20,7 @@ func _physics_process(delta):
 		velocity.y -= MOVEMENT_SPEED
 	move_and_slide(velocity)
 
+func _process(delta):
 	var new_anim = "stand_down"
 	if (velocity.y < 0):
 		new_anim = "walk_up"
