@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://images/shroom.png" type="Texture" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://animations/walk_up.tres" type="Animation" id=6]
 [ext_resource path="res://sounds/found.wav" type="AudioStream" id=7]
 [ext_resource path="res://weapons/sword.tscn" type="PackedScene" id=8]
-[ext_resource path="res://images/face-left.png" type="Texture" id=9]
-[ext_resource path="res://images/face-right.png" type="Texture" id=10]
+[ext_resource path="res://scripts/convo_screen.gd" type="Script" id=9]
+[ext_resource path="res://images/face-left.png" type="Texture" id=10]
+[ext_resource path="res://images/face-right.png" type="Texture" id=11]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -203,8 +204,12 @@ autoplay = false
 mix_target = 0
 bus = "fx"
 
-[node name="camera" type="Camera2D" parent="." index="4"]
+[node name="weapon_left" parent="." index="4" instance=ExtResource( 8 )]
 
+[node name="camera" type="Camera2D" parent="." index="5"]
+
+pause_mode = 2
+z_index = 100
 anchor_mode = 1
 rotating = false
 current = true
@@ -227,21 +232,45 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Pause", "Transform", "Z Index" ]
 
-[node name="weapon_left" parent="." index="5" instance=ExtResource( 8 )]
+[node name="convo_screen" type="Control" parent="camera" index="0"]
 
-[node name="ui" type="CanvasLayer" parent="." index="6"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -400.0
+margin_top = -300.0
+margin_right = 336.0
+margin_bottom = 236.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 9 )
+_sections_unfolded = [ "Anchor", "Pause" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="convo_player" type="AnimationPlayer" parent="camera/convo_screen" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/both = SubResource( 6 )
+anims/left = SubResource( 7 )
+anims/right = SubResource( 8 )
+blend_times = [  ]
+_sections_unfolded = [ "Pause" ]
+
+[node name="convo_left" type="Panel" parent="camera/convo_screen" index="1"]
 
 editor/display_folded = true
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-
-[node name="convo_left" type="Panel" parent="ui" index="0"]
-
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -257,7 +286,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="text" type="RichTextLabel" parent="ui/convo_left" index="0"]
+[node name="text" type="RichTextLabel" parent="camera/convo_screen/convo_left" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -286,7 +315,7 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect" ]
 
-[node name="face" type="TextureRect" parent="ui/convo_left" index="1"]
+[node name="face" type="TextureRect" parent="camera/convo_screen/convo_left" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -301,13 +330,14 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="convo_right" type="Panel" parent="ui" index="1"]
+[node name="convo_right" type="Panel" parent="camera/convo_screen" index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -323,7 +353,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="text" type="RichTextLabel" parent="ui/convo_right" index="0"]
+[node name="text" type="RichTextLabel" parent="camera/convo_screen/convo_right" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -352,7 +382,7 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Rect" ]
 
-[node name="face" type="TextureRect" parent="ui/convo_right" index="1"]
+[node name="face" type="TextureRect" parent="camera/convo_screen/convo_right" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -368,20 +398,8 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 expand = true
 stretch_mode = 0
-
-[node name="convo_player" type="AnimationPlayer" parent="ui" index="2"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
-anims/both = SubResource( 6 )
-anims/left = SubResource( 7 )
-anims/right = SubResource( 8 )
-blend_times = [  ]
 
 

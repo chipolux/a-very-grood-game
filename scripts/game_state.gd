@@ -12,8 +12,8 @@ var _textures = [
 ]
 var player_texture = _textures[0]
 var player_name
-var players
 var current_scene
+var current_npc
 
 func next_texture():
 	var i = _textures.find(player_texture)

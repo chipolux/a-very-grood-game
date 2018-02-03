@@ -16,14 +16,12 @@ func _ready():
 	get_node("sprite").set_frame(frame)
 
 func body_entered(body):
-	if body.get_name() == "player":
-		logger.debug("player entered npc interaction zone")
+	if body.get_name() == "player":s
 		get_node("interaction_key").show()
-		body.npc = self
+		game_state.current_npc = self
 
 func body_exited(body):
 	if body.get_name() == "player":
-		if body.npc == self:
-			logger.debug("player left npc interaction zone")
+		if game_state.current_npc == self:
 			get_node("interaction_key").hide()
-			body.npc = null
+			game_state.current_npc = null
