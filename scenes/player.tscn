@@ -168,12 +168,13 @@ script = ExtResource( 1 )
 
 [node name="sprite" type="Sprite" parent="." index="0"]
 
+position = Vector2( 2.5, 0 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
 frame = 1
-_sections_unfolded = [ "Animation" ]
+_sections_unfolded = [ "Transform" ]
 
 [node name="shape" type="CollisionShape2D" parent="." index="1"]
 
@@ -236,6 +237,7 @@ _sections_unfolded = [ "Pause", "Transform", "Z Index" ]
 
 [node name="convo_screen" type="Control" parent="camera" index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
