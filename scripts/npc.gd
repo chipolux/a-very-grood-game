@@ -16,7 +16,7 @@ func _ready():
 	get_node("sprite").set_frame(frame)
 
 func body_entered(body):
-	if body.get_name() == "player":s
+	if body.get_name() == "player":
 		get_node("interaction_key").show()
 		game_state.current_npc = self
 
