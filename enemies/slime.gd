@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-const FOLLOW_SPEED = 100
-const WANDER_SPEED = 50
+export(int) var FOLLOW_SPEED = 120
+export(int) var WANDER_SPEED = 50
 
 const FOLLOW_DISTANCE = 400
 const WANDER_DISTANCE = 100
