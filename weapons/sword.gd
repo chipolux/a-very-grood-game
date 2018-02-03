@@ -1,23 +1,21 @@
 extends Node2D
 
-var cooldown
 
 func _ready():
-	cooldown = get_node("cooldown")
-	cooldown.connect("timeout", self, "finish_attack")
-
-func attack(direction):
-	if cooldown.is_stopped():
-		get_node("sprite_" + direction).show()
-		get_node("sound").play()
-		cooldown.start()
-		for body in get_node("hitbox_" + direction).get_overlapping_bodies():
-			if body.is_in_group("enemies"):
-				logger.debug("hit %s" % body.get_name())
-				body.queue_free()
-
-func finish_attack():
+	get_node("hitbox_left").monitoring = false
+	get_node("hitbox_right").monitoring = false
+	get_node("hitbox_up").monitoring = false
+	get_node("hitbox_down").monitoring = false
+	get_node("sprite_left").hide()
+	get_node("sprite_right").hide()
 	get_node("sprite_up").hide()
 	get_node("sprite_down").hide()
-	get_node("sprite_right").hide()
-	get_node("sprite_left").hide()
+
+func attack(direction):
+	if not get_node("anim_player").is_playing():
+		get_node("anim_player").play(direction)
+
+func _on_body_entered(body):
+	if body.is_in_group("enemies"):
+		logger.debug("hitting %s" % body.get_name())
+		body.queue_free()
