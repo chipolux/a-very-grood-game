@@ -198,6 +198,8 @@ tracks/2/keys = {
 [node name="sword" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
+DAMAGE = 4
+KNOCKBACK = 3000
 
 [node name="sound" type="AudioStreamPlayer" parent="." index="0"]
 

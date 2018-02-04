@@ -1,5 +1,8 @@
 extends Node2D
 
+export(int) var DAMAGE = 4
+export(int) var KNOCKBACK = 3000  # TODO: find out why this is so high?
+
 
 func _ready():
 	get_node("hitbox_left").monitoring = false
@@ -17,5 +20,5 @@ func attack(direction):
 
 func _on_body_entered(body):
 	if body.is_in_group("enemies"):
-		logger.debug("hitting %s" % body.get_name())
-		body.queue_free()
+		var direction = (body.global_position - global_position).normalized()
+		body.hit(DAMAGE, direction * KNOCKBACK)

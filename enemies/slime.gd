@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 export(int) var FOLLOW_SPEED = 120
 export(int) var WANDER_SPEED = 50
+export(int) var XP = 5
+export(int) var hp = 10
 
 const FOLLOW_DISTANCE = 400
 const WANDER_DISTANCE = 100
@@ -87,3 +89,13 @@ func update_interest_point():
 	var x = rand_range(anchor_point.x - WANDER_DISTANCE, anchor_point.x + WANDER_DISTANCE)
 	var y = rand_range(anchor_point.y - WANDER_DISTANCE, anchor_point.y + WANDER_DISTANCE)
 	interest_point = Vector2(x, y)
+
+func hit(damage, knockback):
+	if not get_node("hit_player").is_playing():
+		move_and_slide(knockback)
+		hp -= damage
+		if hp <= 0:
+			game_state.player_xp += XP
+			get_node("hit_player").play("die")
+		else:
+			get_node("hit_player").play("hit")

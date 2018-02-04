@@ -158,7 +158,7 @@ tracks/0/keys = {
 "values": [ Vector2( 820, 450 ), Vector2( 410, 450 ) ]
 }
 
-[node name="player" type="KinematicBody2D" index="0"]
+[node name="player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -206,6 +206,9 @@ mix_target = 0
 bus = "fx"
 
 [node name="weapon_left" parent="." index="4" instance=ExtResource( 8 )]
+
+DAMAGE = 4
+KNOCKBACK = 3000
 
 [node name="camera" type="Camera2D" parent="." index="5"]
 
