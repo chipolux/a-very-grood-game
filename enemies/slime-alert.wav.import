@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/slime-alert.wav-521f6b7295ad18012720c9f9a2eac324.sample"
+
+[deps]
+
+source_file="res://enemies/slime-alert.wav"
+source_md5="6143de890f597612767b8f153672cc01"
+
+dest_files=[ "res://.import/slime-alert.wav-521f6b7295ad18012720c9f9a2eac324.sample" ]
+dest_md5="099bd2dd744b0b3db9c60072ee767201"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

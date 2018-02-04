@@ -58,4 +58,5 @@ func attack_with_right_hand():
 		get_node("weapon_right").attack(direction)
 
 func targeted_by(enemy):
-	get_node("found").play()
+	#get_node("found").play()
+	pass

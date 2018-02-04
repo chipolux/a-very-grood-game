@@ -80,6 +80,7 @@ func _process(delta):
 func body_entered(body):
 	if not target and body.get_name() == "player":
 		logger.debug("%s sees player" % get_name())
+		get_node("alert_sound").play()
 		target = body
 		body.targeted_by(self)
 
