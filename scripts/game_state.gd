@@ -1,5 +1,9 @@
 extends Node
 
+signal leveled_up()
+
+var current_scene
+
 var _textures = [
 	load("res://images/angel.png"),
 	load("res://images/gale.png"),
@@ -14,11 +18,16 @@ var player_texture = _textures[0]
 var player_name
 var player_max_hp = 100
 var player_hp = 100
-var player_next_level = 20
-var player_xp = 0
 
-var current_scene
-var current_npc
+var level_progression = [
+	20,
+	60,
+	140,
+]
+var player_level = 0
+var player_max_xp = level_progression[player_level]
+var player_xp = 0 setget _xp_setter
+
 
 func next_texture():
 	var i = _textures.find(player_texture)
@@ -49,3 +58,10 @@ func set_scene(scene):
 	new_scene.set_name("current_scene")
 	get_node("/root").add_child(new_scene)
 	current_scene = scene
+
+func _xp_setter(xp):
+	player_xp = xp
+	if player_xp >= player_max_xp:
+		player_level += 1
+		player_max_xp = level_progression[player_level]
+		emit_signal("leveled_up")

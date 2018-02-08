@@ -8,6 +8,7 @@ var velocity
 
 func _ready():
 	get_node("sprite").set_texture(game_state.player_texture)
+	game_state.connect("leveled_up", get_node("special_player"), "play", ["level_up"])
 
 
 func _physics_process(delta):
@@ -40,7 +41,7 @@ func _process(delta):
 		get_node("anim").play(current_anim)
 	get_node("camera/hud/hp_bar").max_value = game_state.player_max_hp
 	get_node("camera/hud/hp_bar").value = game_state.player_hp
-	get_node("camera/hud/xp_bar").max_value = game_state.player_next_level
+	get_node("camera/hud/xp_bar").max_value = game_state.player_max_xp
 	get_node("camera/hud/xp_bar").value = game_state.player_xp
 	if not get_node("hit_player").is_playing():
 		_process_enemies()
