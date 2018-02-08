@@ -13,6 +13,7 @@ var _textures = [
 var player_texture = _textures[0]
 var player_name
 var player_xp = 0
+var player_hp = 100
 
 var current_scene
 var current_npc

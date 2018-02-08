@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 export(int) var FOLLOW_SPEED = 120
 export(int) var WANDER_SPEED = 50
+export(int) var DAMAGE = 10
+export(int) var KNOCKBACK = 1000
 export(int) var XP = 5
 export(int) var hp = 10
 

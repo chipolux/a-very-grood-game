@@ -187,24 +187,27 @@ tracks/1/keys = {
 } ]
 }
 
-[node name="slime" type="KinematicBody2D" index="0" groups=[
+[node name="slime" type="KinematicBody2D" groups=[
 "enemies",
 ]]
 
 input_pickable = false
-collision_layer = 2
-collision_mask = 2
+collision_layer = 1026
+collision_mask = 1026
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Material" ]
 FOLLOW_SPEED = 120
 WANDER_SPEED = 50
+DAMAGE = 10
+KNOCKBACK = 1000
 XP = 5
 hp = 10
 
 [node name="sight_area" type="Area2D" parent="." index="0"]
 
 editor/display_folded = true
+visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0

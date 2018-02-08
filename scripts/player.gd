@@ -49,8 +49,24 @@ func _input(event):
 		attack_with_right_hand()
 
 
+func _on_body_entered_hitbox(body):
+	if not get_node("hit_player").is_playing():
+		print("player hit by %s" % body.get_name())
+		var direction = (global_position- body.global_position).normalized()
+		move_and_slide(direction * body.KNOCKBACK)
+		game_state.player_hp -= body.DAMAGE
+		if game_state.player_hp <= 0:
+			get_node("hit_player").play("die")
+		else:
+			get_node("hit_player").play("hit")
+
+
 func set_player_sprite(texture):
 	get_node("sprite").set_texture(texture)
+
+
+func die():
+	game_state.stop_game()
 
 
 func attack_with_left_hand():
@@ -63,4 +79,3 @@ func attack_with_right_hand():
 	var direction = current_anim.split("_")[1]
 	if has_node("weapon_right"):
 		get_node("weapon_right").attack(direction)
-
