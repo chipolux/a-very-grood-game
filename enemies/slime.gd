@@ -18,7 +18,7 @@ var current_anim = "standing"
 
 
 func _ready():
-	get_node("sight_area").connect("body_entered", self, "body_entered")
+	get_node("sight_area").connect("body_entered", self, "_on_entered_sight")
 	interest_timer = get_node("interest_timer")
 	interest_timer.connect("timeout", self, "update_interest_point")
 	anchor_point = global_position
@@ -50,7 +50,6 @@ func _physics_process(delta):
 		elif distance >= CLOSE_ENOUGH:
 			# not to the interest point yet, keep going
 			velocity -= (direction * min(distance, WANDER_SPEED))
-
 	var collision = move_and_collide(velocity * delta)
 	if collision and not target and not collision.collider.is_in_group("enemies"):
 		# we are colliding with something while wondering
@@ -77,7 +76,7 @@ func _process(delta):
 		get_node("anim_player").play(current_anim)
 
 
-func body_entered(body):
+func _on_entered_sight(body):
 	if not target and body.get_name() == "player":
 		logger.debug("%s sees player" % get_name())
 		get_node("alert_sound").play()
@@ -89,6 +88,7 @@ func update_interest_point():
 	var x = rand_range(anchor_point.x - WANDER_DISTANCE, anchor_point.x + WANDER_DISTANCE)
 	var y = rand_range(anchor_point.y - WANDER_DISTANCE, anchor_point.y + WANDER_DISTANCE)
 	interest_point = Vector2(x, y)
+
 
 func hit(damage, knockback):
 	if not get_node("hit_player").is_playing():
