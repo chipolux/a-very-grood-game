@@ -28,7 +28,7 @@ extents = Vector2( 56, 4 )
 custom_solver_bias = 0.0
 extents = Vector2( 5, 5 )
 
-[node name="bridge" type="Node2D" index="0"]
+[node name="bridge" type="Node2D"]
 
 [node name="background" type="Sprite" parent="." index="0"]
 
@@ -158,14 +158,17 @@ shape = SubResource( 3 )
 [node name="slime1" parent="." index="3" instance=ExtResource( 11 )]
 
 position = Vector2( -1025.16, 104.358 )
+KNOCKBACK = 900
 
 [node name="slime2" parent="." index="4" instance=ExtResource( 11 )]
 
 position = Vector2( -1367.33, -90.0891 )
+KNOCKBACK = 900
 
 [node name="slime3" parent="." index="5" instance=ExtResource( 11 )]
 
 position = Vector2( -1204.53, 399.796 )
+KNOCKBACK = 900
 
 [node name="player" parent="." index="6" instance=ExtResource( 12 )]
 
