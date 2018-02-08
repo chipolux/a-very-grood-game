@@ -10,7 +10,6 @@ func _ready():
 	left_text = get_node("convo_left/text")
 	right_text = get_node("convo_right/text")
 	# should always start with both convo windows out
-	show()
 	anim_player.play_backwards("both")
 
 func begin_conversation(npc):
