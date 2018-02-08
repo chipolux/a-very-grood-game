@@ -38,8 +38,10 @@ func _process(delta):
 	if (new_anim != current_anim):
 		current_anim = new_anim
 		get_node("anim").play(current_anim)
-	get_node("camera/hud/hp").text = "HP: %s" % game_state.player_hp
-	get_node("camera/hud/xp").text = "XP: %s" % game_state.player_xp
+	get_node("camera/hud/hp_bar").max_value = game_state.player_max_hp
+	get_node("camera/hud/hp_bar").value = game_state.player_hp
+	get_node("camera/hud/xp_bar").max_value = game_state.player_next_level
+	get_node("camera/hud/xp_bar").value = game_state.player_xp
 	if not get_node("hit_player").is_playing():
 		_process_enemies()
 
