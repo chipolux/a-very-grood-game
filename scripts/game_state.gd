@@ -28,6 +28,8 @@ func prev_texture():
 
 func start_game():
 	logger.debug("start_game()")
+	player_hp = 100
+	player_xp = 0
 	set_scene("res://scenes/bridge.tscn")
 	get_node("/root/main-menu").hide()
 
