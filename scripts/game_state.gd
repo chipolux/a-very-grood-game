@@ -20,13 +20,8 @@ var player_name
 var player_max_hp = 100
 var player_hp = 100
 
-var level_progression = [
-	20,
-	60,
-	140,
-]
-var player_level = 0
-var player_max_xp = level_progression[player_level]
+var player_level = 1
+var player_max_xp = 20
 var player_xp = 0 setget _xp_setter
 
 
@@ -62,7 +57,9 @@ func set_scene(scene):
 
 func _xp_setter(xp):
 	player_xp = xp
+	print(player_xp)
+	print(player_max_xp)
 	if player_xp >= player_max_xp:
 		player_level += 1
-		player_max_xp = level_progression[player_level]
+		player_max_xp *= 2.4
 		emit_signal("leveled_up")

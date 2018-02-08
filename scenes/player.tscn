@@ -707,7 +707,7 @@ stream = ExtResource( 9 )
 volume_db = -8.0
 autoplay = false
 mix_target = 0
-bus = "fx"
+bus = "Master"
 
 [node name="anim" type="AnimationPlayer" parent="." index="8"]
 
