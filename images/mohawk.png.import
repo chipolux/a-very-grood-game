@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mohawk.png-52ee1471f8862810cb1efd10c031349d.stex"
+path="res://.import/mohawk.png-a2b9994509197fb9c309a16cad5b9ef8.stex"
 
 [deps]
 
-source_file="res://images/Mohawk.png"
+source_file="res://images/mohawk.png"
 source_md5="862708b2aa863c1396d228259016409a"
 
-dest_files=[ "res://.import/Mohawk.png-52ee1471f8862810cb1efd10c031349d.stex" ]
-dest_md5="f907755ff1614d23bb7bb15185c0e68d"
+dest_files=[ "res://.import/mohawk.png-a2b9994509197fb9c309a16cad5b9ef8.stex" ]
+dest_md5="e2d80efdd32fca15b1ed57bcf263f98a"
 
 [params]
 
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
