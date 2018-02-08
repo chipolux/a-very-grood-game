@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://weapons/sword.gd" type="Script" id=1]
 [ext_resource path="res://sounds/sword-swish-1.wav" type="AudioStream" id=2]
-[ext_resource path="res://weapons/swipe-left.png" type="Texture" id=3]
-[ext_resource path="res://weapons/swipe-up.png" type="Texture" id=4]
+[ext_resource path="res://weapons/swipe_left.png" type="Texture" id=3]
+[ext_resource path="res://weapons/swipe-left.png" type="Texture" id=4]
+[ext_resource path="res://weapons/swipe-up.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -64,7 +65,7 @@ tracks/2/keys = {
 
 length = 0.2
 loop = false
-step = 0.1
+step = 0.075
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite_left:visible")
 tracks/0/interp = 1
@@ -102,6 +103,18 @@ tracks/2/keys = {
 "args": [  ],
 "method": "play"
 } ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("sprite_left:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.075, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -193,7 +206,7 @@ tracks/2/keys = {
 } ]
 }
 
-[node name="sword" type="Node2D"]
+[node name="sword" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 DAMAGE = 4
@@ -210,17 +223,20 @@ bus = "fx"
 [node name="sprite_left" type="Sprite" parent="." index="1"]
 
 visible = false
-position = Vector2( -23.5, -3.2 )
-scale = Vector2( 0.25, 0.25 )
+position = Vector2( -43.3858, -5.9075 )
+scale = Vector2( 5.11666, 5 )
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Transform", "Visibility" ]
+vframes = 2
+hframes = 2
+frame = 3
+_sections_unfolded = [ "Animation", "Transform", "Visibility" ]
 
 [node name="sprite_right" type="Sprite" parent="." index="2"]
 
 visible = false
 position = Vector2( 20, -0.7 )
 scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 flip_h = true
 flip_v = true
 _sections_unfolded = [ "Offset", "Transform" ]
@@ -231,7 +247,7 @@ visible = false
 position = Vector2( -3.6, -24 )
 scale = Vector2( 0.25, 0.25 )
 z_index = 10
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="sprite_down" type="Sprite" parent="." index="4"]
@@ -239,7 +255,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 visible = false
 position = Vector2( 6, 16.9 )
 scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 flip_h = true
 flip_v = true
 _sections_unfolded = [ "Z Index" ]
