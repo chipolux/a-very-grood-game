@@ -82,7 +82,6 @@ func body_entered(body):
 		logger.debug("%s sees player" % get_name())
 		get_node("alert_sound").play()
 		target = body
-		body.targeted_by(self)
 
 
 func update_interest_point():
