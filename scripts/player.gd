@@ -38,6 +38,8 @@ func _process(delta):
 	if (new_anim != current_anim):
 		current_anim = new_anim
 		get_node("anim").play(current_anim)
+	if not get_node("hit_player").is_playing():
+		_process_enemies()
 
 
 func _input(event):
@@ -49,8 +51,8 @@ func _input(event):
 		attack_with_right_hand()
 
 
-func _on_body_entered_hitbox(body):
-	if not get_node("hit_player").is_playing():
+func _process_enemies():
+	for body in get_node("hitbox").get_overlapping_bodies():
 		print("player hit by %s" % body.get_name())
 		var direction = (global_position- body.global_position).normalized()
 		move_and_slide(direction * body.KNOCKBACK)

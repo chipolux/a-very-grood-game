@@ -529,6 +529,4 @@ anims/die = SubResource( 10 )
 anims/hit = SubResource( 11 )
 blend_times = [  ]
 
-[connection signal="body_entered" from="hitbox" to="." method="_on_body_entered_hitbox"]
-
 

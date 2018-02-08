@@ -200,7 +200,7 @@ _sections_unfolded = [ "Collision", "Material" ]
 FOLLOW_SPEED = 120
 WANDER_SPEED = 50
 DAMAGE = 10
-KNOCKBACK = 1000
+KNOCKBACK = 1500
 XP = 5
 hp = 10
 
