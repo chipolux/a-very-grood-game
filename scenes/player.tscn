@@ -90,7 +90,7 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
-extents = Vector2( 25, 28 )
+extents = Vector2( 15, 17.5 )
 
 [sub_resource type="Animation" id=6]
 
@@ -470,8 +470,6 @@ stretch_mode = 0
 
 [node name="hitbox" type="Area2D" parent="." index="4"]
 
-editor/display_folded = true
-visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
