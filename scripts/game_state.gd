@@ -3,6 +3,7 @@ extends Node
 signal leveled_up()
 
 var current_scene
+var current_npc
 
 var _textures = [
 	load("res://images/angel.png"),
