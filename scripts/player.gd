@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 const MOVEMENT_SPEED = 250
 
+var ui
 var current_anim = "stand_down"
 var velocity
 
@@ -9,6 +10,7 @@ var velocity
 func _ready():
 	get_node("sprite").set_texture(game_state.player_texture)
 	game_state.connect("leveled_up", get_node("special_player"), "play", ["level_up"])
+	ui = get_node("camera/ui")
 
 
 func _physics_process(delta):
@@ -39,17 +41,15 @@ func _process(delta):
 	if (new_anim != current_anim):
 		current_anim = new_anim
 		get_node("anim").play(current_anim)
-	get_node("camera/hud/hp_bar").max_value = game_state.player_max_hp
-	get_node("camera/hud/hp_bar").value = game_state.player_hp
-	get_node("camera/hud/xp_bar").max_value = game_state.player_max_xp
-	get_node("camera/hud/xp_bar").value = game_state.player_xp
+	ui.get_node("hud/hp_bar").max_value = game_state.player_max_hp
+	ui.get_node("hud/hp_bar").value = game_state.player_hp
+	ui.get_node("hud/xp_bar").max_value = game_state.player_max_xp
+	ui.get_node("hud/xp_bar").value = game_state.player_xp
 	if not get_node("hit_player").is_playing():
 		_process_enemies()
 
 
 func _input(event):
-	if event.is_action_pressed("ui_cancel"):
-		game_state.stop_game()
 	if event.is_action_pressed("attack_l"):
 		attack_with_left_hand()
 	if event.is_action_pressed("attack_r"):
