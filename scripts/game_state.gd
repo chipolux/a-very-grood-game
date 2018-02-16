@@ -57,8 +57,6 @@ func set_scene(scene):
 
 func _xp_setter(xp):
 	player_xp = xp
-	print(player_xp)
-	print(player_max_xp)
 	if player_xp >= player_max_xp:
 		player_level += 1
 		player_max_xp *= 2.4

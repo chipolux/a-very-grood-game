@@ -86,7 +86,6 @@ func _on_entered_sight(body):
 
 
 func update_interest_point():
-	randomize()
 	var x = rand_range(anchor_point.x - WANDER_DISTANCE, anchor_point.x + WANDER_DISTANCE)
 	var y = rand_range(anchor_point.y - WANDER_DISTANCE, anchor_point.y + WANDER_DISTANCE)
 	interest_point = Vector2(x, y)

@@ -58,7 +58,7 @@ func _input(event):
 
 func _process_enemies():
 	for body in get_node("hitbox").get_overlapping_bodies():
-		print("player hit by %s" % body.get_name())
+		logger.debug("player hit by %s" % body.get_name())
 		var direction = (global_position- body.global_position).normalized()
 		move_and_slide(direction * body.KNOCKBACK)
 		game_state.player_hp -= body.DAMAGE
