@@ -3,13 +3,13 @@
 [ext_resource path="res://weapons/sword.gd" type="Script" id=1]
 [ext_resource path="res://sounds/sword-swish-1.wav" type="AudioStream" id=2]
 [ext_resource path="res://weapons/swipe_left.png" type="Texture" id=3]
-[ext_resource path="res://weapons/spells animation.png" type="Texture" id=4]
+[ext_resource path="res://weapons/swipe_right.png" type="Texture" id=4]
 [ext_resource path="res://weapons/swipe-up.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 26.5481, 43.2885 )
+extents = Vector2( 20.7241, 43.2885 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -121,7 +121,7 @@ tracks/3/keys = {
 
 length = 0.2
 loop = false
-step = 0.04
+step = 0.07
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite_right:visible")
 tracks/0/interp = 1
@@ -167,10 +167,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.04, 0.08, 0.12 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.07, 0.14 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3 ]
+"values": [ 1, 0, 3 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -235,20 +235,20 @@ bus = "fx"
 [node name="sprite_left" type="Sprite" parent="." index="1"]
 
 visible = false
-position = Vector2( -43.3858, -5.9075 )
+position = Vector2( -43, -6 )
 scale = Vector2( 5.11666, 5 )
 texture = ExtResource( 3 )
 vframes = 2
 hframes = 2
-frame = 3
+frame = 2
 _sections_unfolded = [ "Animation", "Transform", "Visibility" ]
 
 [node name="sprite_right" type="Sprite" parent="." index="2"]
 
-position = Vector2( 20, -0.7 )
+visible = false
+position = Vector2( 48, -6 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 4 )
-flip_h = true
 flip_v = true
 vframes = 2
 hframes = 2
@@ -293,8 +293,9 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="left" type="CollisionShape2D" parent="hitbox_left" index="0"]
 
-position = Vector2( -25.7157, -3.75465 )
-scale = Vector2( 1, 1.05877 )
+visible = false
+position = Vector2( -36.1498, -3.75465 )
+scale = Vector2( 1.53378, 1.05877 )
 shape = SubResource( 1 )
 
 [node name="hitbox_right" type="Area2D" parent="." index="6"]
@@ -306,6 +307,7 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+monitoring = false
 monitorable = false
 collision_layer = 2
 collision_mask = 2
@@ -315,8 +317,9 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="right" type="CollisionShape2D" parent="hitbox_right" index="0"]
 
-position = Vector2( 22.7655, -0.727463 )
-scale = Vector2( 1, 1.05877 )
+visible = false
+position = Vector2( 39.2415, -0.727463 )
+scale = Vector2( 1.64405, 1.05877 )
 shape = SubResource( 1 )
 
 [node name="hitbox_up" type="Area2D" parent="." index="7"]
