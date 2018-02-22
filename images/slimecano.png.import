@@ -7,10 +7,10 @@ path="res://.import/slimecano.png-64b13aa1c84cbbd1ef355072e85729f5.stex"
 [deps]
 
 source_file="res://images/slimecano.png"
-source_md5="58b1a90423333ad111d557d75fca7458"
+source_md5="58b56cb3b2c493992320779f0d8401e1"
 
 dest_files=[ "res://.import/slimecano.png-64b13aa1c84cbbd1ef355072e85729f5.stex" ]
-dest_md5="cec1978853a441f0cc56b3e628d57b93"
+dest_md5="b6f5d37bb9d15bfd63d09351bbe817da"
 
 [params]
 
