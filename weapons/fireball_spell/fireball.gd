@@ -6,6 +6,7 @@ const DAMAGE = 4
 const KNOCKBACK = 3000  # TODO: find out why this is so high?
 
 var start_position
+var start_direction
 
 
 func _ready():
@@ -20,13 +21,13 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("enemies"):
-		var direction = (body.global_position - global_position).normalized()
-		body.hit(DAMAGE, direction * KNOCKBACK)
+		body.hit(DAMAGE, start_direction * KNOCKBACK)
 	queue_free()
 
 
 func launch(direction):
 	start_position = global_position
+	start_direction = direction
 	set_linear_velocity(direction * SPEED)
 	get_node("sprite").rotate(Vector2(-direction.x, direction.y).angle_to(Vector2(1, 0)))
 	get_node("anim_player").play("spawn")
