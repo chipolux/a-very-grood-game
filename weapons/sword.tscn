@@ -10,12 +10,12 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 20.7241, 43.2885 )
+extents = Vector2( 19.6131, 37.028 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 44.959, 28.3196 )
+extents = Vector2( 39.4721, 20.2154 )
 
 [sub_resource type="Animation" id=3]
 
@@ -259,8 +259,7 @@ bus = "fx"
 
 [node name="sprite_left" type="Sprite" parent="." index="1"]
 
-visible = false
-position = Vector2( -43, -6 )
+position = Vector2( -43, 0 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 3 )
 vframes = 2
@@ -270,8 +269,7 @@ _sections_unfolded = [ "Animation", "Transform", "Visibility" ]
 
 [node name="sprite_right" type="Sprite" parent="." index="2"]
 
-visible = false
-position = Vector2( 48, -6 )
+position = Vector2( 48, 0 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 4 )
 flip_v = true
@@ -282,8 +280,7 @@ _sections_unfolded = [ "Animation", "Offset", "Transform" ]
 
 [node name="sprite_up" type="Sprite" parent="." index="3"]
 
-visible = false
-position = Vector2( -3.6, -24 )
+position = Vector2( 0, -60 )
 scale = Vector2( 5, 5 )
 z_index = 10
 texture = ExtResource( 5 )
@@ -293,7 +290,7 @@ _sections_unfolded = [ "Animation", "Transform" ]
 
 [node name="sprite_down" type="Sprite" parent="." index="4"]
 
-position = Vector2( 6, 16.9 )
+position = Vector2( 0, 16 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 6 )
 offset = Vector2( 0, 7 )
@@ -304,8 +301,6 @@ _sections_unfolded = [ "Animation", "Offset", "Transform", "Z Index" ]
 
 [node name="hitbox_left" type="Area2D" parent="." index="5"]
 
-editor/display_folded = true
-visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -321,15 +316,13 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="left" type="CollisionShape2D" parent="hitbox_left" index="0"]
 
-visible = false
-position = Vector2( -36.1498, -3.75465 )
-scale = Vector2( 1.53378, 1.05877 )
+position = Vector2( -32.6744, 0 )
+scale = Vector2( 1.68084, 1.05877 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="hitbox_right" type="Area2D" parent="." index="6"]
 
-editor/display_folded = true
-visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -345,15 +338,13 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="right" type="CollisionShape2D" parent="hitbox_right" index="0"]
 
-visible = false
-position = Vector2( 39.2415, -0.727463 )
-scale = Vector2( 1.64405, 1.05877 )
+position = Vector2( 33.4038, 0 )
+scale = Vector2( 1.75886, 1.05877 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="hitbox_up" type="Area2D" parent="." index="7"]
 
-editor/display_folded = true
-visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -369,13 +360,13 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="up" type="CollisionShape2D" parent="hitbox_up" index="0"]
 
-position = Vector2( -3.69588, -24.597 )
+position = Vector2( 0, -38.9713 )
+scale = Vector2( 1.01321, 1.92258 )
 shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="hitbox_down" type="Area2D" parent="." index="8"]
 
-editor/display_folded = true
-visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -387,12 +378,14 @@ collision_layer = 2
 collision_mask = 2
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="down" type="CollisionShape2D" parent="hitbox_down" index="0"]
 
-position = Vector2( 6.32451, 16.3956 )
+position = Vector2( 0, 36.6234 )
+scale = Vector2( 1, 1.7958 )
 shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="anim_player" type="AnimationPlayer" parent="." index="9"]
 
