@@ -10,7 +10,7 @@
 [ext_resource path="res://animations/walk_right.tres" type="Animation" id=8]
 [ext_resource path="res://animations/walk_up.tres" type="Animation" id=9]
 [ext_resource path="res://weapons/sword.tscn" type="PackedScene" id=10]
-[ext_resource path="res://weapons/fireball_spell/fireball_spell.tscn" type="PackedScene" id=11]
+[ext_resource path="res://weapons/spell.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scripts/convo_screen.gd" type="Script" id=12]
 [ext_resource path="res://images/face-left.png" type="Texture" id=13]
 [ext_resource path="res://images/face-right.png" type="Texture" id=14]
@@ -445,6 +445,8 @@ blend_times = [  ]
 [node name="weapon_left" parent="." index="9" instance=ExtResource( 10 )]
 
 [node name="weapon_right" parent="." index="10" instance=ExtResource( 11 )]
+
+projectile = "res://projectiles/fireball.tscn"
 
 [node name="camera" type="Camera2D" parent="." index="11"]
 

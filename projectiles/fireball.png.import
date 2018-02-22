@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spell.png-54d5bd816381ca4b80500df0d97fa837.stex"
+path="res://.import/fireball.png-7333d9402d979a337ff3ef41a666bdea.stex"
 
 [deps]
 
-source_file="res://weapons/fireball_spell/spell.png"
-source_md5="9e221df8a38d78a6fa6f8c356a9c66e0"
+source_file="res://projectiles/fireball.png"
+source_md5="edec8574c113a73bc49c560e305da164"
 
-dest_files=[ "res://.import/spell.png-54d5bd816381ca4b80500df0d97fa837.stex" ]
-dest_md5="c648c14e29c33fdb320c8edd426f21a7"
+dest_files=[ "res://.import/fireball.png-7333d9402d979a337ff3ef41a666bdea.stex" ]
+dest_md5="d1bd79db67b033c138dac379578df593"
 
 [params]
 

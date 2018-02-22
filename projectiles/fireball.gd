@@ -16,15 +16,16 @@ func _ready():
 
 func _process(delta):
 	if global_position.distance_to(start_position) > MAX_DISTANCE:
-		queue_free()
+		if get_node("anim_player").current_animation != "fizzle":
+			get_node("anim_player").play("fizzle")
 
 
 func _on_body_entered(body):
 	if body.is_in_group("enemies"):
 		body.hit(DAMAGE, start_direction * KNOCKBACK)
-
 	if not body.is_in_group("fireballs"):
-		queue_free()
+		if get_node("anim_player").current_animation != "explode":
+			get_node("anim_player").play("explode")
 
 
 func launch(direction):

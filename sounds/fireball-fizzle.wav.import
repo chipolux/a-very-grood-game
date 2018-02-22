@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fireball-fizzle.wav-f82dd9b808b2a201d451206b28c7769b.sample"
+
+[deps]
+
+source_file="res://sounds/fireball-fizzle.wav"
+source_md5="104b14ec6bcd12e82cc4bfee727dbe32"
+
+dest_files=[ "res://.import/fireball-fizzle.wav-f82dd9b808b2a201d451206b28c7769b.sample" ]
+dest_md5="2c9fe78ad4a5aa0b9d16ee88feb5d30b"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
