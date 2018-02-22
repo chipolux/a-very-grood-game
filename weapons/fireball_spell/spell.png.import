@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spells animation.png-f129f0af13ac5efca028ae40b4f63204.stex"
+path="res://.import/spell.png-54d5bd816381ca4b80500df0d97fa837.stex"
 
 [deps]
 
-source_file="res://weapons/spells animation.png"
+source_file="res://weapons/fireball_spell/spell.png"
 source_md5="9e221df8a38d78a6fa6f8c356a9c66e0"
 
-dest_files=[ "res://.import/spells animation.png-f129f0af13ac5efca028ae40b4f63204.stex" ]
+dest_files=[ "res://.import/spell.png-54d5bd816381ca4b80500df0d97fa837.stex" ]
 dest_md5="c648c14e29c33fdb320c8edd426f21a7"
 
 [params]

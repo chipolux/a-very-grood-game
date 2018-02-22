@@ -10,7 +10,8 @@ var velocity
 func _ready():
 	get_node("sprite").set_texture(game_state.player_texture)
 	game_state.connect("leveled_up", get_node("special_player"), "play", ["level_up"])
-	ui = get_node("camera/ui")
+	ui = get_node("ui")
+	ui.get_node("hud").show()
 
 
 func _physics_process(delta):
