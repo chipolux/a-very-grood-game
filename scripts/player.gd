@@ -9,6 +9,8 @@ var velocity
 
 func _ready():
 	get_node("sprite").set_texture(game_state.player_texture)
+	get_node("spell").projectile = game_state.projectiles[0]
+	set_player_weapon(game_state.weapons[0])
 	game_state.connect("leveled_up", get_node("special_player"), "play", ["level_up"])
 	ui = get_node("ui")
 	ui.get_node("hud").show()
@@ -55,6 +57,8 @@ func _input(event):
 		attack_with_left_hand()
 	if event.is_action_pressed("attack_r"):
 		attack_with_right_hand()
+	if event is InputEventKey and event.scancode == KEY_1 and event.pressed == false:
+		set_player_weapon(game_state.weapons[1])
 
 
 func _process_enemies():
@@ -73,17 +77,23 @@ func set_player_sprite(texture):
 	get_node("sprite").set_texture(texture)
 
 
+func set_player_weapon(weapon):
+	var instance = weapon.instance()
+	instance.set_name("weapon")
+	get_node("weapon").replace_by(instance)
+
+
 func die():
 	game_state.stop_game()
 
 
 func attack_with_left_hand():
 	var direction = current_anim.split("_")[1]
-	if has_node("weapon_left"):
-		get_node("weapon_left").attack(direction)
+	if has_node("weapon"):
+		get_node("weapon").attack(direction)
 
 
 func attack_with_right_hand():
 	var direction = current_anim.split("_")[1]
-	if has_node("weapon_right"):
-		get_node("weapon_right").attack(direction)
+	if has_node("spell"):
+		get_node("spell").attack(direction)

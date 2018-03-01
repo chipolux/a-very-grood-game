@@ -1,6 +1,6 @@
 extends Node2D
 
-export(String, FILE, "*tscn") var projectile
+export(PackedScene) var projectile
 
 
 func attack(direction):
@@ -9,6 +9,6 @@ func attack(direction):
 
 func launch_projectile():
 	var direction = (get_global_mouse_position() - global_position).normalized()
-	var instance = load(projectile).instance()
+	var instance = projectile.instance()
 	add_child(instance)
 	instance.launch(direction)

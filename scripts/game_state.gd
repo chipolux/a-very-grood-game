@@ -5,6 +5,17 @@ signal leveled_up()
 var current_scene
 var current_npc
 
+var projectiles = [
+	load("res://projectiles/fireball.tscn"),
+	load("res://projectiles/fireball.tscn"),
+	load("res://projectiles/fireball.tscn"),
+]
+
+var weapons = [
+	load("res://weapons/sword/sword.tscn"),
+	load("res://weapons/hammer/hammer.tscn"),
+]
+
 var _textures = [
 	load("res://images/angel.png"),
 	load("res://images/gale.png"),

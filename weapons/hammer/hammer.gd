@@ -3,8 +3,8 @@ extends Node2D
 export(int) var DAMAGE = 4
 export(int) var KNOCKBACK = 3000  # TODO: find out why this is so high?
 
-var NAME = "Sword"
-var ICON = load("res://weapons/sword/icon.png")
+var NAME = "Hammer"
+var ICON = load("res://weapons/hammer/icon.png")
 
 func _ready():
 	get_node("hitbox_left").monitoring = false
