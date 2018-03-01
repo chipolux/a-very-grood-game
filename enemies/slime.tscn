@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://enemies/slime.gd" type="Script" id=1]
 [ext_resource path="res://images/slime.png" type="Texture" id=2]
-[ext_resource path="res://enemies/slime-hit.wav" type="AudioStream" id=3]
-[ext_resource path="res://enemies/slime-die.wav" type="AudioStream" id=4]
-[ext_resource path="res://enemies/slime-alert.wav" type="AudioStream" id=5]
+[ext_resource path="res://images/health-bar.png" type="Texture" id=3]
+[ext_resource path="res://enemies/slime-hit.wav" type="AudioStream" id=4]
+[ext_resource path="res://enemies/slime-die.wav" type="AudioStream" id=5]
+[ext_resource path="res://enemies/slime-alert.wav" type="AudioStream" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -187,7 +188,7 @@ tracks/1/keys = {
 } ]
 }
 
-[node name="slime" type="KinematicBody2D" groups=[
+[node name="slime" type="KinematicBody2D" index="0" groups=[
 "enemies",
 ]]
 
@@ -233,14 +234,21 @@ vframes = 4
 hframes = 4
 _sections_unfolded = [ "Animation", "Region", "Transform", "Visibility" ]
 
-[node name="interest_timer" type="Timer" parent="." index="3"]
+[node name="health-bar" type="Sprite" parent="." index="3"]
+
+visible = false
+position = Vector2( 0, -20 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="interest_timer" type="Timer" parent="." index="4"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="anim_player" type="AnimationPlayer" parent="." index="4"]
+[node name="anim_player" type="AnimationPlayer" parent="." index="5"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -254,7 +262,7 @@ anims/walk_right = SubResource( 6 )
 anims/walk_up = SubResource( 7 )
 blend_times = [  ]
 
-[node name="hit_player" type="AnimationPlayer" parent="." index="5"]
+[node name="hit_player" type="AnimationPlayer" parent="." index="6"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -266,25 +274,25 @@ anims/hit = SubResource( 9 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
-[node name="hit_sound" type="AudioStreamPlayer" parent="." index="6"]
+[node name="hit_sound" type="AudioStreamPlayer" parent="." index="7"]
 
-stream = ExtResource( 3 )
+stream = ExtResource( 4 )
 volume_db = -19.0
 autoplay = false
 mix_target = 0
 bus = "fx"
 
-[node name="die_sound" type="AudioStreamPlayer" parent="." index="7"]
+[node name="die_sound" type="AudioStreamPlayer" parent="." index="8"]
 
-stream = ExtResource( 4 )
+stream = ExtResource( 5 )
 volume_db = -12.0
 autoplay = false
 mix_target = 0
 bus = "fx"
 
-[node name="alert_sound" type="AudioStreamPlayer" parent="." index="8"]
+[node name="alert_sound" type="AudioStreamPlayer" parent="." index="9"]
 
-stream = ExtResource( 5 )
+stream = ExtResource( 6 )
 volume_db = -14.0
 autoplay = false
 mix_target = 0

@@ -16,6 +16,7 @@ var anchor_point
 var interest_point
 var interest_timer
 var velocity
+var initial_hp
 var current_anim = "standing"
 
 
@@ -24,6 +25,7 @@ func _ready():
 	interest_timer = get_node("interest_timer")
 	interest_timer.connect("timeout", self, "update_interest_point")
 	anchor_point = global_position
+	initial_hp = hp
 	update_interest_point()
 
 
@@ -97,6 +99,10 @@ func hit(damage, knockback):
 		hp -= damage
 		if hp <= 0:
 			game_state.player_xp += XP
+			get_node("health-bar").hide()
 			get_node("hit_player").play("die")
 		else:
 			get_node("hit_player").play("hit")
+			if hp < initial_hp:
+				get_node("health-bar").scale.x = float(hp) / float(initial_hp)
+				get_node("health-bar").show()
