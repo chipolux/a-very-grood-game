@@ -10,7 +10,7 @@ var velocity
 func _ready():
 	get_node("sprite").set_texture(game_state.player_texture)
 	get_node("spell").projectile = game_state.projectiles[0]
-	set_player_weapon(game_state.weapons[0])
+	set_player_weapon(0)
 	game_state.connect("leveled_up", get_node("special_player"), "play", ["level_up"])
 	ui = get_node("ui")
 	ui.get_node("hud").show()
@@ -57,12 +57,6 @@ func _input(event):
 		attack_with_left_hand()
 	if event.is_action_pressed("attack_r"):
 		attack_with_right_hand()
-	if event is InputEventKey and event.scancode == KEY_1 and event.pressed == false:
-		set_player_weapon(game_state.weapons[0])
-	if event is InputEventKey and event.scancode == KEY_2 and event.pressed == false:
-		set_player_weapon(game_state.weapons[1])
-	if event is InputEventKey and event.scancode == KEY_F and event.pressed == false:
-		get_node("weapon_select").show_weapons()
 
 
 func _process_enemies():
@@ -81,13 +75,14 @@ func set_player_sprite(texture):
 	get_node("sprite").set_texture(texture)
 
 
-func set_player_weapon(weapon):
-	var instance = weapon["scene"].instance()
+func set_player_weapon(i):
+	var instance = game_state.weapons[i]["scene"].instance()
 	instance.set_name("weapon")
 	var old_weapon = get_node("weapon")
 	old_weapon.set_name("old_weapon")
 	old_weapon.queue_free()
 	add_child(instance)
+	get_node("weapon_select").current_index = i
 
 
 func die():
