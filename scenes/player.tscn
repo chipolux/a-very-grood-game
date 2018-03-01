@@ -973,7 +973,7 @@ ticks_on_borders = true
 focus_mode = 2
 _sections_unfolded = [ "Rect" ]
 
-[node name="quit_button" type="Button" parent="ui/menu" index="2"]
+[node name="continue_button" type="Button" parent="ui/menu" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -983,6 +983,31 @@ margin_left = 223.0
 margin_top = 330.0
 margin_right = 577.0
 margin_bottom = 370.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Continue"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="quit_button" type="Button" parent="ui/menu" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 223.0
+margin_top = 390.0
+margin_right = 577.0
+margin_bottom = 430.0
 rect_pivot_offset = Vector2( 0, 0 )
 focus_mode = 2
 mouse_filter = 0
