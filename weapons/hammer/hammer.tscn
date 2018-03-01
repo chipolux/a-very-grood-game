@@ -10,19 +10,19 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 19.6131, 37.028 )
+extents = Vector2( 19.6131, 18.8898 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 39.4721, 20.2154 )
+extents = Vector2( 19.7392, 20.2154 )
 
 [sub_resource type="Animation" id=3]
 
 resource_name = "down"
 length = 0.2
 loop = false
-step = 0.07
+step = 0.08
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite_down:visible")
 tracks/0/interp = 1
@@ -68,17 +68,17 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.07, 0.14 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.08 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 2, 0, 3 ]
+"values": [ 0, 1 ]
 }
 
 [sub_resource type="Animation" id=4]
 
 length = 0.2
 loop = false
-step = 0.075
+step = 0.08
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite_left:visible")
 tracks/0/interp = 1
@@ -124,17 +124,17 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.075, 0.15 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.08 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2 ]
+"values": [ 0, 1 ]
 }
 
 [sub_resource type="Animation" id=5]
 
 length = 0.2
 loop = false
-step = 0.07
+step = 0.08
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite_right:visible")
 tracks/0/interp = 1
@@ -180,10 +180,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.07, 0.14 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.08 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 1, 0, 3 ]
+"values": [ 1, 0 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -191,7 +191,7 @@ tracks/3/keys = {
 resource_name = "up"
 length = 0.2
 loop = false
-step = 0.07
+step = 0.08
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite_up:visible")
 tracks/0/interp = 1
@@ -237,13 +237,13 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.07, 0.14 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.08 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 1, 3, 0 ]
+"values": [ 0, 1 ]
 }
 
-[node name="hammer" type="Node2D"]
+[node name="hammer" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 DAMAGE = 4
@@ -259,12 +259,13 @@ bus = "fx"
 
 [node name="sprite_left" type="Sprite" parent="." index="1"]
 
+visible = false
 position = Vector2( -43, 0 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 3 )
 vframes = 2
 hframes = 2
-frame = 2
+frame = 1
 _sections_unfolded = [ "Animation", "Transform", "Visibility" ]
 
 [node name="sprite_right" type="Sprite" parent="." index="2"]
@@ -272,10 +273,9 @@ _sections_unfolded = [ "Animation", "Transform", "Visibility" ]
 position = Vector2( 48, 0 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 4 )
-flip_v = true
 vframes = 2
 hframes = 2
-frame = 3
+frame = 1
 _sections_unfolded = [ "Animation", "Offset", "Transform" ]
 
 [node name="sprite_up" type="Sprite" parent="." index="3"]
@@ -286,6 +286,7 @@ z_index = 10
 texture = ExtResource( 5 )
 vframes = 2
 hframes = 2
+frame = 1
 _sections_unfolded = [ "Animation", "Transform" ]
 
 [node name="sprite_down" type="Sprite" parent="." index="4"]
@@ -296,7 +297,7 @@ texture = ExtResource( 6 )
 offset = Vector2( 0, 7 )
 vframes = 2
 hframes = 2
-frame = 3
+frame = 2
 _sections_unfolded = [ "Animation", "Offset", "Transform", "Z Index" ]
 
 [node name="hitbox_left" type="Area2D" parent="." index="5"]
@@ -328,7 +329,6 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-monitoring = false
 monitorable = false
 collision_layer = 2
 collision_mask = 2
@@ -350,7 +350,6 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-monitoring = false
 monitorable = false
 collision_layer = 2
 collision_mask = 2
@@ -372,7 +371,6 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-monitoring = false
 monitorable = false
 collision_layer = 2
 collision_mask = 2
