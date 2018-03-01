@@ -84,7 +84,10 @@ func set_player_sprite(texture):
 func set_player_weapon(weapon):
 	var instance = weapon["scene"].instance()
 	instance.set_name("weapon")
-	get_node("weapon").replace_by(instance)
+	var old_weapon = get_node("weapon")
+	old_weapon.set_name("old_weapon")
+	old_weapon.queue_free()
+	add_child(instance)
 
 
 func die():
