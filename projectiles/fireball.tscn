@@ -288,7 +288,7 @@ shape = SubResource( 5 )
 [node name="fizzle" type="AudioStreamPlayer" parent="." index="4"]
 
 stream = ExtResource( 4 )
-volume_db = -18.0
+volume_db = -30.0
 autoplay = false
 mix_target = 0
 bus = "fx"
