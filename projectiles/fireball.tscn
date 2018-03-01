@@ -222,8 +222,8 @@ custom_solver_bias = 0.0
 radius = 10.683
 
 [node name="fireball" type="RigidBody2D" index="0" groups=[
-"projectiles",
 "fireballs",
+"projectiles",
 ]]
 
 input_pickable = false
@@ -261,7 +261,7 @@ _sections_unfolded = [ "Animation", "Transform", "Visibility" ]
 
 [node name="explosion" type="Sprite" parent="." index="1"]
 
-scale = Vector2( 5, 5 )
+scale = Vector2( 12, 12 )
 texture = ExtResource( 3 )
 vframes = 4
 hframes = 2
