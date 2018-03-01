@@ -58,7 +58,11 @@ func _input(event):
 	if event.is_action_pressed("attack_r"):
 		attack_with_right_hand()
 	if event is InputEventKey and event.scancode == KEY_1 and event.pressed == false:
+		set_player_weapon(game_state.weapons[0])
+	if event is InputEventKey and event.scancode == KEY_2 and event.pressed == false:
 		set_player_weapon(game_state.weapons[1])
+	if event is InputEventKey and event.scancode == KEY_F and event.pressed == false:
+		get_node("weapon_select").show_weapons()
 
 
 func _process_enemies():
@@ -78,7 +82,7 @@ func set_player_sprite(texture):
 
 
 func set_player_weapon(weapon):
-	var instance = weapon.instance()
+	var instance = weapon["scene"].instance()
 	instance.set_name("weapon")
 	get_node("weapon").replace_by(instance)
 
