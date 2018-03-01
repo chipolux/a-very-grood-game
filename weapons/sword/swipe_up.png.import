@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/swipe-left.png-c8994af6bde2fa027ef741c18c718b5b.stex"
+path="res://.import/swipe_up.png-3043e3eee40f27934de33270fc4f2011.stex"
 
 [deps]
 
-source_file="res://weapons/swipe-left.png"
-source_md5="a55867aae56236f2b11b2bb30306339a"
+source_file="res://weapons/sword/swipe_up.png"
+source_md5="3ad8275f23c37fe631b8196b9eee6875"
 
-dest_files=[ "res://.import/swipe-left.png-c8994af6bde2fa027ef741c18c718b5b.stex" ]
-dest_md5="4ff5395e6b2b68cb98e34a71f680c17a"
+dest_files=[ "res://.import/swipe_up.png-3043e3eee40f27934de33270fc4f2011.stex" ]
+dest_md5="3d9185d71951b71ca120732c5a3f48d7"
 
 [params]
 
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

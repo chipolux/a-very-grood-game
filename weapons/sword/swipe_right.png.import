@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/swipe_right.png-684f9bab54d6a84699c102b94eb45130.stex"
+path="res://.import/swipe_right.png-ec0109a6f0b1f9588e0172dd21d535f9.stex"
 
 [deps]
 
-source_file="res://weapons/swipe_right.png"
+source_file="res://weapons/sword/swipe_right.png"
 source_md5="5bf3e8c8465d8f206232c732b58a3491"
 
-dest_files=[ "res://.import/swipe_right.png-684f9bab54d6a84699c102b94eb45130.stex" ]
+dest_files=[ "res://.import/swipe_right.png-ec0109a6f0b1f9588e0172dd21d535f9.stex" ]
 dest_md5="de832560ecadd55679cd1fb5b06f664e"
 
 [params]
