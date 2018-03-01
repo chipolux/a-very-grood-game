@@ -14,12 +14,6 @@ var projectiles = [
 var weapons = [
 	{"name": "Sword", "icon": load("res://weapons/sword/icon.png"), "scene": load("res://weapons/sword/sword.tscn")},
 	{"name": "Hammer", "icon": load("res://weapons/hammer/icon.png"), "scene": load("res://weapons/hammer/hammer.tscn")},
-	{"name": "Sword", "icon": load("res://weapons/sword/icon.png"), "scene": load("res://weapons/sword/sword.tscn")},
-	{"name": "Hammer", "icon": load("res://weapons/hammer/icon.png"), "scene": load("res://weapons/hammer/hammer.tscn")},
-	{"name": "Sword", "icon": load("res://weapons/sword/icon.png"), "scene": load("res://weapons/sword/sword.tscn")},
-	{"name": "Hammer", "icon": load("res://weapons/hammer/icon.png"), "scene": load("res://weapons/hammer/hammer.tscn")},
-	{"name": "Sword", "icon": load("res://weapons/sword/icon.png"), "scene": load("res://weapons/sword/sword.tscn")},
-	{"name": "Hammer", "icon": load("res://weapons/hammer/icon.png"), "scene": load("res://weapons/hammer/hammer.tscn")},
 ]
 
 var _textures = [
