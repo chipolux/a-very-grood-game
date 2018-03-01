@@ -9,8 +9,9 @@ func _ready():
 	anim_player = get_node("convo_player")
 	left_text = get_node("convo_left/text")
 	right_text = get_node("convo_right/text")
-	# should always start with both convo windows out
+	# should always start with both convo windows out and shown
 	anim_player.play_backwards("both")
+	show()
 
 func begin_conversation(npc):
 	in_conversation = true
