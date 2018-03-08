@@ -17,8 +17,10 @@ func _input(event):
 	if visible:
 		if event is InputEventMouseButton and event.button_index == BUTTON_WHEEL_UP and event.pressed:
 			current_index = (current_index + 1) % len(game_state.weapons)
+			get_node("select").play()
 		if event is InputEventMouseButton and event.button_index == BUTTON_WHEEL_DOWN and event.pressed:
 			current_index = (current_index - 1) % len(game_state.weapons)
+			get_node("select").play()
 		if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
 			get_node("..").set_player_weapon(current_index)
 			get_tree().set_pause(false)
