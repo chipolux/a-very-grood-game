@@ -3,10 +3,13 @@ extends Node2D
 
 var radius = max(80, len(game_state.weapons) * 15)
 var current_index
+var selection_timer = Timer.new()
 
 
 func _ready():
-	pass
+	selection_timer.one_shot = true
+	selection_timer.wait_time = 0.08
+	add_child(selection_timer)
 
 
 func _process(delta):
@@ -16,11 +19,15 @@ func _process(delta):
 func _input(event):
 	if visible:
 		if event is InputEventMouseButton and event.button_index == BUTTON_WHEEL_UP and event.pressed:
-			current_index = (current_index + 1) % len(game_state.weapons)
-			get_node("select").play()
+			if selection_timer.is_stopped():
+				current_index = (current_index + 1) % len(game_state.weapons)
+				get_node("select").play()
+				selection_timer.start()
 		if event is InputEventMouseButton and event.button_index == BUTTON_WHEEL_DOWN and event.pressed:
-			current_index = (current_index - 1) % len(game_state.weapons)
-			get_node("select").play()
+			if selection_timer.is_stopped():
+				current_index = (current_index - 1) % len(game_state.weapons)
+				get_node("select").play()
+				selection_timer.start()
 		if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
 			get_node("..").set_player_weapon(current_index)
 			get_tree().set_pause(false)
