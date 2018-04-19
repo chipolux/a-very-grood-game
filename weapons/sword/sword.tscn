@@ -265,7 +265,7 @@ texture = ExtResource( 3 )
 vframes = 2
 hframes = 2
 frame = 2
-_sections_unfolded = [ "Animation", "Transform", "Visibility" ]
+_sections_unfolded = [ "Animation", "Visibility", "Z Index" ]
 
 [node name="sprite_right" type="Sprite" parent="." index="2"]
 
@@ -276,17 +276,16 @@ flip_v = true
 vframes = 2
 hframes = 2
 frame = 3
-_sections_unfolded = [ "Animation", "Offset", "Transform" ]
+_sections_unfolded = [ "Animation", "Offset", "Z Index" ]
 
 [node name="sprite_up" type="Sprite" parent="." index="3"]
 
 position = Vector2( 0, -60 )
 scale = Vector2( 5, 5 )
-z_index = 10
 texture = ExtResource( 5 )
 vframes = 2
 hframes = 2
-_sections_unfolded = [ "Animation", "Transform" ]
+_sections_unfolded = [ "Animation", "Z Index" ]
 
 [node name="sprite_down" type="Sprite" parent="." index="4"]
 
@@ -297,7 +296,7 @@ offset = Vector2( 0, 7 )
 vframes = 2
 hframes = 2
 frame = 3
-_sections_unfolded = [ "Animation", "Offset", "Transform", "Z Index" ]
+_sections_unfolded = [ "Animation", "Offset", "Z Index" ]
 
 [node name="hitbox_left" type="Area2D" parent="." index="5"]
 

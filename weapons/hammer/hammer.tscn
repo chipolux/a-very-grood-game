@@ -276,18 +276,17 @@ texture = ExtResource( 4 )
 vframes = 2
 hframes = 2
 frame = 1
-_sections_unfolded = [ "Animation", "Offset", "Transform" ]
+_sections_unfolded = [ "Animation", "Offset", "Transform", "Z Index" ]
 
 [node name="sprite_up" type="Sprite" parent="." index="3"]
 
 position = Vector2( 0, -60 )
 scale = Vector2( 5, 5 )
-z_index = 10
 texture = ExtResource( 5 )
 vframes = 2
 hframes = 2
 frame = 1
-_sections_unfolded = [ "Animation", "Transform" ]
+_sections_unfolded = [ "Animation", "Transform", "Z Index" ]
 
 [node name="sprite_down" type="Sprite" parent="." index="4"]
 
