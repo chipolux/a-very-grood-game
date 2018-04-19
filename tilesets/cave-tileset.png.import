@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tiles.png-20e12ed313f9b52ca4483ea23302e684.stex"
+path="res://.import/cave-tileset.png-4d3fe955fb3da75fe7b34fa20890601a.stex"
 
 [deps]
 
-source_file="res://tiles.png"
-source_md5="0588b7e4701baf2a76cbdbb395c2d966"
+source_file="res://tilesets/cave-tileset.png"
+source_md5="212ae7543f8b942edd5bbe7dd832d709"
 
-dest_files=[ "res://.import/tiles.png-20e12ed313f9b52ca4483ea23302e684.stex" ]
-dest_md5="6945ce2f3319035d9e455f25062e2bd4"
+dest_files=[ "res://.import/cave-tileset.png-4d3fe955fb3da75fe7b34fa20890601a.stex" ]
+dest_md5="795b57c923d9528d3720a33cb5f7ae27"
 
 [params]
 
