@@ -921,4 +921,13 @@ region_enabled = true
 region_rect = Rect2( 416, 448, 16, 16 )
 _sections_unfolded = [ "Region" ]
 
+[node name="rock-1" type="Sprite" parent="." index="102"]
+
+position = Vector2( 0, 736 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 96, 80, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
 

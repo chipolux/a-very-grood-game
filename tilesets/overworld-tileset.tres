@@ -922,4 +922,13 @@
 101/occluder_offset = Vector2( 0, 0 )
 101/navigation_offset = Vector2( 0, 0 )
 101/shapes = [  ]
+102/name = "rock-1"
+102/texture = ExtResource( 1 )
+102/tex_offset = Vector2( 0, 0 )
+102/modulate = Color( 1, 1, 1, 1 )
+102/region = Rect2( 96, 80, 16, 16 )
+102/is_autotile = false
+102/occluder_offset = Vector2( 0, 0 )
+102/navigation_offset = Vector2( 0, 0 )
+102/shapes = [  ]
 
