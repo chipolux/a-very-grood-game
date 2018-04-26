@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://tilesets/overworld-tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://enemies/slime.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/transition.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -13,6 +14,11 @@ extents = Vector2( 228.023, 37.4877 )
 
 custom_solver_bias = 0.0
 extents = Vector2( 228.023, 7.23297 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
 
 [node name="bridge" type="Node2D" index="0"]
 
@@ -56,7 +62,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -393214, 75, 0, -393213, 76, 0, -393211, 75, 0, -393210, 76, 0, -327679, 79, 0, -327678, 80, 0, -327677, 78, 0, -327676, 79, 0, -327675, 80, 0, -327674, 78, 0, -327673, 79, 0, -262143, 83, 0, -262142, 83, 0, -262141, 83, 0, -262140, 83, 0, -262139, 83, 0, -262138, 83, 0, -262137, 83, 0, -196607, 83, 0, -196606, 83, 0, -196605, 83, 0, -196604, 83, 0, -196603, 83, 0, -196602, 83, 0, -196601, 83, 0 )
+tile_data = PoolIntArray( -327681, 75, 0, -393216, 76, 0, -393214, 75, 0, -393213, 76, 0, -393211, 75, 0, -393210, 76, 0, -262145, 80, 0, -327680, 78, 0, -327679, 79, 0, -327678, 80, 0, -327677, 78, 0, -327676, 79, 0, -327675, 80, 0, -327674, 78, 0, -327673, 79, 0, -262144, 83, 0, -262143, 83, 0, -262142, 83, 0, -262141, 83, 0, -262140, 83, 0, -262139, 83, 0, -262138, 83, 0, -262137, 83, 0, -196608, 83, 0, -196607, 83, 0, -196606, 83, 0, -196605, 83, 0, -196604, 83, 0, -196603, 83, 0, -196602, 83, 0, -196601, 83, 0 )
 
 [node name="slime1" parent="." index="2" instance=ExtResource( 2 )]
 
@@ -93,7 +99,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -393222, 102, 0, -262153, 102, 0, -196607, 87, 0, -196606, 88, 0, -196605, 86, 0, -196604, 87, 0, -196603, 88, 0, -196602, 86, 0, -196601, 87, 0, -131071, 92, 0, -131070, 93, 0, -131069, 91, 0, -131068, 92, 0, -131067, 93, 0, -131066, 91, 0, -131065, 92, 0, -65535, 97, 0, -65534, 98, 0, -65533, 96, 0, -65532, 97, 0, -65531, 98, 0, -65530, 96, 0, -65529, 97, 0, 2, 100, 0, 3, 101, 0, 5, 100, 0, 6, 101, 0, 131064, 102, 0, 393204, 102, 0 )
+tile_data = PoolIntArray( -131073, 85, 0, -196608, 86, 0, -196607, 87, 0, -196606, 88, 0, -196605, 86, 0, -196604, 87, 0, -196603, 88, 0, -196602, 86, 0, -196601, 87, 0, -65537, 90, 0, -131072, 91, 0, -131071, 92, 0, -131070, 93, 0, -131069, 91, 0, -131068, 92, 0, -131067, 93, 0, -131066, 91, 0, -131065, 92, 0, -1, 100, 0, -65536, 101, 0, -65535, 97, 0, -65534, 98, 0, -65533, 96, 0, -65532, 97, 0, -65531, 98, 0, -65530, 96, 0, -65529, 97, 0, 2, 100, 0, 3, 101, 0, 5, 100, 0, 6, 101, 0 )
 
 [node name="highest" type="TileMap" parent="." index="7"]
 
@@ -158,5 +164,26 @@ polygon = PoolVector2Array( -207.423, 511.212, -207.423, 365.26, -79.3829, 367.2
 
 build_mode = 0
 polygon = PoolVector2Array( 113.813, -323.333, 113.813, -400.873, 241.584, -397.947, 242.559, -576.436, 396.664, -576.436, 395.201, -398.435, 458.111, -397.46, 457.624, -322.358 )
+
+[node name="to_dungeon" type="Area2D" parent="." index="10"]
+
+editor/display_folded = true
+position = Vector2( -1055.96, -384.487 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+scene = "res://scenes/dungeon.tscn"
+
+[node name="shape" type="CollisionShape2D" parent="to_dungeon" index="0"]
+
+shape = SubResource( 3 )
 
 
