@@ -1291,4 +1291,13 @@
 142/occluder_offset = Vector2( 0, 0 )
 142/navigation_offset = Vector2( 0, 0 )
 142/shapes = [  ]
+143/name = "metal-door-6"
+143/texture = ExtResource( 1 )
+143/tex_offset = Vector2( 0, 0 )
+143/modulate = Color( 1, 1, 1, 1 )
+143/region = Rect2( 544, 128, 16, 16 )
+143/is_autotile = false
+143/occluder_offset = Vector2( 0, 0 )
+143/navigation_offset = Vector2( 0, 0 )
+143/shapes = [  ]
 
