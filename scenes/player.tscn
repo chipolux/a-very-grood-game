@@ -475,11 +475,12 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-_sections_unfolded = [ "Pause", "Transform", "Z Index" ]
+_sections_unfolded = [ "Pause" ]
 
 [node name="weapon_select" type="Node2D" parent="." index="12"]
 
 pause_mode = 2
+editor/display_folded = true
 visible = false
 script = ExtResource( 12 )
 _sections_unfolded = [ "Pause" ]
@@ -501,6 +502,7 @@ bus = "ui"
 [node name="ui" type="CanvasLayer" parent="." index="13"]
 
 pause_mode = 2
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -689,7 +691,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 800.0
+margin_right = 1066.0
 margin_bottom = 600.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -807,7 +809,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 800.0
+margin_right = 1066.0
 margin_bottom = 600.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -816,6 +818,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 18 )
+_sections_unfolded = [ "Rect" ]
 
 [node name="bg" type="Panel" parent="ui/menu" index="0"]
 
@@ -829,17 +832,18 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Margin" ]
 
 [node name="volume_grid" type="GridContainer" parent="ui/menu" index="1"]
 
 editor/display_folded = true
-anchor_left = 0.0
+anchor_left = 0.5
 anchor_top = 0.0
-anchor_right = 0.0
+anchor_right = 0.5
 anchor_bottom = 0.0
-margin_left = 223.0
+margin_left = -180.0
 margin_top = 230.0
-margin_right = 577.0
+margin_right = 180.0
 margin_bottom = 298.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -848,7 +852,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 columns = 2
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -1015,13 +1019,13 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="continue_button" type="Button" parent="ui/menu" index="2"]
 
-anchor_left = 0.0
+anchor_left = 0.5
 anchor_top = 0.0
-anchor_right = 0.0
+anchor_right = 0.5
 anchor_bottom = 0.0
-margin_left = 223.0
+margin_left = -180.0
 margin_top = 330.0
-margin_right = 577.0
+margin_right = 180.0
 margin_bottom = 370.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1037,17 +1041,17 @@ group = null
 text = "Continue"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 [node name="quit_button" type="Button" parent="ui/menu" index="3"]
 
-anchor_left = 0.0
+anchor_left = 0.5
 anchor_top = 0.0
-anchor_right = 0.0
+anchor_right = 0.5
 anchor_bottom = 0.0
-margin_left = 223.0
+margin_left = -180.0
 margin_top = 390.0
-margin_right = 577.0
+margin_right = 180.0
 margin_bottom = 430.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1063,6 +1067,6 @@ group = null
 text = "Quit"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 
