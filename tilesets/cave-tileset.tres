@@ -526,4 +526,13 @@
 57/occluder_offset = Vector2( 0, 0 )
 57/navigation_offset = Vector2( 0, 0 )
 57/shapes = [  ]
+58/name = "ground-two"
+58/texture = ExtResource( 1 )
+58/tex_offset = Vector2( 0, 0 )
+58/modulate = Color( 1, 1, 1, 1 )
+58/region = Rect2( 112, 48, 16, 16 )
+58/is_autotile = false
+58/occluder_offset = Vector2( 0, 0 )
+58/navigation_offset = Vector2( 0, 0 )
+58/shapes = [  ]
 
