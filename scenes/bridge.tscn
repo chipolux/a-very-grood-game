@@ -10,37 +10,37 @@
 custom_solver_bias = 0.0
 extents = Vector2( 228.023, 37.4877 )
 
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 34.2357, 84.1817 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 34.2357, 84.1817 )
+
 [sub_resource type="RectangleShape2D" id=4]
-
-custom_solver_bias = 0.0
-extents = Vector2( 34.2357, 84.1817 )
-
-[sub_resource type="RectangleShape2D" id=5]
-
-custom_solver_bias = 0.0
-extents = Vector2( 34.2357, 84.1817 )
-
-[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 34.2357, 70.6727 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 15.1785, 105.494 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 95.379, 7.77859 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
 extents = Vector2( 228.023, 7.23297 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=8]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -87,7 +87,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -393214, 75, 0, -393213, 76, 0, -393211, 75, 0, -393210, 76, 0, -262146, 107, 0, -262145, 108, 0, -327680, 108, 0, -327679, 79, 0, -327678, 80, 0, -327677, 78, 0, -327676, 79, 0, -327675, 80, 0, -327674, 78, 0, -327673, 79, 0, -196610, 110, 0, -196609, 138, 0, -262144, 141, 0, -262143, 83, 0, -262142, 83, 0, -262141, 83, 0, -262140, 83, 0, -262139, 83, 0, -262138, 83, 0, -262137, 83, 0, -131074, 111, 0, -131073, 139, 0, -196608, 140, 0, -196607, 83, 0, -196606, 83, 0, -196605, 83, 0, -196604, 83, 0, -196603, 83, 0, -196602, 83, 0, -196601, 83, 0, -2, 119, 0, -65536, 121, 0, -65535, 131, 0, 65534, 125, 0, 65535, 137, 0, 0, 127, 0, 1, 132, 0, 131070, 128, 0, 131071, 129, 0, 65536, 130, 0, 65537, 133, 0 )
+tile_data = PoolIntArray( -393214, 75, 0, -393213, 76, 0, -393211, 75, 0, -393210, 76, 0, -262146, 107, 0, -262145, 108, 0, -327680, 108, 0, -327679, 79, 0, -327678, 80, 0, -327677, 78, 0, -327676, 79, 0, -327675, 80, 0, -327674, 78, 0, -327673, 79, 0, -196610, 110, 0, -196609, 138, 0, -262144, 141, 0, -262143, 83, 0, -262142, 83, 0, -262141, 83, 0, -262140, 83, 0, -262139, 83, 0, -262138, 83, 0, -262137, 83, 0, -131074, 111, 0, -131073, 139, 0, -196608, 140, 0, -196607, 83, 0, -196606, 83, 0, -196605, 83, 0, -196604, 83, 0, -196603, 83, 0, -196602, 83, 0, -196601, 83, 0, -2, 119, 0, -1, 142, 0, -65536, 121, 0, -65535, 131, 0, 65534, 125, 0, 65535, 137, 0, 0, 127, 0, 1, 132, 0, 131070, 128, 0, 131071, 129, 0, 65536, 130, 0, 65537, 133, 0 )
 
 [node name="slime1" parent="." index="2" instance=ExtResource( 2 )]
 
@@ -124,7 +124,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -131074, 113, 0, -131073, 114, 0, -196608, 114, 0, -196607, 87, 0, -196606, 88, 0, -196605, 86, 0, -196604, 87, 0, -196603, 88, 0, -196602, 86, 0, -196601, 87, 0, -65538, 116, 0, -65537, 117, 0, -131072, 117, 0, -131071, 92, 0, -131070, 93, 0, -131069, 91, 0, -131068, 92, 0, -131067, 93, 0, -131066, 91, 0, -131065, 92, 0, -1, 120, 0, -65535, 97, 0, -65534, 98, 0, -65533, 96, 0, -65532, 97, 0, -65531, 98, 0, -65530, 96, 0, -65529, 97, 0, 2, 100, 0, 3, 101, 0, 5, 100, 0, 6, 101, 0 )
+tile_data = PoolIntArray( -131074, 113, 0, -131073, 114, 0, -196608, 114, 0, -196607, 87, 0, -196606, 88, 0, -196605, 86, 0, -196604, 87, 0, -196603, 88, 0, -196602, 86, 0, -196601, 87, 0, -65538, 116, 0, -65537, 117, 0, -131072, 117, 0, -131071, 92, 0, -131070, 93, 0, -131069, 91, 0, -131068, 92, 0, -131067, 93, 0, -131066, 91, 0, -131065, 92, 0, -65535, 97, 0, -65534, 98, 0, -65533, 96, 0, -65532, 97, 0, -65531, 98, 0, -65530, 96, 0, -65529, 97, 0, 2, 100, 0, 3, 101, 0, 5, 100, 0, 6, 101, 0 )
 
 [node name="highest" type="TileMap" parent="." index="7"]
 
@@ -166,33 +166,33 @@ shape = SubResource( 1 )
 [node name="left-tower-1" type="CollisionShape2D" parent="bridge-body" index="1"]
 
 position = Vector2( -94.8835, -46.2266 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="left-tower-2" type="CollisionShape2D" parent="bridge-body" index="2"]
 
 position = Vector2( 28.4219, -47.7376 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="left-tower-3" type="CollisionShape2D" parent="bridge-body" index="3"]
 
 position = Vector2( -32.6388, -61.2466 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 disabled = true
 
 [node name="left-tower-4" type="CollisionShape2D" parent="bridge-body" index="4"]
 
 position = Vector2( -114.51, -214.938 )
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="left-tower-5" type="CollisionShape2D" parent="bridge-body" index="5"]
 
 position = Vector2( -34.4208, -315.947 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="top" type="CollisionShape2D" parent="bridge-body" index="6"]
 
 position = Vector2( 288.335, -316.064 )
-shape = SubResource( 2 )
+shape = SubResource( 7 )
 
 [node name="river-body" type="StaticBody2D" parent="." index="9"]
 
@@ -235,6 +235,6 @@ scene = "res://scenes/dungeon.tscn"
 
 [node name="shape" type="CollisionShape2D" parent="to_dungeon" index="0"]
 
-shape = SubResource( 3 )
+shape = SubResource( 8 )
 
 

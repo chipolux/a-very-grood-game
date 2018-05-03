@@ -1245,7 +1245,16 @@ region_enabled = true
 region_rect = Rect2( 400, 48, 16, 16 )
 _sections_unfolded = [ "Region" ]
 
-[node name="trap-door-1" type="Sprite" parent="." index="138"]
+[node name="metal-door-5" type="Sprite" parent="." index="138"]
+
+position = Vector2( 128, 1056 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 336, 144, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="trap-door-1" type="Sprite" parent="." index="139"]
 
 position = Vector2( 0, 1088 )
 texture = ExtResource( 1 )
@@ -1254,7 +1263,7 @@ region_enabled = true
 region_rect = Rect2( 560, 48, 16, 16 )
 _sections_unfolded = [ "Region" ]
 
-[node name="trap-door-2" type="Sprite" parent="." index="139"]
+[node name="trap-door-2" type="Sprite" parent="." index="140"]
 
 position = Vector2( 32, 1088 )
 texture = ExtResource( 1 )
@@ -1263,7 +1272,7 @@ region_enabled = true
 region_rect = Rect2( 560, 64, 16, 16 )
 _sections_unfolded = [ "Region" ]
 
-[node name="trap-door-3" type="Sprite" parent="." index="140"]
+[node name="trap-door-3" type="Sprite" parent="." index="141"]
 
 position = Vector2( 64, 1088 )
 texture = ExtResource( 1 )
@@ -1272,7 +1281,7 @@ region_enabled = true
 region_rect = Rect2( 576, 64, 16, 16 )
 _sections_unfolded = [ "Region" ]
 
-[node name="trap-door-4" type="Sprite" parent="." index="141"]
+[node name="trap-door-4" type="Sprite" parent="." index="142"]
 
 position = Vector2( 96, 1088 )
 texture = ExtResource( 1 )
