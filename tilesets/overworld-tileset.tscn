@@ -1299,4 +1299,274 @@ region_enabled = true
 region_rect = Rect2( 576, 48, 16, 16 )
 _sections_unfolded = [ "Region" ]
 
+[node name="cliff-water-1" type="Sprite" parent="." index="144"]
+
+position = Vector2( 0, 1120 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 160, 272, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-water-2" type="Sprite" parent="." index="145"]
+
+position = Vector2( 32, 1120 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 160, 288, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-water-3" type="Sprite" parent="." index="146"]
+
+position = Vector2( 64, 1120 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 160, 304, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-water-4" type="Sprite" parent="." index="147"]
+
+position = Vector2( 96, 1120 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 160, 320, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-water-5" type="Sprite" parent="." index="148"]
+
+position = Vector2( 128, 1120 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 160, 336, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-1" type="Sprite" parent="." index="149"]
+
+position = Vector2( 0, 1152 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 112, 192, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-2" type="Sprite" parent="." index="150"]
+
+position = Vector2( 32, 1152 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 112, 176, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-3" type="Sprite" parent="." index="151"]
+
+position = Vector2( 64, 1152 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 128, 176, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-4" type="Sprite" parent="." index="152"]
+
+position = Vector2( 96, 1152 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 64, 144, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-5" type="Sprite" parent="." index="153"]
+
+position = Vector2( 128, 1152 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 64, 160, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-6" type="Sprite" parent="." index="154"]
+
+position = Vector2( 0, 1184 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 64, 176, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-7" type="Sprite" parent="." index="155"]
+
+position = Vector2( 32, 1184 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 64, 192, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-8" type="Sprite" parent="." index="156"]
+
+position = Vector2( 64, 1184 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 64, 208, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-9" type="Sprite" parent="." index="157"]
+
+position = Vector2( 96, 1184 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 64, 224, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-10" type="Sprite" parent="." index="158"]
+
+position = Vector2( 128, 1184 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 64, 240, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-11" type="Sprite" parent="." index="159"]
+
+position = Vector2( 0, 1216 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 80, 176, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-12" type="Sprite" parent="." index="160"]
+
+position = Vector2( 32, 1216 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 80, 192, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-13" type="Sprite" parent="." index="161"]
+
+position = Vector2( 64, 1216 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 80, 208, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-14" type="Sprite" parent="." index="162"]
+
+position = Vector2( 96, 1216 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 80, 224, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-15" type="Sprite" parent="." index="163"]
+
+position = Vector2( 128, 1216 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 80, 240, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-16" type="Sprite" parent="." index="164"]
+
+position = Vector2( 0, 1248 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 96, 144, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-17" type="Sprite" parent="." index="165"]
+
+position = Vector2( 32, 1248 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 96, 160, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-18" type="Sprite" parent="." index="166"]
+
+position = Vector2( 64, 1248 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 96, 176, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-19" type="Sprite" parent="." index="167"]
+
+position = Vector2( 96, 1248 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 96, 192, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-20" type="Sprite" parent="." index="168"]
+
+position = Vector2( 128, 1248 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 96, 208, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-21" type="Sprite" parent="." index="169"]
+
+position = Vector2( 160, 1248 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 96, 224, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-22" type="Sprite" parent="." index="170"]
+
+position = Vector2( 192, 1248 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 96, 240, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-23" type="Sprite" parent="." index="171"]
+
+position = Vector2( 0, 1280 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 112, 208, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-24" type="Sprite" parent="." index="172"]
+
+position = Vector2( 32, 1280 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 112, 224, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cliff-25" type="Sprite" parent="." index="173"]
+
+position = Vector2( 64, 1280 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 112, 240, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
 
