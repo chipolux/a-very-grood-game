@@ -1,0 +1,61 @@
+To start the game you choose your characters sprite, and you enter in a
+name for yourself.
+
+You wake up in a prison cell, you can see some other prisoners around
+in the other cells. You don't remember anything about who you are or
+why you're in prison.
+
+They slowly start getting taken away one by one and then dragged back
+all bloodied up and bruised and knocked out.
+
+You're starting to get worried about what will happend when they come
+for you.
+
+As they take the prisoner in the cell next to yours he struggles or something
+and the action manages to shake loose a brick in your cell's wall.
+
+Behind the brick is a note that says: "If you're reading this, you are the
+choosen one. Use this key, and meet me at {city name here}, to the East!"
+
+(Maybe you're not actually a big chosen one style hero, just some rando
+ that by chance got put in the wrong cell. And the guy you go to meet is
+ blind and sickly so they don't realize that you're not the right dude, and
+ they die right after giving you magical powers.)
+
+There is a key wrapped up in the note.
+
+You use the key to open your cell while the guards are away torturing
+another prisoner. In the opposite direction from where the guards took
+the other prisoners (torture chamber) is the exit to your cell block.
+
+Outside of your cell block you start having to do stealth stuff to make
+your way out of several levels of the prison.
+
+We should have multiple exits to the prison just to make it feel more
+like a real world. Maybe you get some goodies for exploring more of the
+prison and taking a specific exit.
+
+Prison should have about 3 levels.
+
+This generator might be good for inspiration.
+https://donjon.bin.sh/fantasy/dungeon/
+
+The prison is in a little town (exits at different parts of the town) and
+you can get more information about where the city you should go to is
+and where the meeting place is. (Maybe some wanted posters and stuff.)
+
+On the posters, maybe they are of the actual real hero but you just happen
+to have like, the same hair color and eyes but the nose is wrong or
+something.
+
+The city you go to next to meet the blind dude is about 3x the size of the little
+prison village. (Very roughly).
+
+Once you escape the prison the world should open up to you and you can go wherever
+you want, of course you'll probably die.
+
+Maybe to help if you forget what you should be doing you can talk to an old fortune
+teller lady and she'll say some vague junk about the next thing, like in Zeldor.
+
+Maybe you could have a journal that just says some stuff about how pretty you are.
+Or at least something about the last thing ya did to remind yourself.
