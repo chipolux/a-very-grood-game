@@ -17,15 +17,8 @@ var weapons = [
 ]
 
 var _textures = [
-	load("res://images/angel.png"),
 	load("res://images/gale.png"),
-	load("res://images/hobo.png"),
 	load("res://images/manny.png"),
-	load("res://images/shelby.png"),
-	load("res://images/shroom.png"),
-	load("res://images/top_hat.png"),
-	load("res://images/mohawk.png"),
-	load("res://images/azian.png"),
 ]
 var player_texture = _textures[0]
 var player_name
