@@ -4,7 +4,7 @@ const MOVEMENT_SPEED = 250
 
 var ui
 var current_anim = "stand_down"
-var velocity
+var velocity = Vector2()
 
 
 func _ready():
@@ -99,3 +99,11 @@ func attack_with_right_hand():
 	var direction = current_anim.split("_")[1]
 	if has_node("spell"):
 		get_node("spell").attack(direction)
+
+
+func hide_hud():
+	get_node("ui/hud").hide()
+
+
+func show_hud():
+	get_node("ui/hud").show()

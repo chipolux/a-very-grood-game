@@ -15,7 +15,7 @@ var target
 var anchor_point
 var interest_point
 var interest_timer
-var velocity
+var velocity = Vector2()
 var initial_hp
 var current_anim = "standing"
 
