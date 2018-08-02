@@ -12,12 +12,15 @@ func onReset(isTriggered):
 		reset = false
 		var cols = sheet.get_width() / tilesize
 		var rows = sheet.get_height() / tilesize
-		print(cols)
-		print(rows)
 		for i in range(cols * rows):
 			var x = (i % cols) * tilesize
 			var y = (i / cols) * tilesize
-			var tile = Sprite.new()
+			var tile
+			if has_node(str(i)):
+				tile = get_node(str(i))
+				remove_child(tile)
+			else:
+				tile = Sprite.new()
 			add_child(tile)
 			tile.set_owner(self)
 			tile.set_name(str(i))
