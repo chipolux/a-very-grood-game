@@ -1667,7 +1667,7 @@ region_rect = Rect2( 304, 144, 16, 16 )
 position = Vector2( 328, 152 )
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 311, 138, 16, 16 )
+region_rect = Rect2( 320, 144, 16, 16 )
 _sections_unfolded = [ "Region" ]
 
 [node name="237" type="Sprite" parent="." index="237"]

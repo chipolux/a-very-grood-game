@@ -7,10 +7,10 @@ path="res://.import/dungeon-tileset.png-8c621498d3977608678eeda18f2b7bd7.stex"
 [deps]
 
 source_file="res://tilesets/dungeon-tileset.png"
-source_md5="705679dbaf3952685fee6b8cf4f4aab3"
+source_md5="efed1cce715cfc061e16b2a3fac1c850"
 
 dest_files=[ "res://.import/dungeon-tileset.png-8c621498d3977608678eeda18f2b7bd7.stex" ]
-dest_md5="e06a35c00deb33067596cfbbb0856ff4"
+dest_md5="505ee5ff2a5801863793549818a9e44a"
 
 [params]
 
