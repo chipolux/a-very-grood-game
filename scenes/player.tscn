@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://images/shroom.png" type="Texture" id=2]
@@ -11,13 +11,17 @@
 [ext_resource path="res://animations/walk_up.tres" type="Animation" id=9]
 [ext_resource path="res://weapons/sword/sword.tscn" type="PackedScene" id=10]
 [ext_resource path="res://weapons/spell.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/weapon_select.gd" type="Script" id=12]
-[ext_resource path="res://images/selector.png" type="Texture" id=13]
-[ext_resource path="res://sounds/select.wav" type="AudioStream" id=14]
-[ext_resource path="res://scripts/convo_screen.gd" type="Script" id=15]
-[ext_resource path="res://images/face-left.png" type="Texture" id=16]
-[ext_resource path="res://images/face-right.png" type="Texture" id=17]
-[ext_resource path="res://scenes/menu.gd" type="Script" id=18]
+[ext_resource path="res://scripts/ui.gd" type="Script" id=12]
+[ext_resource path="res://scripts/convo_screen.gd" type="Script" id=13]
+[ext_resource path="res://addons/GodotTIE/text_interface_engine.gd" type="Script" id=14]
+[ext_resource path="res://addons/GodotTIE/GodotTIE_icon.png" type="Texture" id=15]
+[ext_resource path="res://fonts/Cave-Story.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://images/face-left.png" type="Texture" id=17]
+[ext_resource path="res://images/face-right.png" type="Texture" id=18]
+[ext_resource path="res://scenes/menu.gd" type="Script" id=19]
+[ext_resource path="res://scenes/weapon_select.gd" type="Script" id=20]
+[ext_resource path="res://images/selector.png" type="Texture" id=21]
+[ext_resource path="res://sounds/select.wav" type="AudioStream" id=22]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -340,7 +344,15 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="player" type="KinematicBody2D"]
+[sub_resource type="DynamicFont" id=13]
+
+size = 26
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 16 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[node name="player" type="KinematicBody2D" index="0"]
 
 position = Vector2( 0, -22 )
 input_pickable = false
@@ -477,42 +489,19 @@ editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Pause" ]
 
-[node name="weapon_select" type="Node2D" parent="." index="12"]
+[node name="ui" type="CanvasLayer" parent="." index="12"]
 
 pause_mode = 2
-editor/display_folded = true
-visible = false
-script = ExtResource( 12 )
-_sections_unfolded = [ "Pause" ]
-
-[node name="selector" type="Sprite" parent="weapon_select" index="0"]
-
-scale = Vector2( 4, 4 )
-texture = ExtResource( 13 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="select" type="AudioStreamPlayer" parent="weapon_select" index="1"]
-
-stream = ExtResource( 14 )
-volume_db = -30.0
-autoplay = false
-mix_target = 0
-bus = "ui"
-
-[node name="ui" type="CanvasLayer" parent="." index="13"]
-
-pause_mode = 2
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+script = ExtResource( 12 )
 _sections_unfolded = [ "Pause" ]
 
 [node name="convo_screen" type="Control" parent="ui" index="0"]
 
-editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -524,7 +513,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 15 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Anchor", "Pause" ]
 __meta__ = {
 "_edit_lock_": true
@@ -545,7 +534,6 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="convo_left" type="Panel" parent="ui/convo_screen" index="1"]
 
-editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -563,7 +551,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Visibility" ]
 
-[node name="text" type="RichTextLabel" parent="ui/convo_screen/convo_left" index="0"]
+[node name="text" type="ReferenceRect" parent="ui/convo_screen/convo_left" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -574,23 +562,25 @@ margin_top = 10.0
 margin_right = 340.0
 margin_bottom = 110.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-bbcode_enabled = true
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = ""
-scroll_active = false
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
-_sections_unfolded = [ "BBCode", "Rect" ]
+script = ExtResource( 14 )
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_editor_icon": ExtResource( 15 )
+}
+SCROLL_ON_MAX_LINES = true
+BREAK_ON_MAX_LINES = false
+AUTO_SKIP_WORDS = false
+LOG_SKIPPED_LINES = false
+SCROLL_SKIPPED_LINES = false
+FONT = SubResource( 13 )
+PRINT_INPUT = true
+BLINKING_INPUT = true
+INPUT_CHARACTERS_LIMIT = -1
 
 [node name="face" type="TextureRect" parent="ui/convo_screen/convo_left" index="1"]
 
@@ -608,14 +598,13 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
 [node name="convo_right" type="Panel" parent="ui/convo_screen" index="2"]
 
-editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -633,7 +622,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect", "Visibility" ]
 
-[node name="text" type="RichTextLabel" parent="ui/convo_screen/convo_right" index="0"]
+[node name="text" type="ReferenceRect" parent="ui/convo_screen/convo_right" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -644,23 +633,25 @@ margin_top = 10.0
 margin_right = 260.0
 margin_bottom = 110.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-bbcode_enabled = true
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = ""
-scroll_active = true
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
+script = ExtResource( 14 )
 _sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_editor_icon": ExtResource( 15 )
+}
+SCROLL_ON_MAX_LINES = false
+BREAK_ON_MAX_LINES = true
+AUTO_SKIP_WORDS = true
+LOG_SKIPPED_LINES = false
+SCROLL_SKIPPED_LINES = false
+FONT = SubResource( 13 )
+PRINT_INPUT = true
+BLINKING_INPUT = true
+INPUT_CHARACTERS_LIMIT = -1
 
 [node name="face" type="TextureRect" parent="ui/convo_screen/convo_right" index="1"]
 
@@ -679,7 +670,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 17 )
+texture = ExtResource( 18 )
 expand = true
 stretch_mode = 0
 
@@ -817,8 +808,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 18 )
-_sections_unfolded = [ "Rect" ]
+script = ExtResource( 19 )
+_sections_unfolded = [ "Pause", "Rect" ]
 
 [node name="bg" type="Panel" parent="ui/menu" index="0"]
 
@@ -1068,5 +1059,27 @@ text = "Quit"
 flat = false
 align = 1
 _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="weapon_select" type="Node2D" parent="ui" index="3"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 533, 300 )
+script = ExtResource( 20 )
+_sections_unfolded = [ "Pause", "Transform" ]
+
+[node name="selector" type="Sprite" parent="ui/weapon_select" index="0"]
+
+scale = Vector2( 4, 4 )
+texture = ExtResource( 21 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="select" type="AudioStreamPlayer" parent="ui/weapon_select" index="1"]
+
+stream = ExtResource( 22 )
+volume_db = -30.0
+autoplay = false
+mix_target = 0
+bus = "ui"
 
 

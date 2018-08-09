@@ -82,7 +82,7 @@ func set_player_weapon(i):
 	old_weapon.set_name("old_weapon")
 	old_weapon.queue_free()
 	add_child(instance)
-	get_node("weapon_select").current_index = i
+	get_node("ui/weapon_select").current_index = i
 
 
 func die():
