@@ -5,9 +5,11 @@ const MOVEMENT_SPEED = 250
 var ui
 var current_anim = "stand_down"
 var velocity = Vector2()
+var teleport_position
 
 
 func _ready():
+	get_node("special_player").connect("animation_finished", self, "_animation_finished")
 	get_node("sprite").set_texture(game_state.player_texture)
 	get_node("spell").projectile = game_state.projectiles[0]
 	set_player_weapon(0)
@@ -71,6 +73,10 @@ func _process_enemies():
 			get_node("hit_player").play("hit")
 
 
+func _animation_finished(name):
+	if name == "teleport":
+		_end_teleport()
+
 func set_player_sprite(texture):
 	get_node("sprite").set_texture(texture)
 
@@ -107,3 +113,18 @@ func hide_hud():
 
 func show_hud():
 	get_node("ui/hud").show()
+
+
+func teleport(new_pos):
+	teleport_position = new_pos
+	get_node("special_player").play("teleport")
+	get_tree().set_pause(true)
+
+
+func _perform_teleport():
+	position = teleport_position
+
+
+func _end_teleport():
+	teleport_position = null
+	get_tree().set_pause(false)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://images/shadow.png" type="Texture" id=2]
@@ -231,6 +231,39 @@ tracks/2/keys = {
 "values": [ 0.0, -5.0, 2.0, -3.0, -5.0, 4.0, -6.0, 2.0, 0.0 ]
 }
 
+[sub_resource type="Animation" id=14]
+
+resource_name = "teleport"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ui/black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_perform_teleport"
+} ]
+}
+
 [sub_resource type="Animation" id=10]
 
 length = 0.1
@@ -353,7 +386,7 @@ use_filter = false
 font_data = ExtResource( 17 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="player" type="KinematicBody2D" index="0"]
+[node name="player" type="KinematicBody2D"]
 
 position = Vector2( 0, -22 )
 input_pickable = false
@@ -458,13 +491,16 @@ blend_times = [  ]
 
 [node name="special_player" type="AnimationPlayer" parent="." index="9"]
 
+pause_mode = 2
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/level_up = SubResource( 9 )
+anims/teleport = SubResource( 14 )
 blend_times = [  ]
+_sections_unfolded = [ "Pause" ]
 
 [node name="weapon" parent="." index="10" instance=ExtResource( 11 )]
 
@@ -498,12 +534,11 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-_sections_unfolded = [ "Pause" ]
+_sections_unfolded = [ "Pause", "Transform" ]
 
 [node name="ui" type="CanvasLayer" parent="." index="13"]
 
 pause_mode = 2
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -514,6 +549,7 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="convo_screen" type="Control" parent="ui" index="0"]
 
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -702,7 +738,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "Visibility" ]
 
 [node name="hp" type="Label" parent="ui/hud" index="0"]
 
@@ -1072,7 +1108,39 @@ flat = false
 align = 1
 _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
-[node name="weapon_select" type="Node2D" parent="ui" index="3"]
+[node name="black" type="Control" parent="ui" index="3"]
+
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1066.0
+margin_bottom = 600.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Pause", "Rect", "Visibility" ]
+
+[node name="bg" type="Panel" parent="ui/black" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Margin" ]
+
+[node name="weapon_select" type="Node2D" parent="ui" index="4"]
 
 editor/display_folded = true
 visible = false
