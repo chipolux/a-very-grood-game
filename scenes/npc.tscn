@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/npc.gd" type="Script" id=1]
-[ext_resource path="res://images/e-key.png" type="Texture" id=2]
+[ext_resource path="res://images/shadow.png" type="Texture" id=2]
+[ext_resource path="res://images/e-key.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -22,7 +23,15 @@ hframes = 4
 frame = 1
 phrase = null
 
-[node name="sprite" type="Sprite" parent="." index="0"]
+[node name="shadow" type="Sprite" parent="." index="0"]
+
+modulate = Color( 1, 1, 1, 0.611765 )
+position = Vector2( 0, 27 )
+scale = Vector2( 1.75, 2 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="sprite" type="Sprite" parent="." index="1"]
 
 scale = Vector2( 3, 3 )
 vframes = 12
@@ -30,8 +39,10 @@ hframes = 6
 frame = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="body" type="StaticBody2D" parent="." index="1"]
+[node name="body" type="StaticBody2D" parent="." index="2"]
 
+editor/display_folded = true
+visible = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -44,9 +55,10 @@ bounce = 0.0
 
 shape = SubResource( 1 )
 
-[node name="interaction" type="Area2D" parent="." index="2"]
+[node name="interaction" type="Area2D" parent="." index="3"]
 
 editor/display_folded = true
+visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -59,11 +71,11 @@ audio_bus_name = "Master"
 
 shape = SubResource( 2 )
 
-[node name="interaction_key" type="Sprite" parent="." index="3"]
+[node name="interaction_key" type="Sprite" parent="." index="4"]
 
 visible = false
 position = Vector2( 0, -20 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 

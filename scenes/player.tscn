@@ -1,27 +1,28 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
-[ext_resource path="res://images/shroom.png" type="Texture" id=2]
-[ext_resource path="res://sounds/player_hit.wav" type="AudioStream" id=3]
-[ext_resource path="res://sounds/player_die.wav" type="AudioStream" id=4]
-[ext_resource path="res://sounds/level-up.wav" type="AudioStream" id=5]
-[ext_resource path="res://animations/walk_down.tres" type="Animation" id=6]
-[ext_resource path="res://animations/walk_left.tres" type="Animation" id=7]
-[ext_resource path="res://animations/walk_right.tres" type="Animation" id=8]
-[ext_resource path="res://animations/walk_up.tres" type="Animation" id=9]
-[ext_resource path="res://weapons/sword/sword.tscn" type="PackedScene" id=10]
-[ext_resource path="res://weapons/spell.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scripts/ui.gd" type="Script" id=12]
-[ext_resource path="res://scripts/convo_screen.gd" type="Script" id=13]
-[ext_resource path="res://addons/GodotTIE/text_interface_engine.gd" type="Script" id=14]
-[ext_resource path="res://addons/GodotTIE/GodotTIE_icon.png" type="Texture" id=15]
-[ext_resource path="res://fonts/Cave-Story.ttf" type="DynamicFontData" id=16]
-[ext_resource path="res://images/face-left.png" type="Texture" id=17]
-[ext_resource path="res://images/face-right.png" type="Texture" id=18]
-[ext_resource path="res://scenes/menu.gd" type="Script" id=19]
-[ext_resource path="res://scenes/weapon_select.gd" type="Script" id=20]
-[ext_resource path="res://images/selector.png" type="Texture" id=21]
-[ext_resource path="res://sounds/select.wav" type="AudioStream" id=22]
+[ext_resource path="res://images/shadow.png" type="Texture" id=2]
+[ext_resource path="res://images/manny.png" type="Texture" id=3]
+[ext_resource path="res://sounds/player_hit.wav" type="AudioStream" id=4]
+[ext_resource path="res://sounds/player_die.wav" type="AudioStream" id=5]
+[ext_resource path="res://sounds/level-up.wav" type="AudioStream" id=6]
+[ext_resource path="res://animations/walk_down.tres" type="Animation" id=7]
+[ext_resource path="res://animations/walk_left.tres" type="Animation" id=8]
+[ext_resource path="res://animations/walk_right.tres" type="Animation" id=9]
+[ext_resource path="res://animations/walk_up.tres" type="Animation" id=10]
+[ext_resource path="res://weapons/sword/sword.tscn" type="PackedScene" id=11]
+[ext_resource path="res://weapons/spell.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scripts/ui.gd" type="Script" id=13]
+[ext_resource path="res://scripts/convo_screen.gd" type="Script" id=14]
+[ext_resource path="res://addons/GodotTIE/text_interface_engine.gd" type="Script" id=15]
+[ext_resource path="res://addons/GodotTIE/GodotTIE_icon.png" type="Texture" id=16]
+[ext_resource path="res://fonts/Cave-Story.ttf" type="DynamicFontData" id=17]
+[ext_resource path="res://images/face-left.png" type="Texture" id=18]
+[ext_resource path="res://images/face-right.png" type="Texture" id=19]
+[ext_resource path="res://scenes/menu.gd" type="Script" id=20]
+[ext_resource path="res://scenes/weapon_select.gd" type="Script" id=21]
+[ext_resource path="res://images/selector.png" type="Texture" id=22]
+[ext_resource path="res://sounds/select.wav" type="AudioStream" id=23]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -349,7 +350,7 @@ tracks/1/keys = {
 size = 26
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 16 )
+font_data = ExtResource( 17 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [node name="player" type="KinematicBody2D" index="0"]
@@ -362,24 +363,32 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="sprite" type="Sprite" parent="." index="0"]
+[node name="shadow" type="Sprite" parent="." index="0"]
 
-position = Vector2( 2.5, 0 )
-scale = Vector2( 3, 3 )
+modulate = Color( 1, 1, 1, 0.611765 )
+position = Vector2( 0, 27 )
+scale = Vector2( 1.75, 2 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="sprite" type="Sprite" parent="." index="1"]
+
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
 vframes = 4
 hframes = 4
 frame = 1
-_sections_unfolded = [ "Animation", "Material", "Offset", "Visibility" ]
+_sections_unfolded = [ "Animation", "Material", "Offset", "Transform", "Visibility" ]
 
-[node name="shape" type="CollisionShape2D" parent="." index="1"]
+[node name="shape" type="CollisionShape2D" parent="." index="2"]
 
 visible = false
 shape = SubResource( 1 )
 
-[node name="hitbox" type="Area2D" parent="." index="2"]
+[node name="hitbox" type="Area2D" parent="." index="3"]
 
 editor/display_folded = true
+visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -395,31 +404,31 @@ audio_bus_name = "Master"
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="hit" type="AudioStreamPlayer" parent="." index="3"]
+[node name="hit" type="AudioStreamPlayer" parent="." index="4"]
 
-stream = ExtResource( 3 )
+stream = ExtResource( 4 )
 volume_db = -12.0
 autoplay = false
 mix_target = 0
 bus = "fx"
 
-[node name="die" type="AudioStreamPlayer" parent="." index="4"]
+[node name="die" type="AudioStreamPlayer" parent="." index="5"]
 
-stream = ExtResource( 4 )
+stream = ExtResource( 5 )
 volume_db = -10.0
 autoplay = false
 mix_target = 0
 bus = "fx"
 
-[node name="level_up" type="AudioStreamPlayer" parent="." index="5"]
+[node name="level_up" type="AudioStreamPlayer" parent="." index="6"]
 
-stream = ExtResource( 5 )
+stream = ExtResource( 6 )
 volume_db = -16.0
 autoplay = false
 mix_target = 0
 bus = "ui"
 
-[node name="anim" type="AnimationPlayer" parent="." index="6"]
+[node name="anim" type="AnimationPlayer" parent="." index="7"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -430,13 +439,13 @@ anims/stand_down = SubResource( 3 )
 anims/stand_left = SubResource( 4 )
 anims/stand_right = SubResource( 5 )
 anims/stand_up = SubResource( 6 )
-anims/walk_down = ExtResource( 6 )
-anims/walk_left = ExtResource( 7 )
-anims/walk_right = ExtResource( 8 )
-anims/walk_up = ExtResource( 9 )
+anims/walk_down = ExtResource( 7 )
+anims/walk_left = ExtResource( 8 )
+anims/walk_right = ExtResource( 9 )
+anims/walk_up = ExtResource( 10 )
 blend_times = [  ]
 
-[node name="hit_player" type="AnimationPlayer" parent="." index="7"]
+[node name="hit_player" type="AnimationPlayer" parent="." index="8"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -447,7 +456,7 @@ anims/die = SubResource( 7 )
 anims/hit = SubResource( 8 )
 blend_times = [  ]
 
-[node name="special_player" type="AnimationPlayer" parent="." index="8"]
+[node name="special_player" type="AnimationPlayer" parent="." index="9"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -457,11 +466,13 @@ playback_speed = 1.0
 anims/level_up = SubResource( 9 )
 blend_times = [  ]
 
-[node name="weapon" parent="." index="9" instance=ExtResource( 10 )]
+[node name="weapon" parent="." index="10" instance=ExtResource( 11 )]
 
-[node name="spell" parent="." index="10" instance=ExtResource( 11 )]
+visible = false
 
-[node name="camera" type="Camera2D" parent="." index="11"]
+[node name="spell" parent="." index="11" instance=ExtResource( 12 )]
+
+[node name="camera" type="Camera2D" parent="." index="12"]
 
 pause_mode = 2
 z_index = 100
@@ -489,15 +500,16 @@ editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Pause" ]
 
-[node name="ui" type="CanvasLayer" parent="." index="12"]
+[node name="ui" type="CanvasLayer" parent="." index="13"]
 
 pause_mode = 2
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-script = ExtResource( 12 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Pause" ]
 
 [node name="convo_screen" type="Control" parent="ui" index="0"]
@@ -513,7 +525,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 13 )
+script = ExtResource( 14 )
 _sections_unfolded = [ "Anchor", "Pause" ]
 __meta__ = {
 "_edit_lock_": true
@@ -567,10 +579,10 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 _sections_unfolded = [ "Rect" ]
 __meta__ = {
-"_editor_icon": ExtResource( 15 )
+"_editor_icon": ExtResource( 16 )
 }
 SCROLL_ON_MAX_LINES = true
 BREAK_ON_MAX_LINES = false
@@ -598,7 +610,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 17 )
+texture = ExtResource( 18 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
@@ -638,10 +650,10 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 _sections_unfolded = [ "Rect" ]
 __meta__ = {
-"_editor_icon": ExtResource( 15 )
+"_editor_icon": ExtResource( 16 )
 }
 SCROLL_ON_MAX_LINES = false
 BREAK_ON_MAX_LINES = true
@@ -670,7 +682,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 expand = true
 stretch_mode = 0
 
@@ -808,7 +820,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 19 )
+script = ExtResource( 20 )
 _sections_unfolded = [ "Pause", "Rect" ]
 
 [node name="bg" type="Panel" parent="ui/menu" index="0"]
@@ -1065,18 +1077,18 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 editor/display_folded = true
 visible = false
 position = Vector2( 533, 300 )
-script = ExtResource( 20 )
+script = ExtResource( 21 )
 _sections_unfolded = [ "Pause", "Transform" ]
 
 [node name="selector" type="Sprite" parent="ui/weapon_select" index="0"]
 
 scale = Vector2( 4, 4 )
-texture = ExtResource( 21 )
+texture = ExtResource( 22 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="select" type="AudioStreamPlayer" parent="ui/weapon_select" index="1"]
 
-stream = ExtResource( 22 )
+stream = ExtResource( 23 )
 volume_db = -30.0
 autoplay = false
 mix_target = 0
