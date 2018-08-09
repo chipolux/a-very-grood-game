@@ -19,7 +19,7 @@ func _on_tag(tag):
 		all_text_shown = true
 
 func handle_input(event):
-	if all_text_shown:
+	if event.is_action_pressed("ui_accept") and all_text_shown:
 		end_conversation()
 
 func play_text(anim_name):

@@ -1,12 +1,11 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://scenes/bridge.gd" type="Script" id=1]
-[ext_resource path="res://tilesets/overworld-tileset.tres" type="TileSet" id=2]
-[ext_resource path="res://enemies/slime.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scripts/transition.gd" type="Script" id=5]
-[ext_resource path="res://scenes/npc.tscn" type="PackedScene" id=6]
-[ext_resource path="res://images/mohawk.png" type="Texture" id=7]
+[ext_resource path="res://tilesets/overworld-tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://enemies/slime.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/transition.gd" type="Script" id=4]
+[ext_resource path="res://scenes/npc.tscn" type="PackedScene" id=5]
+[ext_resource path="res://images/mohawk.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -63,99 +62,13 @@ extents = Vector2( 36.1738, 7.40579 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="Animation" id=12]
-
-resource_name = "opening"
-length = 5.0
-loop = false
-step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath("player")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "hide_hud"
-}, {
-"args": [  ],
-"method": "show_hud"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("player/blackout:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 4.4, 5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("player/blackout:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("player/overlay-label:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("player/overlay-label:text")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.8, 1.6, 2.4, 3, 3.05, 3.1, 3.15, 3.2, 3.25, 3.45, 3.5, 3.55, 3.6, 3.65, 3.7, 3.75, 3.8, 3.85, 3.9, 3.95 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ "", ".", ". .", ". . .", "U", "Ug", "Ugh", "Ugh.", "Ugh..", "Ugh...", "Ugh... W", "Ugh... Wh", "Ugh... Whe", "Ugh... Wher", "Ugh... Where", "Ugh... Where ", "Ugh... Where a", "Ugh... Where am", "Ugh... Where am ", "Ugh... Where am I", "Ugh... Where am I?" ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("player/overlay-label:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 4.15, 5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0.916666 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-
 [node name="bridge" type="Node2D" index="0"]
-
-script = ExtResource( 1 )
 
 [node name="lowest" type="TileMap" parent="." index="0"]
 
 scale = Vector2( 4, 4 )
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 1
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -176,7 +89,7 @@ tile_data = PoolIntArray( -524309, 0, 0, -524308, 0, 0, -524307, 0, 0, -524306, 
 
 scale = Vector2( 4, 4 )
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 1
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -193,23 +106,23 @@ occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( -524304, 165, 0, -524303, 171, 0, -458773, 159, 0, -458772, 159, 0, -458771, 159, 0, -458770, 159, 0, -458769, 159, 0, -458768, 166, 0, -458767, 172, 0, -393237, 160, 0, -393236, 161, 0, -393235, 161, 0, -393234, 160, 0, -393233, 150, 0, -393232, 167, 0, -393231, 172, 0, -327701, 162, 0, -327700, 162, 0, -327699, 162, 0, -327698, 162, 0, -327697, 149, 0, -327696, 169, 0, -327695, 172, 0, -393214, 75, 0, -393213, 76, 0, -393211, 75, 0, -393210, 76, 0, -262165, 163, 0, -262164, 170, 0, -262163, 170, 0, -262162, 170, 0, -262161, 163, 0, -262160, 163, 0, -262159, 173, 0, -262146, 107, 0, -262145, 108, 0, -327680, 108, 0, -327679, 79, 0, -327678, 80, 0, -327677, 78, 0, -327676, 79, 0, -327675, 80, 0, -327674, 78, 0, -327673, 79, 0, -196610, 110, 0, -196609, 111, 0, -262144, 111, 0, -262143, 83, 0, -262142, 83, 0, -262141, 83, 0, -262140, 83, 0, -262139, 83, 0, -262138, 83, 0, -262137, 83, 0, -131074, 111, 0, -131073, 143, 0, -196608, 111, 0, -196607, 83, 0, -196606, 83, 0, -196605, 83, 0, -196604, 83, 0, -196603, 83, 0, -196602, 83, 0, -196601, 83, 0, -2, 119, 0, -1, 142, 0, -65536, 121, 0, -65535, 131, 0, 65534, 125, 0, 65535, 137, 0, 0, 127, 0, 1, 132, 0, 131070, 128, 0, 131071, 129, 0, 65536, 130, 0, 65537, 133, 0 )
 
-[node name="slime1" parent="." index="2" instance=ExtResource( 3 )]
+[node name="slime1" parent="." index="2" instance=ExtResource( 2 )]
 
 position = Vector2( -980.268, 173.737 )
 
-[node name="slime2" parent="." index="3" instance=ExtResource( 3 )]
+[node name="slime2" parent="." index="3" instance=ExtResource( 2 )]
 
 position = Vector2( -1325.16, -27.5118 )
 
-[node name="slime3" parent="." index="4" instance=ExtResource( 3 )]
+[node name="slime3" parent="." index="4" instance=ExtResource( 2 )]
 
 position = Vector2( -1243.98, 201.181 )
 
-[node name="player" parent="." index="5" instance=ExtResource( 4 )]
+[node name="player" parent="." index="5" instance=ExtResource( 3 )]
 
 position = Vector2( -753.83, -76.9529 )
 
-[node name="blackout" type="Panel" parent="player" index="14"]
+[node name="blackout" type="Panel" parent="player" index="13"]
 
 visible = false
 modulate = Color( 1, 1, 1, 0 )
@@ -229,7 +142,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect", "Visibility" ]
 
-[node name="overlay-label" type="Label" parent="player" index="15"]
+[node name="overlay-label" type="Label" parent="player" index="14"]
 
 visible = false
 modulate = Color( 1, 1, 1, 0 )
@@ -260,7 +173,7 @@ _sections_unfolded = [ "Rect", "Visibility" ]
 
 scale = Vector2( 4, 4 )
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 1
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -281,7 +194,7 @@ tile_data = PoolIntArray( -131074, 113, 0, -131073, 114, 0, -196608, 114, 0, -19
 
 scale = Vector2( 4, 4 )
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 1
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -409,7 +322,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -419,23 +332,11 @@ scene = "res://scenes/dungeon.tscn"
 
 shape = SubResource( 11 )
 
-[node name="npc" parent="." index="12" instance=ExtResource( 6 )]
+[node name="npc" parent="." index="12" instance=ExtResource( 5 )]
 
 position = Vector2( 57.3083, 104.64 )
 _sections_unfolded = [ "Visibility" ]
-texture = ExtResource( 7 )
-phrase = "Mah boi!"
-
-[node name="scene-animations" type="AnimationPlayer" parent="." index="13"]
-
-pause_mode = 2
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
-anims/opening = SubResource( 12 )
-blend_times = [  ]
-_sections_unfolded = [ "Pause" ]
+texture = ExtResource( 6 )
+phrase = "Mah boi! You seem to have lost your way out here in the wilderness! But not to worry, if you cross this bridge you will head into the town of Bigglepibble, the hub of the local area. Or you could head back to the West and take a look at the prison and it's tiny village."
 
 
