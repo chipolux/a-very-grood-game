@@ -1,11 +1,12 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://enemies/slime.gd" type="Script" id=1]
-[ext_resource path="res://images/slime.png" type="Texture" id=2]
-[ext_resource path="res://images/health-bar.png" type="Texture" id=3]
-[ext_resource path="res://enemies/slime-hit.wav" type="AudioStream" id=4]
-[ext_resource path="res://enemies/slime-die.wav" type="AudioStream" id=5]
-[ext_resource path="res://enemies/slime-alert.wav" type="AudioStream" id=6]
+[ext_resource path="res://images/shadow.png" type="Texture" id=2]
+[ext_resource path="res://images/slime.png" type="Texture" id=3]
+[ext_resource path="res://images/health-bar.png" type="Texture" id=4]
+[ext_resource path="res://enemies/slime-hit.wav" type="AudioStream" id=5]
+[ext_resource path="res://enemies/slime-die.wav" type="AudioStream" id=6]
+[ext_resource path="res://enemies/slime-alert.wav" type="AudioStream" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -35,6 +36,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("shadow:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 1.5, 1.75 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("shadow:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0, 10 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 
@@ -52,6 +77,42 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("shadow:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1.5, 1.75 ), Vector2( 1.75, 2 ), Vector2( 1, 1 ), Vector2( 1.5, 1.75 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("shadow:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 10 ), Vector2( 0, 9.5 ), Vector2( 0, 11.5 ), Vector2( 0, 9.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("shadow:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.627451 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -71,6 +132,42 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 8, 9, 10, 11 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("shadow:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1.5, 1.75 ), Vector2( 1.75, 2 ), Vector2( 1, 1 ), Vector2( 1.5, 1.75 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("shadow:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 10 ), Vector2( 0, 9.5 ), Vector2( 0, 11.5 ), Vector2( 0, 9.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("shadow:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.627451 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=6]
 
@@ -88,6 +185,42 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 4, 5, 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("shadow:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1.5, 1.75 ), Vector2( 1.75, 2 ), Vector2( 1, 1 ), Vector2( 1.5, 1.75 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("shadow:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 10 ), Vector2( 0, 9.5 ), Vector2( 0, 11.5 ), Vector2( 0, 9.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("shadow:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.627451 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -107,10 +240,45 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 12, 13, 14, 15 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("shadow:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1.5, 1.75 ), Vector2( 1.75, 2 ), Vector2( 1, 1 ), Vector2( 1.5, 1.75 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("shadow:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 10 ), Vector2( 0, 9.5 ), Vector2( 0, 11.5 ), Vector2( 0, 9.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("shadow:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.627451 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=8]
 
-resource_name = "die"
 length = 0.2
 loop = false
 step = 0.05
@@ -157,7 +325,6 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=9]
 
-resource_name = "hit"
 length = 0.2
 loop = false
 step = 0.05
@@ -225,30 +392,38 @@ shape = SubResource( 1 )
 
 shape = SubResource( 2 )
 
-[node name="sprite" type="Sprite" parent="." index="2"]
+[node name="shadow" type="Sprite" parent="." index="2"]
+
+position = Vector2( 0, 10 )
+scale = Vector2( 1.5, 1.75 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="sprite" type="Sprite" parent="." index="3"]
 
 position = Vector2( 4.5, -13 )
 scale = Vector2( 3, 3 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 vframes = 4
 hframes = 4
+frame = 12
 _sections_unfolded = [ "Animation", "Region", "Transform", "Visibility" ]
 
-[node name="health-bar" type="Sprite" parent="." index="3"]
+[node name="health-bar" type="Sprite" parent="." index="4"]
 
 visible = false
 position = Vector2( 0, -20 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
-[node name="interest_timer" type="Timer" parent="." index="4"]
+[node name="interest_timer" type="Timer" parent="." index="5"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="anim_player" type="AnimationPlayer" parent="." index="5"]
+[node name="anim_player" type="AnimationPlayer" parent="." index="6"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -262,7 +437,7 @@ anims/walk_right = SubResource( 6 )
 anims/walk_up = SubResource( 7 )
 blend_times = [  ]
 
-[node name="hit_player" type="AnimationPlayer" parent="." index="6"]
+[node name="hit_player" type="AnimationPlayer" parent="." index="7"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -274,25 +449,25 @@ anims/hit = SubResource( 9 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
-[node name="hit_sound" type="AudioStreamPlayer" parent="." index="7"]
+[node name="hit_sound" type="AudioStreamPlayer" parent="." index="8"]
 
-stream = ExtResource( 4 )
+stream = ExtResource( 5 )
 volume_db = -19.0
 autoplay = false
 mix_target = 0
 bus = "fx"
 
-[node name="die_sound" type="AudioStreamPlayer" parent="." index="8"]
+[node name="die_sound" type="AudioStreamPlayer" parent="." index="9"]
 
-stream = ExtResource( 5 )
+stream = ExtResource( 6 )
 volume_db = -12.0
 autoplay = false
 mix_target = 0
 bus = "fx"
 
-[node name="alert_sound" type="AudioStreamPlayer" parent="." index="9"]
+[node name="alert_sound" type="AudioStreamPlayer" parent="." index="10"]
 
-stream = ExtResource( 6 )
+stream = ExtResource( 7 )
 volume_db = -14.0
 autoplay = false
 mix_target = 0
