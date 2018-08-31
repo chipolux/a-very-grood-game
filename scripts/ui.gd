@@ -10,6 +10,7 @@ func _ready():
 	convo_screen.connect("done", self, "_screen_closed")
 	menu.connect("done", self, "_screen_closed")
 	weapon_select.connect("done", self, "_screen_closed")
+	get_node("black").hide()
 
 
 func _input(event):

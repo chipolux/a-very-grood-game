@@ -391,6 +391,7 @@ _sections_unfolded = [ "Transform" ]
 
 stream = ExtResource( 4 )
 volume_db = -12.0
+pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "fx"
@@ -399,6 +400,7 @@ bus = "fx"
 
 stream = ExtResource( 5 )
 volume_db = -10.0
+pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "fx"
@@ -407,6 +409,7 @@ bus = "fx"
 
 stream = ExtResource( 6 )
 volume_db = -16.0
+pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "ui"
@@ -499,6 +502,7 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="convo_screen" type="Control" parent="ui" index="0"]
 
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -738,7 +742,6 @@ _sections_unfolded = [ "Anchor", "Margin" ]
 
 [node name="volume_grid" type="GridContainer" parent="ui/menu" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
@@ -974,6 +977,7 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 [node name="black" type="Control" parent="ui" index="3"]
 
 editor/display_folded = true
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1021,6 +1025,7 @@ _sections_unfolded = [ "Transform" ]
 
 stream = ExtResource( 21 )
 volume_db = -30.0
+pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "ui"
