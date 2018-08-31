@@ -98,7 +98,7 @@ __meta__ = {
 
 [node name="player" parent="." index="3" instance=ExtResource( 2 )]
 
-position = Vector2( 7204.27, 212.477 )
+position = Vector2( 6830.33, 2570.2 )
 
 [node name="behind walls" type="TileMap" parent="." index="4"]
 
@@ -695,31 +695,7 @@ destination = NodePath("../stairs1>2")
 
 shape = SubResource( 3 )
 
-[node name="stairs3" type="Area2D" parent="." index="10"]
-
-editor/display_folded = true
-position = Vector2( 6813.2, 2320.36 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-collision_layer = 1025
-collision_mask = 1025
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 3 )
-_sections_unfolded = [ "Audio Bus", "Collision" ]
-__meta__ = {
-"_edit_group_": true
-}
-destination = NodePath("../stairs2>3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="stairs3" index="0"]
-
-shape = SubResource( 3 )
-
-[node name="stairs2" type="Area2D" parent="." index="11"]
+[node name="stairs2" type="Area2D" parent="." index="10"]
 
 editor/display_folded = true
 position = Vector2( 7196.92, -779.25 )
@@ -743,16 +719,124 @@ destination = NodePath("../stairs2>1")
 
 shape = SubResource( 3 )
 
-[node name="stairs1>2" type="Node2D" parent="." index="12"]
+[node name="stairs3" type="Area2D" parent="." index="11"]
+
+editor/display_folded = true
+position = Vector2( 6813.2, 2320.36 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 1025
+collision_mask = 1025
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 3 )
+_sections_unfolded = [ "Audio Bus", "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+destination = NodePath("../stairs2>3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stairs3" index="0"]
+
+shape = SubResource( 3 )
+
+[node name="stairs4" type="Area2D" parent="." index="12"]
+
+editor/display_folded = true
+position = Vector2( 5019.81, 6911.03 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 1025
+collision_mask = 1025
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 3 )
+_sections_unfolded = [ "Audio Bus", "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+destination = NodePath("../stairs3>2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stairs4" index="0"]
+
+shape = SubResource( 3 )
+
+[node name="stairs5" type="Area2D" parent="." index="13"]
+
+editor/display_folded = true
+position = Vector2( 5824.31, 3066.75 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 1025
+collision_mask = 1025
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 3 )
+_sections_unfolded = [ "Audio Bus", "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+destination = NodePath("../stairs2_1>3_1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stairs5" index="0"]
+
+shape = SubResource( 3 )
+
+[node name="stairs6" type="Area2D" parent="." index="14"]
+
+editor/display_folded = true
+position = Vector2( 5374.35, 8447.97 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 1025
+collision_mask = 1025
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 3 )
+_sections_unfolded = [ "Audio Bus", "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+destination = NodePath("../stairs3_1>2_1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stairs6" index="0"]
+
+shape = SubResource( 3 )
+
+[node name="stairs1>2" type="Node2D" parent="." index="15"]
 
 position = Vector2( 7200.44, -682.092 )
 
-[node name="stairs2>1" type="Node2D" parent="." index="13"]
+[node name="stairs2>1" type="Node2D" parent="." index="16"]
 
 position = Vector2( 1916.4, 19.1768 )
 
-[node name="stairs2>3" type="Node2D" parent="." index="14"]
+[node name="stairs2>3" type="Node2D" parent="." index="17"]
 
-position = Vector2( 6812.83, 2318.06 )
+position = Vector2( 5026.28, 6991.38 )
+
+[node name="stairs2_1>3_1" type="Node2D" parent="." index="18"]
+
+position = Vector2( 5304.72, 8442.29 )
+
+[node name="stairs3>2" type="Node2D" parent="." index="19"]
+
+position = Vector2( 6806.51, 2375.02 )
+
+[node name="stairs3_1>2_1" type="Node2D" parent="." index="20"]
+
+position = Vector2( 5945.51, 3069.86 )
 
 
