@@ -7,10 +7,7 @@ path="res://.import/spell-summon.wav-3d82b43f3c947d1fcd2e7917e3bfb7cb.sample"
 [deps]
 
 source_file="res://sounds/spell-summon.wav"
-source_md5="aa74efb98d2f429749531bdb226c08e8"
-
 dest_files=[ "res://.import/spell-summon.wav-3d82b43f3c947d1fcd2e7917e3bfb7cb.sample" ]
-dest_md5="a944179c0b336c193a4e6f1b8e0c84a3"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/swipe_down.png-25de2e3d3584310e9b66152ce26460ae.stex"
 [deps]
 
 source_file="res://weapons/sword/swipe_down.png"
-source_md5="d8d8c362fc985b13b213eb3ef9dcd9bd"
-
 dest_files=[ "res://.import/swipe_down.png-25de2e3d3584310e9b66152ce26460ae.stex" ]
-dest_md5="49f8156a208b575d9f64f96bce6ffbd5"
 
 [params]
 

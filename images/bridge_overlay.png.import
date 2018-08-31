@@ -7,10 +7,7 @@ path="res://.import/bridge_overlay.png-5cc4383665935fec96a61b31dfc386e0.stex"
 [deps]
 
 source_file="res://images/bridge_overlay.png"
-source_md5="f1298228ad55d67b96e9270eedc69e45"
-
 dest_files=[ "res://.import/bridge_overlay.png-5cc4383665935fec96a61b31dfc386e0.stex" ]
-dest_md5="f00e495b8972cc04af7db7f7805ff22a"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/GodotTIE_icon.png-06c5755e573090fa68219dcd4c5b75cc.stex"
 [deps]
 
 source_file="res://addons/GodotTIE/GodotTIE_icon.png"
-source_md5="965ce8c98495a6a5718cb880b29007de"
-
 dest_files=[ "res://.import/GodotTIE_icon.png-06c5755e573090fa68219dcd4c5b75cc.stex" ]
-dest_md5="c3ce174c09c05d2b995ec2933e6b0599"
 
 [params]
 

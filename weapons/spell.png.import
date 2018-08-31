@@ -7,10 +7,7 @@ path="res://.import/spell.png-bdbd1f9ce417ee8b9582544f7fea29bb.stex"
 [deps]
 
 source_file="res://weapons/spell.png"
-source_md5="9e221df8a38d78a6fa6f8c356a9c66e0"
-
 dest_files=[ "res://.import/spell.png-bdbd1f9ce417ee8b9582544f7fea29bb.stex" ]
-dest_md5="c648c14e29c33fdb320c8edd426f21a7"
 
 [params]
 

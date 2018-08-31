@@ -7,10 +7,7 @@ path="res://.import/mohawk.png-a2b9994509197fb9c309a16cad5b9ef8.stex"
 [deps]
 
 source_file="res://images/mohawk.png"
-source_md5="862708b2aa863c1396d228259016409a"
-
 dest_files=[ "res://.import/mohawk.png-a2b9994509197fb9c309a16cad5b9ef8.stex" ]
-dest_md5="e2d80efdd32fca15b1ed57bcf263f98a"
 
 [params]
 

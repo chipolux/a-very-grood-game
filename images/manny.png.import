@@ -7,10 +7,7 @@ path="res://.import/manny.png-cd1cedd05a7dfe2e5849663130cf0085.stex"
 [deps]
 
 source_file="res://images/manny.png"
-source_md5="99181d53b9db6ca8dbfaa4a3ba75f8ca"
-
 dest_files=[ "res://.import/manny.png-cd1cedd05a7dfe2e5849663130cf0085.stex" ]
-dest_md5="b3cea1a40ff02a9c759efed32dd2f58c"
 
 [params]
 

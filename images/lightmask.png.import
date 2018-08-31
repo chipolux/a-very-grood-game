@@ -7,10 +7,7 @@ path="res://.import/lightmask.png-0f725cd083c278b0272054d509a287af.stex"
 [deps]
 
 source_file="res://images/lightmask.png"
-source_md5="9578af169d1ecc60aa5774fac7ef193e"
-
 dest_files=[ "res://.import/lightmask.png-0f725cd083c278b0272054d509a287af.stex" ]
-dest_md5="e4302f126f9ffbeac95bf48c147b6aea"
 
 [params]
 

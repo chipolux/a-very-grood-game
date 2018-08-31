@@ -7,10 +7,7 @@ path="res://.import/level-up.wav-a2e41551fe57990289e1f8565b5b8cb3.sample"
 [deps]
 
 source_file="res://sounds/level-up.wav"
-source_md5="aade3e781c3bde340341be3c2a59f3f4"
-
 dest_files=[ "res://.import/level-up.wav-a2e41551fe57990289e1f8565b5b8cb3.sample" ]
-dest_md5="e83add1e9d3c9663129336204c88edc5"
 
 [params]
 

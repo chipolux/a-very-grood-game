@@ -7,10 +7,7 @@ path="res://.import/selector.png-9cecb26346013893d9713593b3653426.stex"
 [deps]
 
 source_file="res://images/selector.png"
-source_md5="66d42ba53683abdf1c1230e5ee446d6b"
-
 dest_files=[ "res://.import/selector.png-9cecb26346013893d9713593b3653426.stex" ]
-dest_md5="78cab3d406e521e0e642d68a15190bba"
 
 [params]
 

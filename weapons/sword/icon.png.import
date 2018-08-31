@@ -7,10 +7,7 @@ path="res://.import/icon.png-dbd3ddbec413dc74306b0577b898af76.stex"
 [deps]
 
 source_file="res://weapons/sword/icon.png"
-source_md5="f5410fac2f712da08964947e1a7f9b49"
-
 dest_files=[ "res://.import/icon.png-dbd3ddbec413dc74306b0577b898af76.stex" ]
-dest_md5="a8c8e95a9b2eedb7cb7b3257584d50fb"
 
 [params]
 

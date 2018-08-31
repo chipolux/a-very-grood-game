@@ -7,10 +7,7 @@ path="res://.import/swipe_left_hammer.png-1247d89b0a981264938cfffb14eaca56.stex"
 [deps]
 
 source_file="res://weapons/hammer/swipe_left_hammer.png"
-source_md5="35402a72279d677a8e091ca8d4cdb6ac"
-
 dest_files=[ "res://.import/swipe_left_hammer.png-1247d89b0a981264938cfffb14eaca56.stex" ]
-dest_md5="f06c10a6d70af301db9fdd22da053a04"
 
 [params]
 

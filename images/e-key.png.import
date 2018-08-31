@@ -7,10 +7,7 @@ path="res://.import/e-key.png-d3df64d681fdda153c173dfe83ddd96a.stex"
 [deps]
 
 source_file="res://images/e-key.png"
-source_md5="35564ab3d7af6bccd98917280bb94163"
-
 dest_files=[ "res://.import/e-key.png-d3df64d681fdda153c173dfe83ddd96a.stex" ]
-dest_md5="9eb1fa48ab1c7b117e25def4827e4e26"
 
 [params]
 

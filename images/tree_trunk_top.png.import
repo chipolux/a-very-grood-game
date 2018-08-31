@@ -7,10 +7,7 @@ path="res://.import/tree_trunk_top.png-f4511698b83633f7cab78fe9b329ca48.stex"
 [deps]
 
 source_file="res://images/tree_trunk_top.png"
-source_md5="459aa7559f3a487a4d04c28c8166488d"
-
 dest_files=[ "res://.import/tree_trunk_top.png-f4511698b83633f7cab78fe9b329ca48.stex" ]
-dest_md5="f847819840919e45e84fedc49166c6df"
 
 [params]
 

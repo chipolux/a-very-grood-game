@@ -7,10 +7,7 @@ path="res://.import/azian.png-c995849f22115a153d268c0f015ec1b3.stex"
 [deps]
 
 source_file="res://images/azian.png"
-source_md5="52d72bc339c18f765b54d66cad01676e"
-
 dest_files=[ "res://.import/azian.png-c995849f22115a153d268c0f015ec1b3.stex" ]
-dest_md5="c4d53c69ec9aa72e1726c0ff535e560b"
 
 [params]
 

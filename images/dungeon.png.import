@@ -7,10 +7,7 @@ path="res://.import/dungeon.png-6e1a1b3c42fb73b9e010cdcc6b328023.stex"
 [deps]
 
 source_file="res://images/dungeon.png"
-source_md5="9d6989b5fd4f758d066a8a9e38ced5a1"
-
 dest_files=[ "res://.import/dungeon.png-6e1a1b3c42fb73b9e010cdcc6b328023.stex" ]
-dest_md5="46cbdc48449964a436d3cce27aaec3ca"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/slime-hit.wav-8120d02fd32194b984a8c389fa9340ca.sample"
 [deps]
 
 source_file="res://enemies/slime-hit.wav"
-source_md5="3191688a8f845bb428715dbb8e74d4f7"
-
 dest_files=[ "res://.import/slime-hit.wav-8120d02fd32194b984a8c389fa9340ca.sample" ]
-dest_md5="1839ca274481981412e29b6f81cd67bb"
 
 [params]
 

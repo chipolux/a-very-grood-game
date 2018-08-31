@@ -7,10 +7,7 @@ path="res://.import/shelby.png-119fef3fbde7205e2c66e744c7bc1a21.stex"
 [deps]
 
 source_file="res://images/shelby.png"
-source_md5="93765c6102f68b5c448f49a6992796e7"
-
 dest_files=[ "res://.import/shelby.png-119fef3fbde7205e2c66e744c7bc1a21.stex" ]
-dest_md5="a84c7c5588acfee41f11f859df6bd0fd"
 
 [params]
 
