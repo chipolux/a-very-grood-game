@@ -9,12 +9,12 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 11.2271 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 23.2517 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -98,7 +98,7 @@ __meta__ = {
 
 [node name="player" parent="." index="3" instance=ExtResource( 2 )]
 
-position = Vector2( 3648.67, 2570.2 )
+position = Vector2( 7204.27, 212.477 )
 
 [node name="behind walls" type="TileMap" parent="." index="4"]
 
@@ -170,7 +170,6 @@ polygon = PoolVector2Array( -190.092, 506.168, 10, 457.5, -85, 307.5, -5, 230, -
 [node name="walls second level" type="StaticBody2D" parent="." index="7"]
 
 editor/display_folded = true
-visible = false
 scale = Vector2( 4, 4 )
 input_pickable = false
 collision_layer = 1
@@ -387,7 +386,6 @@ shape = SubResource( 1 )
 [node name="walls third level" type="StaticBody2D" parent="." index="8"]
 
 editor/display_folded = true
-visible = false
 scale = Vector2( 4, 4 )
 input_pickable = false
 collision_layer = 1
@@ -401,277 +399,277 @@ bounce = 0.0
 
 position = Vector2( 462.686, 1293.58 )
 scale = Vector2( 4.83383, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 2" type="CollisionShape2D" parent="walls third level" index="1"]
 
 position = Vector2( 655.248, 1197.49 )
 scale = Vector2( 4.83383, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 3" type="CollisionShape2D" parent="walls third level" index="2"]
 
 position = Vector2( 967.569, 1293.58 )
 scale = Vector2( 26.4862, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 4" type="CollisionShape2D" parent="walls third level" index="3"]
 
 position = Vector2( 1255.61, 1197.26 )
 scale = Vector2( 7.30175, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 5" type="CollisionShape2D" parent="walls third level" index="4"]
 
 position = Vector2( 967.884, 1485.44 )
 scale = Vector2( 7.30175, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 6" type="CollisionShape2D" parent="walls third level" index="5"]
 
 position = Vector2( 1159.75, 1581.39 )
 scale = Vector2( 7.30175, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 7" type="CollisionShape2D" parent="walls third level" index="6"]
 
 position = Vector2( 1255.62, 1677.61 )
 scale = Vector2( 7.30175, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 8" type="CollisionShape2D" parent="walls third level" index="7"]
 
 position = Vector2( 944.8, 1581.8 )
 scale = Vector2( 9.58037, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 9" type="CollisionShape2D" parent="walls third level" index="8"]
 
 position = Vector2( 991.03, 1773.73 )
 scale = Vector2( 9.58037, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 10" type="CollisionShape2D" parent="walls third level" index="9"]
 
 position = Vector2( 1159.09, 1964.93 )
 scale = Vector2( 16.8275, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 11" type="CollisionShape2D" parent="walls third level" index="10"]
 
 position = Vector2( 1351.07, 2061.36 )
 scale = Vector2( 16.8275, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 12" type="CollisionShape2D" parent="walls third level" index="11"]
 
 position = Vector2( 1229.43, 2157.72 )
 scale = Vector2( 16.8275, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 13" type="CollisionShape2D" parent="walls third level" index="12"]
 
 position = Vector2( 943.341, 2061.25 )
 scale = Vector2( 19.2414, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 14" type="CollisionShape2D" parent="walls third level" index="13"]
 
 position = Vector2( 625.114, 2157.78 )
 scale = Vector2( 19.2414, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 15" type="CollisionShape2D" parent="walls third level" index="14"]
 
 position = Vector2( 332.605, 2061.4 )
 scale = Vector2( 19.2414, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 16" type="CollisionShape2D" parent="walls third level" index="15"]
 
 position = Vector2( 560.428, 1869.21 )
 scale = Vector2( 19.2414, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 17" type="CollisionShape2D" parent="walls third level" index="16"]
 
 position = Vector2( 559.769, 1677.1 )
 scale = Vector2( 19.2414, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 18" type="CollisionShape2D" parent="walls third level" index="17"]
 
 position = Vector2( 537.221, 1101.47 )
 scale = Vector2( 19.2414, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 19" type="CollisionShape2D" parent="walls third level" index="18"]
 
 position = Vector2( 1240.46, 1101.04 )
 scale = Vector2( 19.2414, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 20" type="CollisionShape2D" parent="walls third level" index="19"]
 
 position = Vector2( 424.729, 1485.89 )
 scale = Vector2( 11.6748, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 21" type="CollisionShape2D" parent="walls third level" index="20"]
 
 position = Vector2( 636.284, 1388.84 )
 scale = Vector2( 11.6748, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 22" type="CollisionShape2D" parent="walls third level" index="21"]
 
 position = Vector2( 1433.78, 1484.69 )
 scale = Vector2( 11.6748, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 23" type="CollisionShape2D" parent="walls third level" index="22"]
 
 position = Vector2( 1433.78, 1484.69 )
 scale = Vector2( 11.6748, 1.19387 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 24" type="CollisionShape2D" parent="walls third level" index="23"]
 
 position = Vector2( 439.441, 1366.33 )
 scale = Vector2( 2.50956, 2.16725 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 25" type="CollisionShape2D" parent="walls third level" index="24"]
 
 position = Vector2( 535.477, 1512.68 )
 scale = Vector2( 2.50956, 14.7558 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 26" type="CollisionShape2D" parent="walls third level" index="25"]
 
 position = Vector2( 823.787, 1553.69 )
 scale = Vector2( 2.50956, 14.7558 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 27" type="CollisionShape2D" parent="walls third level" index="26"]
 
 position = Vector2( 1303.89, 1581.3 )
 scale = Vector2( 2.50956, 13.5649 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 28" type="CollisionShape2D" parent="walls third level" index="27"]
 
 position = Vector2( 1207.58, 1240.55 )
 scale = Vector2( 2.50956, 2.38823 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 29" type="CollisionShape2D" parent="walls third level" index="28"]
 
 position = Vector2( 1016.07, 1361.16 )
 scale = Vector2( 2.50956, 2.38823 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 30" type="CollisionShape2D" parent="walls third level" index="29"]
 
 position = Vector2( 919.67, 1417.97 )
 scale = Vector2( 2.50956, 2.38823 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 31" type="CollisionShape2D" parent="walls third level" index="30"]
 
 position = Vector2( 1015.76, 1531.02 )
 scale = Vector2( 2.50956, 2.38823 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 32" type="CollisionShape2D" parent="walls third level" index="31"]
 
 position = Vector2( 536.063, 2056.42 )
 scale = Vector2( 2.50956, 5.1024 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 33" type="CollisionShape2D" parent="walls third level" index="32"]
 
 position = Vector2( 631.763, 1970.55 )
 scale = Vector2( 2.50956, 5.1024 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 34" type="CollisionShape2D" parent="walls third level" index="33"]
 
 position = Vector2( 727.788, 2056.41 )
 scale = Vector2( 2.50956, 5.1024 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 35" type="CollisionShape2D" parent="walls third level" index="34"]
 
 position = Vector2( 920.071, 1874.38 )
 scale = Vector2( 2.50956, 5.1024 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 36" type="CollisionShape2D" parent="walls third level" index="35"]
 
 position = Vector2( 1207.78, 1778.44 )
 scale = Vector2( 2.50956, 5.1024 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 37" type="CollisionShape2D" parent="walls third level" index="36"]
 
 position = Vector2( 343.644, 1933.74 )
 scale = Vector2( 2.50956, 5.1024 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 38" type="CollisionShape2D" parent="walls third level" index="37"]
 
 position = Vector2( 1111.99, 1163.11 )
 scale = Vector2( 2.50956, 5.1024 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 39" type="CollisionShape2D" parent="walls third level" index="38"]
 
 position = Vector2( 727.662, 1188.58 )
 scale = Vector2( 2.50956, 5.1024 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 40" type="CollisionShape2D" parent="walls third level" index="39"]
 
 position = Vector2( 343.708, 1296.22 )
 scale = Vector2( 2.50956, 7.97896 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 41" type="CollisionShape2D" parent="walls third level" index="40"]
 
 position = Vector2( 1399.71, 1288.89 )
 scale = Vector2( 2.50956, 9.23498 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 42" type="CollisionShape2D" parent="walls third level" index="41"]
 
 position = Vector2( 1111.81, 1772.97 )
 scale = Vector2( 2.50956, 7.21239 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 43" type="CollisionShape2D" parent="walls third level" index="42"]
 
 position = Vector2( 1383.6, 2120.48 )
 scale = Vector2( 2.50956, 5.1024 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 44" type="CollisionShape2D" parent="walls third level" index="43"]
 
 position = Vector2( 1112.02, 2157.3 )
 scale = Vector2( 2.50956, 5.1024 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 45" type="CollisionShape2D" parent="walls third level" index="44"]
 
 position = Vector2( 1351.57, 1852.11 )
 scale = Vector2( 2.50956, 5.1024 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="wall 46" type="CollisionShape2D" parent="walls third level" index="45"]
 
 position = Vector2( 1207.98, 2013.12 )
 scale = Vector2( 2.50956, 1.29813 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="stairs1" type="Area2D" parent="." index="9"]
 
@@ -691,13 +689,37 @@ _sections_unfolded = [ "Audio Bus", "Collision" ]
 __meta__ = {
 "_edit_group_": true
 }
-destination = NodePath("../stairs1_dest")
+destination = NodePath("../stairs1>2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stairs1" index="0"]
 
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
-[node name="stairs2" type="Area2D" parent="." index="10"]
+[node name="stairs3" type="Area2D" parent="." index="10"]
+
+editor/display_folded = true
+position = Vector2( 6813.2, 2320.36 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 1025
+collision_mask = 1025
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 3 )
+_sections_unfolded = [ "Audio Bus", "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+destination = NodePath("../stairs2>3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stairs3" index="0"]
+
+shape = SubResource( 3 )
+
+[node name="stairs2" type="Area2D" parent="." index="11"]
 
 editor/display_folded = true
 position = Vector2( 7196.92, -779.25 )
@@ -715,18 +737,22 @@ _sections_unfolded = [ "Audio Bus", "Collision" ]
 __meta__ = {
 "_edit_group_": true
 }
-destination = NodePath("../stairs2_dest")
+destination = NodePath("../stairs2>1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stairs2" index="0"]
 
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
-[node name="stairs1_dest" type="Node2D" parent="." index="11"]
+[node name="stairs1>2" type="Node2D" parent="." index="12"]
 
 position = Vector2( 7200.44, -682.092 )
 
-[node name="stairs2_dest" type="Node2D" parent="." index="12"]
+[node name="stairs2>1" type="Node2D" parent="." index="13"]
 
 position = Vector2( 1916.4, 19.1768 )
+
+[node name="stairs2>3" type="Node2D" parent="." index="14"]
+
+position = Vector2( 6812.83, 2318.06 )
 
 
