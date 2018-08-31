@@ -7,10 +7,7 @@ path="res://.import/overworld-tileset.png-4f886b113227c38ccfab80a4b79ccbde.stex"
 [deps]
 
 source_file="res://tilesets/overworld-tileset.png"
-source_md5="4d557c01a59a2891e6bd3ac2e4de6f67"
-
 dest_files=[ "res://.import/overworld-tileset.png-4f886b113227c38ccfab80a4b79ccbde.stex" ]
-dest_md5="7d86e43b29dc5d3e3e306343c91f8dca"
 
 [params]
 

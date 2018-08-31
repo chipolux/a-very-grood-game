@@ -7,10 +7,7 @@ path="res://.import/cave-tileset.png-4d3fe955fb3da75fe7b34fa20890601a.stex"
 [deps]
 
 source_file="res://tilesets/cave-tileset.png"
-source_md5="212ae7543f8b942edd5bbe7dd832d709"
-
 dest_files=[ "res://.import/cave-tileset.png-4d3fe955fb3da75fe7b34fa20890601a.stex" ]
-dest_md5="795b57c923d9528d3720a33cb5f7ae27"
 
 [params]
 

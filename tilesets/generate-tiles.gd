@@ -15,12 +15,15 @@ func onReset(isTriggered):
 		for i in range(cols * rows):
 			var x = (i % cols) * tilesize
 			var y = (i / cols) * tilesize
-			var tile
+			var rect = Rect2(x, y, tilesize, tilesize)
 			if has_node(str(i)):
-				tile = get_node(str(i))
-				remove_child(tile)
-			else:
-				tile = Sprite.new()
+				# DO NOT REORGANIZE EXISTING TILES
+				# if we do it will break any maps using the tilesets
+				continue
+			elif sheet.get_data().get_rect(rect).is_invisible():
+				# skip empty tiles
+				continue
+			var tile = Sprite.new()
 			add_child(tile)
 			tile.set_owner(self)
 			tile.set_name(str(i))
