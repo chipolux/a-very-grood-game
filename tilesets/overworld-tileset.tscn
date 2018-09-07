@@ -3,7 +3,7 @@
 [ext_resource path="res://tilesets/generate-tiles.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/overworld-tileset.png" type="Texture" id=2]
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 script = ExtResource( 1 )
 reset = false
@@ -7534,5 +7534,33 @@ position = Vector2( 24, 568 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 16, 560, 16, 16 )
+
+[node name="1063" type="Sprite" parent="." index="1075"]
+
+position = Vector2( 376, 424 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 368, 416, 16, 16 )
+
+[node name="1064" type="Sprite" parent="." index="1076"]
+
+position = Vector2( 392, 424 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 384, 416, 16, 16 )
+
+[node name="1103" type="Sprite" parent="." index="1077"]
+
+position = Vector2( 376, 440 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 368, 432, 16, 16 )
+
+[node name="1104" type="Sprite" parent="." index="1078"]
+
+position = Vector2( 392, 440 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 384, 432, 16, 16 )
 
 
