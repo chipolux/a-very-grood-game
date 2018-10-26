@@ -7,10 +7,7 @@ path="res://.import/housey.png-9f12a8902acc4d0772be344469313c4b.stex"
 [deps]
 
 source_file="res://images/housey.png"
-source_md5="c56d6d929792fc26d63d34b9d779245c"
-
 dest_files=[ "res://.import/housey.png-9f12a8902acc4d0772be344469313c4b.stex" ]
-dest_md5="d3123160cf16bbd2852dc7bb7d19a272"
 
 [params]
 
