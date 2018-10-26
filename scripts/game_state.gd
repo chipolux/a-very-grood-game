@@ -4,6 +4,7 @@ signal leveled_up()
 
 var current_scene
 var current_npc
+var current_interactable
 
 var projectiles = [
 	load("res://projectiles/fireball.tscn"),

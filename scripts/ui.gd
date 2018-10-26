@@ -19,6 +19,8 @@ func _input(event):
 	elif event.is_action_pressed('ui_accept') and game_state.current_npc:
 		convo_screen.begin_conversation(game_state.current_npc)
 		current_screen = convo_screen
+	elif event.is_action_pressed('ui_accept') and game_state.current_interactable:
+		game_state.current_interactable.interact()
 	elif event.is_action_pressed("ui_cancel"):
 		get_tree().set_pause(true)
 		menu.show()
