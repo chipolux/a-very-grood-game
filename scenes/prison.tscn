@@ -32,7 +32,7 @@ extents = Vector2( 10, 23.2517 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Prison" type="Node" index="0"]
+[node name="prison" type="Node" index="0"]
 
 [node name="floor" type="TileMap" parent="." index="0"]
 
@@ -111,6 +111,7 @@ __meta__ = {
 
 [node name="cell_door" type="Node2D" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( 416, 2528 )
 script = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
