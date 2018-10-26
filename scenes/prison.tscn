@@ -259,7 +259,7 @@ position = Vector2( 286.002, 2281.1 )
 
 [node name="prisoner" type="Sprite" parent="intro_junk" index="0"]
 
-position = Vector2( -670.547, 24.2275 )
+position = Vector2( -675.19, 24.0857 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
 region_enabled = true
@@ -268,7 +268,7 @@ _sections_unfolded = [ "Region", "Transform", "Visibility" ]
 
 [node name="guard" type="Sprite" parent="intro_junk" index="1"]
 
-position = Vector2( -709.059, 17.2152 )
+position = Vector2( -713.489, 16.8962 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 4 )
 region_enabled = true
