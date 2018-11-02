@@ -37,47 +37,47 @@ extents = Vector2( 88.7096, 7.77859 )
 custom_solver_bias = 0.0
 extents = Vector2( 798.05, 7.23297 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
 extents = Vector2( 253.319, 10 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=8]
 
 custom_solver_bias = 0.0
 extents = Vector2( 133.287, 10 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=9]
 
 custom_solver_bias = 0.0
 extents = Vector2( 13.6935, 77.0908 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=10]
 
 custom_solver_bias = 0.0
 extents = Vector2( 49.8972, 10.0862 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=11]
 
 custom_solver_bias = 0.0
 extents = Vector2( 8.10413, 30.2328 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=12]
 
 custom_solver_bias = 0.0
 extents = Vector2( 74.1083, 8.04114 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=13]
 
 custom_solver_bias = 0.0
 extents = Vector2( 7.69025, 56.7057 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=14]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="bridge" type="Node2D" index="0"]
+[node name="bridge" type="Node2D"]
 
 [node name="lowest" type="TileMap" parent="." index="0"]
 
@@ -154,7 +154,6 @@ __meta__ = {
 
 [node name="characters" type="YSort" parent="." index="3"]
 
-editor/display_folded = true
 sort_enabled = true
 
 [node name="slime1" parent="characters" index="0" instance=ExtResource( 2 )]
@@ -378,70 +377,70 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cliff-body" index="0"]
 
 position = Vector2( -701.982, -482.595 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="cliff-body" index="1"]
 
 position = Vector2( -1223.62, -552.088 )
-shape = SubResource( 9 )
+shape = SubResource( 8 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="cliff-body" index="2"]
 
 position = Vector2( -1488.96, -426.641 )
-shape = SubResource( 9 )
+shape = SubResource( 8 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="cliff-body" index="3"]
 
 position = Vector2( -1362.24, -494.557 )
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="cliff-body" index="4"]
 
 position = Vector2( -944.544, -551.295 )
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="cliff-body" index="5"]
 
 position = Vector2( -973.183, -551.295 )
-shape = SubResource( 11 )
+shape = SubResource( 10 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="cliff-body" index="6"]
 
 position = Vector2( -1056.94, -602.089 )
-shape = SubResource( 11 )
+shape = SubResource( 10 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="cliff-body" index="7"]
 
 position = Vector2( -1098.52, -579.504 )
-shape = SubResource( 12 )
+shape = SubResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="cliff-body" index="8"]
 
 position = Vector2( -1015, -576.636 )
-shape = SubResource( 12 )
+shape = SubResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="cliff-body" index="9"]
 
 position = Vector2( -488.517, -447.116 )
-shape = SubResource( 12 )
+shape = SubResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="cliff-body" index="10"]
 
 position = Vector2( -422.182, -420.105 )
-shape = SubResource( 13 )
+shape = SubResource( 12 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="cliff-body" index="11"]
 
 position = Vector2( -352.754, -367.895 )
-shape = SubResource( 14 )
+shape = SubResource( 13 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="to_dungeon" type="Area2D" parent="." index="9"]
@@ -460,9 +459,10 @@ __meta__ = {
 "_edit_group_": true
 }
 scene = "res://scenes/dungeon.tscn"
+entry_node = null
 
 [node name="shape" type="CollisionShape2D" parent="to_dungeon" index="0"]
 
-shape = SubResource( 7 )
+shape = SubResource( 14 )
 
 

@@ -59,6 +59,7 @@ func _input(event):
 		attack_with_left_hand()
 	if event.is_action_pressed("attack_r"):
 		attack_with_right_hand()
+		logger.debug("player at %s" % position)
 
 
 func _process_enemies():
@@ -74,7 +75,7 @@ func _process_enemies():
 
 
 func _animation_finished(name):
-	if name == "teleport":
+	if "teleport" in name:
 		_end_teleport()
 
 func set_player_sprite(texture):
@@ -115,9 +116,12 @@ func show_hud():
 	get_node("ui/hud").show()
 
 
-func teleport(new_pos):
+func teleport(new_pos, hard=false):
 	teleport_position = new_pos
-	get_node("special_player").play("teleport")
+	if hard:
+		get_node("special_player").play("teleport_hard")
+	else:
+		get_node("special_player").play("teleport")
 	get_tree().set_pause(true)
 
 

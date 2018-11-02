@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/prison.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/dungeon-tileset.tres" type="TileSet" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://images/e-key.png" type="Texture" id=7]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scripts/teleport.gd" type="Script" id=9]
+[ext_resource path="res://scripts/transition.gd" type="Script" id=10]
 
 [sub_resource type="Animation" id=1]
 
@@ -164,7 +165,12 @@ extents = Vector2( 10, 23.2517 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="prison" type="Node" index="0"]
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="prison" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -255,6 +261,7 @@ __meta__ = {
 
 [node name="intro_junk" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
 position = Vector2( 286.002, 2281.1 )
 
 [node name="prisoner" type="Sprite" parent="intro_junk" index="0"]
@@ -1139,5 +1146,86 @@ position = Vector2( 6806.51, 2375.02 )
 [node name="stairs3_1>2_1" type="Node2D" parent="." index="23"]
 
 position = Vector2( 5945.51, 3069.86 )
+
+[node name="to_town_1" type="Area2D" parent="." index="24"]
+
+position = Vector2( 579, 2610 )
+scale = Vector2( 0.96875, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 10 )
+scene = "res://scenes/town.tscn"
+entry_node = "to_prison_1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to_town_1" index="0"]
+
+position = Vector2( 42.3226, -40 )
+shape = SubResource( 7 )
+
+[node name="Label" type="Label" parent="to_town_1" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -30.0
+margin_top = -30.0
+margin_right = 34.0
+margin_bottom = -16.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "to_town_1"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="to_town_2" type="Area2D" parent="." index="25"]
+
+position = Vector2( 580, 2690 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 10 )
+scene = "res://scenes/town.tscn"
+entry_node = "to_prison_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to_town_2" index="0"]
+
+position = Vector2( 40, 40 )
+shape = SubResource( 7 )
+
+[node name="Label" type="Label" parent="to_town_2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -30.0
+margin_top = 10.0
+margin_right = 34.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "to_town_2"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 

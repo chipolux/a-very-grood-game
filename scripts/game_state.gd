@@ -30,6 +30,7 @@ var player_level = 1
 var player_max_xp = 20
 var player_xp = 0 setget _xp_setter
 
+var entry_node = null
 
 func next_texture():
 	var i = _textures.find(player_texture)
@@ -43,7 +44,7 @@ func start_game():
 	logger.debug("start_game()")
 	player_hp = 100
 	player_xp = 0
-	set_scene("res://scenes/bridge.tscn")
+	set_scene("res://scenes/prison.tscn")
 	get_node("/root/main-menu").hide()
 
 func stop_game():
@@ -51,12 +52,13 @@ func stop_game():
 	get_node("/root/current_scene").queue_free()
 	get_node("/root/main-menu").show()
 
-func set_scene(scene):
+func set_scene(scene, on_node=null):
 	# TODO: try replacing this with change_scene
 	if get_node("/root").has_node("current_scene"):
 		var old_scene = get_node("/root/current_scene")
 		old_scene.set_name("old_scene")
 		old_scene.queue_free()
+	entry_node = on_node
 	var new_scene = load(scene).instance()
 	new_scene.set_name("current_scene")
 	get_node("/root").add_child(new_scene)
