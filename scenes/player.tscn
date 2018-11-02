@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://images/shadow.png" type="Texture" id=2]
@@ -10,17 +10,16 @@
 [ext_resource path="res://animations/walk_left.tres" type="Animation" id=8]
 [ext_resource path="res://animations/walk_right.tres" type="Animation" id=9]
 [ext_resource path="res://animations/walk_up.tres" type="Animation" id=10]
-[ext_resource path="res://weapons/sword/sword.tscn" type="PackedScene" id=11]
-[ext_resource path="res://weapons/spell.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scripts/ui.gd" type="Script" id=13]
-[ext_resource path="res://scripts/convo_screen.gd" type="Script" id=14]
-[ext_resource path="res://addons/GodotTIE/text_interface_engine.gd" type="Script" id=15]
-[ext_resource path="res://addons/GodotTIE/GodotTIE_icon.png" type="Texture" id=16]
-[ext_resource path="res://fonts/Cave-Story.ttf" type="DynamicFontData" id=17]
-[ext_resource path="res://scenes/menu.gd" type="Script" id=18]
-[ext_resource path="res://scenes/weapon_select.gd" type="Script" id=19]
-[ext_resource path="res://images/selector.png" type="Texture" id=20]
-[ext_resource path="res://sounds/select.wav" type="AudioStream" id=21]
+[ext_resource path="res://weapons/spell.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scripts/ui.gd" type="Script" id=12]
+[ext_resource path="res://scripts/convo_screen.gd" type="Script" id=13]
+[ext_resource path="res://addons/GodotTIE/text_interface_engine.gd" type="Script" id=14]
+[ext_resource path="res://addons/GodotTIE/GodotTIE_icon.png" type="Texture" id=15]
+[ext_resource path="res://fonts/Cave-Story.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://scenes/menu.gd" type="Script" id=17]
+[ext_resource path="res://scenes/weapon_select.gd" type="Script" id=18]
+[ext_resource path="res://images/selector.png" type="Texture" id=19]
+[ext_resource path="res://sounds/select.wav" type="AudioStream" id=20]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -274,7 +273,7 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=11]
 
 resource_name = "teleport_hard"
 length = 1.0
@@ -319,7 +318,7 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 
 length = 0.1
 loop = false
@@ -348,18 +347,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
-
-[sub_resource type="Animation" id=12]
-
-length = 0.1
-loop = false
-step = 0.1
 
 [sub_resource type="Animation" id=13]
 
 length = 0.1
 loop = false
 step = 0.1
+
+[sub_resource type="Animation" id=14]
+
+length = 0.1
+loop = false
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("convo_right:rect_position")
 tracks/0/interp = 1
@@ -385,12 +384,12 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=14]
+[sub_resource type="DynamicFont" id=15]
 
 size = 26
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 17 )
+font_data = ExtResource( 16 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [node name="player" type="KinematicBody2D" index="0" groups=[
@@ -511,17 +510,13 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/level_up = SubResource( 9 )
 anims/teleport = SubResource( 10 )
-anims/teleport_hard = SubResource( 15 )
+anims/teleport_hard = SubResource( 11 )
 blend_times = [  ]
 _sections_unfolded = [ "Pause" ]
 
-[node name="weapon" parent="." index="10" instance=ExtResource( 11 )]
+[node name="spell" parent="." index="10" instance=ExtResource( 11 )]
 
-visible = false
-
-[node name="spell" parent="." index="11" instance=ExtResource( 12 )]
-
-[node name="camera" type="Camera2D" parent="." index="12"]
+[node name="camera" type="Camera2D" parent="." index="11"]
 
 pause_mode = 2
 z_index = 100
@@ -549,7 +544,7 @@ editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Pause", "Transform" ]
 
-[node name="ui" type="CanvasLayer" parent="." index="13"]
+[node name="ui" type="CanvasLayer" parent="." index="12"]
 
 pause_mode = 2
 layer = 1
@@ -557,7 +552,7 @@ offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-script = ExtResource( 13 )
+script = ExtResource( 12 )
 _sections_unfolded = [ "Pause" ]
 
 [node name="convo_screen" type="Control" parent="ui" index="0"]
@@ -574,7 +569,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 14 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Anchor", "Pause" ]
 __meta__ = {
 "_edit_lock_": true
@@ -587,9 +582,9 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/both = SubResource( 11 )
-anims/left = SubResource( 12 )
-anims/right = SubResource( 13 )
+anims/both = SubResource( 12 )
+anims/left = SubResource( 13 )
+anims/right = SubResource( 14 )
 blend_times = [  ]
 _sections_unfolded = [ "Pause" ]
 
@@ -628,17 +623,17 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 15 )
+script = ExtResource( 14 )
 _sections_unfolded = [ "Rect" ]
 __meta__ = {
-"_editor_icon": ExtResource( 16 )
+"_editor_icon": ExtResource( 15 )
 }
 SCROLL_ON_MAX_LINES = false
 BREAK_ON_MAX_LINES = true
 AUTO_SKIP_WORDS = true
 LOG_SKIPPED_LINES = false
 SCROLL_SKIPPED_LINES = false
-FONT = SubResource( 14 )
+FONT = SubResource( 15 )
 PRINT_INPUT = true
 BLINKING_INPUT = true
 INPUT_CHARACTERS_LIMIT = -1
@@ -783,7 +778,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 18 )
+script = ExtResource( 17 )
 _sections_unfolded = [ "Pause", "Rect" ]
 
 [node name="bg" type="Panel" parent="ui/menu" index="0"]
@@ -1072,18 +1067,18 @@ _sections_unfolded = [ "Anchor", "Margin" ]
 editor/display_folded = true
 visible = false
 position = Vector2( 533, 300 )
-script = ExtResource( 19 )
+script = ExtResource( 18 )
 _sections_unfolded = [ "Pause", "Transform" ]
 
 [node name="selector" type="Sprite" parent="ui/weapon_select" index="0"]
 
 scale = Vector2( 4, 4 )
-texture = ExtResource( 20 )
+texture = ExtResource( 19 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="select" type="AudioStreamPlayer" parent="ui/weapon_select" index="1"]
 
-stream = ExtResource( 21 )
+stream = ExtResource( 20 )
 volume_db = -30.0
 pitch_scale = 1.0
 autoplay = false

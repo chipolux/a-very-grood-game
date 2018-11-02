@@ -26,7 +26,7 @@ func _input(event):
 		menu.show()
 		menu.match_volume()
 		current_screen = menu
-	elif event.is_action_pressed("ui_weapon_select"):
+	elif event.is_action_pressed("ui_weapon_select") and game_state.player_weapons:
 		get_tree().set_pause(true)
 		weapon_select.show_weapons()
 		weapon_select.show()

@@ -11,8 +11,6 @@ var teleport_position
 func _ready():
 	get_node("special_player").connect("animation_finished", self, "_animation_finished")
 	get_node("sprite").set_texture(game_state.player_texture)
-	get_node("spell").projectile = game_state.projectiles[0]
-	set_player_weapon(0)
 	game_state.connect("leveled_up", get_node("special_player"), "play", ["level_up"])
 	ui = get_node("ui")
 	ui.get_node("hud").show()
@@ -59,7 +57,6 @@ func _input(event):
 		attack_with_left_hand()
 	if event.is_action_pressed("attack_r"):
 		attack_with_right_hand()
-		logger.debug("player at %s" % position)
 
 
 func _process_enemies():
@@ -83,13 +80,24 @@ func set_player_sprite(texture):
 
 
 func set_player_weapon(i):
-	var instance = game_state.weapons[i]["scene"].instance()
-	instance.set_name("weapon")
-	var old_weapon = get_node("weapon")
-	old_weapon.set_name("old_weapon")
-	old_weapon.queue_free()
-	add_child(instance)
-	get_node("ui/weapon_select").current_index = i
+	if i == null and has_node("weapon"):
+		get_node("weapon").queue_free()
+	elif game_state.player_weapons:
+		if has_node("weapon"):
+			var old_weapon = get_node("weapon")
+			old_weapon.set_name("old_weapon")
+			old_weapon.queue_free()
+		var instance = game_state.player_weapons[i]["scene"].instance()
+		instance.set_name("weapon")
+		add_child(instance)
+		get_node("ui/weapon_select").current_index = i
+
+
+func set_player_spell(i):
+	if i == null:
+		get_node("spell").projectile = null
+	else:
+		get_node("spell").projectile = game_state.projectiles[i]
 
 
 func die():

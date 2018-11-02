@@ -8,8 +8,6 @@ var current_interactable
 
 var projectiles = [
 	load("res://projectiles/fireball.tscn"),
-	load("res://projectiles/fireball.tscn"),
-	load("res://projectiles/fireball.tscn"),
 ]
 
 var weapons = [
@@ -20,6 +18,9 @@ var weapons = [
 var _textures = [
 	load("res://images/gale.png"),
 	load("res://images/manny.png"),
+]
+
+var player_weapons = [
 ]
 var player_texture = _textures[0]
 var player_name
@@ -70,3 +71,14 @@ func _xp_setter(xp):
 		player_level += 1
 		player_max_xp *= 2.4
 		emit_signal("leveled_up")
+
+func give_weapon(name):
+	var i = 0
+	for weapon in player_weapons:
+		if name == weapon["name"]:
+			return i
+		i += 1
+	for weapon in weapons:
+		if name == weapon["name"]:
+			player_weapons.append(weapon)
+			return i
