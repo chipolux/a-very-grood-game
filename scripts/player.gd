@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const MOVEMENT_SPEED = 250
 
-var ui
+onready var ui = get_node("ui")
 var current_anim = "stand_down"
 var velocity = Vector2()
 var teleport_position
@@ -10,9 +10,10 @@ var teleport_position
 
 func _ready():
 	get_node("special_player").connect("animation_finished", self, "_animation_finished")
-	get_node("sprite").set_texture(game_state.player_texture)
+	get_node("sprite").set_texture(game_state.CHARACTER_DATA[game_state.player_character]["texture"])
+	set_weapon(game_state.player_weapon)
+	set_spell(game_state.player_spell)
 	game_state.connect("leveled_up", get_node("special_player"), "play", ["level_up"])
-	ui = get_node("ui")
 	ui.get_node("hud").show()
 
 
@@ -75,29 +76,30 @@ func _animation_finished(name):
 	if "teleport" in name:
 		_end_teleport()
 
-func set_player_sprite(texture):
-	get_node("sprite").set_texture(texture)
 
-
-func set_player_weapon(i):
-	if i == null and has_node("weapon"):
+func set_weapon(weapon):
+	if weapon == null and has_node("weapon"):
 		get_node("weapon").queue_free()
-	elif game_state.player_weapons:
+		game_state.player_weapon = null
+	elif weapon in game_state.player_weapons:
 		if has_node("weapon"):
 			var old_weapon = get_node("weapon")
+			old_weapon.hide()
 			old_weapon.set_name("old_weapon")
 			old_weapon.queue_free()
-		var instance = game_state.player_weapons[i]["scene"].instance()
+		var instance = game_state.WEAPON_DATA[weapon]["scene"].instance()
 		instance.set_name("weapon")
 		add_child(instance)
-		get_node("ui/weapon_select").current_index = i
+		game_state.player_weapon = weapon
 
 
-func set_player_spell(i):
-	if i == null:
+func set_spell(spell):
+	if spell == null:
 		get_node("spell").projectile = null
+		game_state.player_spell = null
 	else:
-		get_node("spell").projectile = game_state.projectiles[i]
+		get_node("spell").projectile = game_state.SPELL_DATA[spell]["scene"]
+		game_state.player_spell = spell
 
 
 func die():

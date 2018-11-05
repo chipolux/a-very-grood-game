@@ -3,26 +3,54 @@ extends Node
 signal leveled_up()
 
 var current_scene
+var entry_node = null
+
 var current_npc
 var current_interactable
 
-var projectiles = [
-	load("res://projectiles/fireball.tscn"),
-]
 
-var weapons = [
-	{"name": "Sword", "icon": load("res://weapons/sword/icon.png"), "scene": load("res://weapons/sword/sword.tscn")},
-	{"name": "Hammer", "icon": load("res://weapons/hammer/icon.png"), "scene": load("res://weapons/hammer/hammer.tscn")},
-]
+enum WEAPONS { SWORD, HAMMER }
+var WEAPON_DATA = {
+	WEAPONS.SWORD: {
+		"name": "Sword",
+		"scene": load("res://weapons/sword/sword.tscn"),
+		"icon": load("res://weapons/sword/icon.png"),
+	},
+	WEAPONS.HAMMER: {
+		"name": "Hammer",
+		"scene": load("res://weapons/hammer/hammer.tscn"),
+		"icon": load("res://weapons/hammer/icon.png"),
+	},
+}
+var player_weapons = []
+var player_weapon = null
 
-var _textures = [
-	load("res://images/gale.png"),
-	load("res://images/manny.png"),
-]
 
-var player_weapons = [
-]
-var player_texture = _textures[0]
+enum SPELLS { FIREBALL }
+var SPELL_DATA = {
+	SPELLS.FIREBALL: {
+		"name": "Fireball",
+		"scene": load("res://projectiles/fireball.tscn"),
+	},
+}
+var player_spells = []
+var player_spell = null
+
+
+enum CHARACTERS { GALE, MANNY }
+var CHARACTER_DATA = {
+	CHARACTERS.GALE: {
+		"name": "Gale",
+		"texture": load("res://images/gale.png"),
+	},
+	CHARACTERS.MANNY: {
+		"name": "Manny",
+		"texture": load("res://images/manny.png"),
+	},
+}
+var player_character = CHARACTERS.GALE
+
+
 var player_name
 var player_max_hp = 100
 var player_hp = 100
@@ -31,15 +59,6 @@ var player_level = 1
 var player_max_xp = 20
 var player_xp = 0 setget _xp_setter
 
-var entry_node = null
-
-func next_texture():
-	var i = _textures.find(player_texture)
-	player_texture = _textures[(i + 1) % _textures.size()]
-
-func prev_texture():
-	var i = _textures.find(player_texture)
-	player_texture = _textures[(i - 1) % _textures.size()]
 
 func start_game():
 	logger.debug("start_game()")
@@ -72,13 +91,12 @@ func _xp_setter(xp):
 		player_max_xp *= 2.4
 		emit_signal("leveled_up")
 
-func give_weapon(name):
-	var i = 0
-	for weapon in player_weapons:
-		if name == weapon["name"]:
-			return i
-		i += 1
-	for weapon in weapons:
-		if name == weapon["name"]:
-			player_weapons.append(weapon)
-			return i
+func give_weapon(weapon):
+	if not weapon in WEAPONS.values():
+		logger.error("Tried to give player invalid weapon: %s" % weapon)
+		return
+	if weapon in player_weapons:
+		logger.debug("Player already has weapon: %s" % weapon)
+		return
+	logger.debug("Gave player weapon: %s" % weapon)
+	player_weapons.append(weapon)

@@ -2,9 +2,9 @@ extends Node2D
 
 signal done()
 
-var radius = max(80, len(game_state.player_weapons) * 15)
-var current_index
+var radius = max(80, game_state.WEAPONS.size() * 15)
 var selection_timer = Timer.new()
+var current_index = 0
 
 
 func _ready():
@@ -14,7 +14,8 @@ func _ready():
 
 
 func _process(delta):
-	get_node("selector").position = get_pos(current_index)
+	if visible and game_state.player_weapons:
+		get_node("selector").position = get_pos(game_state.player_weapons[current_index])
 
 
 func handle_input(event):
@@ -29,25 +30,22 @@ func handle_input(event):
 			get_node("select").play()
 			selection_timer.start()
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
-		get_node("../..").set_player_weapon(current_index)
+		get_node("../..").set_weapon(game_state.player_weapons[current_index])
 		emit_signal("done")
 	if event is InputEventKey and event.scancode == KEY_F and event.pressed:
 		emit_signal("done")
 
 
-func get_pos(i):
-	if game_state.player_weapons:
-		var slice = (2 * PI) / len(game_state.player_weapons)
-		return Vector2(cos(i * slice) * radius, sin(i * slice) * radius)
-	else:
-		return Vector2()
+func get_pos(weapon):
+	var slice = (2 * PI) / game_state.WEAPONS.size()
+	return Vector2(cos(weapon * slice) * radius, sin(weapon * slice) * radius)
 
 
 func show_weapons():
-	for i in range(len(game_state.player_weapons)):
-		var weapon = game_state.player_weapons[i]
+	current_index = game_state.player_weapons.find(game_state.player_weapon)
+	for weapon in game_state.player_weapons:
 		var sprite = Sprite.new()
 		add_child(sprite)
-		sprite.set_texture(weapon["icon"])
+		sprite.set_texture(game_state.WEAPON_DATA[weapon]["icon"])
 		sprite.scale *= 4
-		sprite.position = get_pos(i)
+		sprite.position = get_pos(weapon)
