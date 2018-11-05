@@ -1,11 +1,12 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://tilesets/overworld-tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://enemies/slime.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/npc.tscn" type="PackedScene" id=3]
-[ext_resource path="res://images/mohawk.png" type="Texture" id=4]
-[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scripts/transition.gd" type="Script" id=6]
+[ext_resource path="res://scripts/bridge.gd" type="Script" id=1]
+[ext_resource path="res://tilesets/overworld-tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://enemies/slime.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/npc.tscn" type="PackedScene" id=4]
+[ext_resource path="res://images/mohawk.png" type="Texture" id=5]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/transition.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -77,13 +78,20 @@ extents = Vector2( 7.69025, 56.7057 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="bridge" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=15]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 47.5317 )
+
+[node name="bridge" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
 
 [node name="lowest" type="TileMap" parent="." index="0"]
 
 scale = Vector2( 4, 4 )
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 1
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -107,7 +115,7 @@ __meta__ = {
 
 scale = Vector2( 4, 4 )
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -132,7 +140,7 @@ __meta__ = {
 
 scale = Vector2( 4, 4 )
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 1
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -154,60 +162,61 @@ __meta__ = {
 
 [node name="characters" type="YSort" parent="." index="3"]
 
+editor/display_folded = true
 sort_enabled = true
 
-[node name="slime1" parent="characters" index="0" instance=ExtResource( 2 )]
+[node name="slime1" parent="characters" index="0" instance=ExtResource( 3 )]
 
 position = Vector2( -1469.37, 436.366 )
 
-[node name="slime2" parent="characters" index="1" instance=ExtResource( 2 )]
+[node name="slime2" parent="characters" index="1" instance=ExtResource( 3 )]
 
 position = Vector2( -1415.84, 109.433 )
 
-[node name="slime3" parent="characters" index="2" instance=ExtResource( 2 )]
+[node name="slime3" parent="characters" index="2" instance=ExtResource( 3 )]
 
 position = Vector2( -1310.6, 371.437 )
 
-[node name="slime4" parent="characters" index="3" instance=ExtResource( 2 )]
+[node name="slime4" parent="characters" index="3" instance=ExtResource( 3 )]
 
 position = Vector2( -1185.37, 560.508 )
 
-[node name="slime5" parent="characters" index="4" instance=ExtResource( 2 )]
+[node name="slime5" parent="characters" index="4" instance=ExtResource( 3 )]
 
 position = Vector2( -1410.05, 631.716 )
 
-[node name="slime6" parent="characters" index="5" instance=ExtResource( 2 )]
+[node name="slime6" parent="characters" index="5" instance=ExtResource( 3 )]
 
 position = Vector2( -952.104, 704.152 )
 
-[node name="slime7" parent="characters" index="6" instance=ExtResource( 2 )]
+[node name="slime7" parent="characters" index="6" instance=ExtResource( 3 )]
 
 position = Vector2( -716.379, 594.884 )
 
-[node name="slime8" parent="characters" index="7" instance=ExtResource( 2 )]
+[node name="slime8" parent="characters" index="7" instance=ExtResource( 3 )]
 
 position = Vector2( -1267.63, 948.471 )
 
-[node name="slime9" parent="characters" index="8" instance=ExtResource( 2 )]
+[node name="slime9" parent="characters" index="8" instance=ExtResource( 3 )]
 
 position = Vector2( -846.519, 1018.45 )
 
-[node name="slime10" parent="characters" index="9" instance=ExtResource( 2 )]
+[node name="slime10" parent="characters" index="9" instance=ExtResource( 3 )]
 
 position = Vector2( -1095.75, 831.837 )
 
-[node name="slime11" parent="characters" index="10" instance=ExtResource( 2 )]
+[node name="slime11" parent="characters" index="10" instance=ExtResource( 3 )]
 
 position = Vector2( -1460.39, 954.61 )
 
-[node name="npc" parent="characters" index="11" instance=ExtResource( 3 )]
+[node name="npc" parent="characters" index="11" instance=ExtResource( 4 )]
 
 position = Vector2( -455.809, 131.806 )
 _sections_unfolded = [ "Visibility" ]
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 phrase = "Mah boi! You seem to have lost your way out here in the wilderness! But not to worry, if you cross this bridge you will head into the town of Bigglepibble, the hub of the local area. Or you could head back to the West and take a look at the prison and it's tiny village."
 
-[node name="player" parent="characters" index="12" instance=ExtResource( 5 )]
+[node name="player" parent="characters" index="12" instance=ExtResource( 6 )]
 
 position = Vector2( -741.9, -30.5317 )
 
@@ -215,7 +224,7 @@ position = Vector2( -741.9, -30.5317 )
 
 scale = Vector2( 4, 4 )
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 1
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -239,7 +248,7 @@ __meta__ = {
 
 scale = Vector2( 4, 4 )
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 1
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -454,7 +463,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -464,5 +473,49 @@ entry_node = null
 [node name="shape" type="CollisionShape2D" parent="to_dungeon" index="0"]
 
 shape = SubResource( 14 )
+
+[node name="to_town" type="Area2D" parent="." index="10"]
+
+editor/display_folded = true
+position = Vector2( -1501.05, 160.037 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+scene = "res://scenes/town.tscn"
+entry_node = "to_bridge"
+
+[node name="shape" type="CollisionShape2D" parent="to_town" index="0"]
+
+position = Vector2( -43.2988, -0.971741 )
+shape = SubResource( 15 )
+
+[node name="label" type="Label" parent="to_town" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -19.0
+margin_top = -4.0
+margin_right = 31.0
+margin_bottom = 10.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "to_town"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 
