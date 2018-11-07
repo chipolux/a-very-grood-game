@@ -15,6 +15,7 @@ func _ready():
 	get_node("volume_grid/ui_volume_slider").connect("value_changed", self, "_on_ui_volume_changed")
 	get_node("volume_grid/fx_volume_slider").connect("value_changed", self, "_on_fx_volume_changed")
 	get_node("quit_button").connect("pressed", self, "_on_quit_pressed")
+	get_node("save_button").connect("pressed", self, "_on_save_pressed")
 	get_node("continue_button").connect("pressed", self, "_on_continue_pressed")
 
 func _on_volume_changed(value):
@@ -30,6 +31,9 @@ func _on_continue_pressed():
 	hide()
 	get_tree().set_pause(false)
 	emit_signal("done")
+
+func _on_save_pressed():
+	game_state.save_game()
 
 func _on_quit_pressed():
 	get_tree().set_pause(false)

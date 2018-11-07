@@ -2,6 +2,9 @@ extends Node
 
 signal leveled_up()
 
+const SAVE_VERSION = 1
+const SAVE_PATH = "user://save.dat"
+
 var current_scene
 var entry_node = null
 
@@ -100,3 +103,24 @@ func give_weapon(weapon):
 		return
 	logger.debug("Gave player weapon: %s" % weapon)
 	player_weapons.append(weapon)
+
+func save_game():
+	logger.debug("save_game()")
+	var file = File.new()
+	file.open(SAVE_PATH, file.WRITE)
+	file.store_16(SAVE_VERSION)
+	var data = {"just": "some", "other": "values", "number": 10}
+	file.store_var(data)
+	file.close()
+
+func load_game():
+	logger.debug("load_game()")
+	var file = File.new()
+	if not file.file_exists(SAVE_PATH):
+		logger.debug("no save data")
+		return
+	file.open(SAVE_PATH, file.READ)
+	var version = file.get_16()
+	var data = file.get_var()
+	file.close()
+	logger.debug("save version: %s" % version)

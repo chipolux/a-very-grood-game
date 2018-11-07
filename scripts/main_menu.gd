@@ -5,6 +5,7 @@ var character = 0
 func _ready():
 	_set_texture(character)
 	get_node("start-button").connect("pressed", self, "_start_pressed")
+	get_node("load-button").connect("pressed", self, "_load_pressed")
 	get_node("prev_texture").connect("pressed", self, "_prev_texture")
 	get_node("next_texture").connect("pressed", self, "_next_texture")
 
@@ -23,6 +24,9 @@ func _start_pressed():
 		game_state.player_name = name
 		game_state.player_character = character
 		game_state.start_game()
+
+func _load_pressed():
+	game_state.load_game()
 
 func _prev_texture():
 	character -= 1
