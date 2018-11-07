@@ -26,7 +26,10 @@ func _start_pressed():
 		game_state.start_game()
 
 func _load_pressed():
-	game_state.load_game()
+	if game_state.load_game():
+		game_state.start_game()
+	else:
+		show_error("Could not load game!")
 
 func _prev_texture():
 	character -= 1

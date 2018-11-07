@@ -2,7 +2,6 @@ extends Node
 
 signal leveled_up()
 
-const SAVE_VERSION = 1
 const SAVE_PATH = "user://save.dat"
 
 var current_scene
@@ -65,9 +64,12 @@ var player_xp = 0 setget _xp_setter
 
 func start_game():
 	logger.debug("start_game()")
-	player_hp = 100
-	player_xp = 0
-	set_scene("res://scenes/prison.tscn")
+	if current_scene == null:
+		player_hp = 100
+		player_xp = 0
+		set_scene("res://scenes/prison.tscn")
+	else:
+		set_scene(current_scene)
 	get_node("/root/main-menu").hide()
 
 func stop_game():
@@ -108,19 +110,48 @@ func save_game():
 	logger.debug("save_game()")
 	var file = File.new()
 	file.open(SAVE_PATH, file.WRITE)
-	file.store_16(SAVE_VERSION)
-	var data = {"just": "some", "other": "values", "number": 10}
-	file.store_var(data)
+	file.store_16(1)  # version
+	file.store_var(player_weapons)
+	file.store_var(player_weapon)
+	file.store_var(player_spells)
+	file.store_var(player_spell)
+	file.store_16(player_character)
+	file.store_pascal_string(player_name)
+	file.store_16(player_max_hp)
+	file.store_16(player_hp)
+	file.store_16(player_level)
+	file.store_16(player_max_xp)
+	file.store_16(player_xp)
+	file.store_pascal_string(current_scene)
 	file.close()
 
 func load_game():
 	logger.debug("load_game()")
+	var loaded = false
 	var file = File.new()
 	if not file.file_exists(SAVE_PATH):
 		logger.debug("no save data")
-		return
+		return loaded
 	file.open(SAVE_PATH, file.READ)
 	var version = file.get_16()
-	var data = file.get_var()
-	file.close()
 	logger.debug("save version: %s" % version)
+	if version == 1:
+		load_game_v1(file)
+		loaded = true
+	file.close()
+	return loaded
+
+func load_game_v1(f):
+	player_weapons = f.get_var()
+	player_weapon = f.get_var()
+	player_spells = f.get_var()
+	player_spell = f.get_var()
+	player_character = f.get_16()
+	player_name = f.get_pascal_string()
+	player_max_hp = f.get_16()
+	player_hp = f.get_16()
+	player_level = f.get_16()
+	player_max_xp = f.get_16()
+	player_xp = f.get_16()
+	current_scene = f.get_pascal_string()
+	# player position in current_scene
