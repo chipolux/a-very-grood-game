@@ -127,6 +127,7 @@ func show_hud():
 
 
 func teleport(new_pos, hard=false):
+	logger.debug("teleport(%s, %s)" % [new_pos, hard])
 	teleport_position = new_pos
 	if hard:
 		get_node("special_player").play("teleport_hard")
@@ -136,6 +137,7 @@ func teleport(new_pos, hard=false):
 
 
 func _perform_teleport():
+	logger.debug("_perform_teleport()")
 	position = teleport_position
 
 

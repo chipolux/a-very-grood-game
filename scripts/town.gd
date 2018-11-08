@@ -9,7 +9,9 @@ func _ready():
 	get_node("player").set_weapon(game_state.WEAPONS.SWORD)
 
 func export_state():
+	logger.debug("town.export_state()")
 	return {"player_position": get_node("player").global_position}
 
 func import_state(data):
+	logger.debug("town.import_state(%s)" % data)
 	get_node("player").global_position = data["player_position"]
