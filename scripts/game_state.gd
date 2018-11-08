@@ -7,6 +7,13 @@ const SAVE_PATH = "user://save.dat"
 var current_scene
 var entry_node = null
 
+# current_scene: {"some": "data"}
+# should be passed to scene.import_state(scene_data[...]) before
+# adding the scene to the tree and should be populated like
+# scene_data[current_scene] = scene.export_state() before the scene
+# is destroyed (and also for current_scene when game is saved)
+var scene_data = {}
+
 var current_npc
 var current_interactable
 
@@ -81,10 +88,14 @@ func set_scene(scene, on_node=null):
 	# TODO: try replacing this with change_scene
 	if get_node("/root").has_node("current_scene"):
 		var old_scene = get_node("/root/current_scene")
+		if old_scene.has_method("export_state"):
+			scene_data[current_scene] = old_scene.export_state()
 		old_scene.set_name("old_scene")
 		old_scene.queue_free()
 	entry_node = on_node
 	var new_scene = load(scene).instance()
+	if new_scene.has_method("import_state") and scene_data.has(scene):
+		new_scene.import_state(scene_data[scene])
 	new_scene.set_name("current_scene")
 	get_node("/root").add_child(new_scene)
 	current_scene = scene
@@ -108,6 +119,10 @@ func give_weapon(weapon):
 
 func save_game():
 	logger.debug("save_game()")
+	if get_node("/root").has_node("current_scene"):
+		var scene = get_node("/root/current_scene")
+		if scene.has_method("export_state"):
+			scene_data[current_scene] = scene.export_state()
 	var file = File.new()
 	file.open(SAVE_PATH, file.WRITE)
 	file.store_16(1)  # version
@@ -123,6 +138,7 @@ func save_game():
 	file.store_16(player_max_xp)
 	file.store_16(player_xp)
 	file.store_pascal_string(current_scene)
+	file.store_var(scene_data)
 	file.close()
 
 func load_game():
@@ -130,11 +146,10 @@ func load_game():
 	var loaded = false
 	var file = File.new()
 	if not file.file_exists(SAVE_PATH):
-		logger.debug("no save data")
+		logger.debug("no save file")
 		return loaded
 	file.open(SAVE_PATH, file.READ)
 	var version = file.get_16()
-	logger.debug("save version: %s" % version)
 	if version == 1:
 		load_game_v1(file)
 		loaded = true
@@ -142,6 +157,7 @@ func load_game():
 	return loaded
 
 func load_game_v1(f):
+	logger.debug("load_game_v1()")
 	player_weapons = f.get_var()
 	player_weapon = f.get_var()
 	player_spells = f.get_var()
@@ -154,4 +170,4 @@ func load_game_v1(f):
 	player_max_xp = f.get_16()
 	player_xp = f.get_16()
 	current_scene = f.get_pascal_string()
-	# player position in current_scene
+	scene_data = f.get_var()
