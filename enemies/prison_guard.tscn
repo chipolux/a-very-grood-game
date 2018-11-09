@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://enemies/prison_guard.gd" type="Script" id=1]
+[ext_resource path="res://images/prison_guard.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 27.5003
+
+[node name="prison_guard" type="KinematicBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+PATROL_ROUTE = null
+WALK_SPEED = 60
+CLOSE_ENOUGH = 5
+PAUSE_TIME = 3
+
+[node name="sprite" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="body" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
+
+[node name="pause_timer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = true
+autostart = false
+
+
