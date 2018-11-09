@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://enemies/prison_guard.gd" type="Script" id=1]
-[ext_resource path="res://images/prison_guard.png" type="Texture" id=2]
+[ext_resource path="res://images/view_cone.png" type="Texture" id=2]
+[ext_resource path="res://images/prison_guard.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 27.5003
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, 0, -128, -235, 128, -235, 12, 0 )
 
 [node name="prison_guard" type="KinematicBody2D" index="0"]
 
@@ -17,20 +23,53 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 PATROL_ROUTE = null
 WALK_SPEED = 60
+CHASE_SPEED = 120
 CLOSE_ENOUGH = 5
+CHASE_DISTANCE = 550
 PAUSE_TIME = 3
 
-[node name="sprite" type="Sprite" parent="." index="0"]
-
-scale = Vector2( 3, 3 )
-texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="body" type="CollisionShape2D" parent="." index="1"]
+[node name="body" type="CollisionShape2D" parent="." index="0"]
 
 shape = SubResource( 1 )
 
-[node name="pause_timer" type="Timer" parent="." index="2"]
+[node name="cone" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+
+[node name="area_2d" type="Area2D" parent="cone" index="0"]
+
+scale = Vector2( 2, 2 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="cone/area_2d" index="0"]
+
+shape = SubResource( 2 )
+
+[node name="sprite" type="Sprite" parent="cone" index="1"]
+
+position = Vector2( -7.15256e-006, 0 )
+scale = Vector2( 8.125, 3.67188 )
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -32, -128 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="sprite" type="Sprite" parent="." index="2"]
+
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+vframes = 4
+hframes = 4
+frame = 1
+_sections_unfolded = [ "Animation" ]
+
+[node name="pause_timer" type="Timer" parent="." index="3"]
 
 process_mode = 1
 wait_time = 3.0
