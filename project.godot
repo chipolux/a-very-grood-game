@@ -81,6 +81,10 @@ attack_r=[ Object(InputEventMouseButton,"resource_local_to_scene":false,"resourc
 ui_weapon_select=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"unicode":0,"echo":false,"script":null)
  ]
 
+[node]
+
+name_casing=2
+
 [rendering]
 
 quality/2d/use_pixel_snap=true
