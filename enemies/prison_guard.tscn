@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://enemies/prison_guard.gd" type="Script" id=1]
 [ext_resource path="res://images/view_cone.png" type="Texture" id=2]
@@ -7,12 +7,17 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 27.5003
+radius = 20.0
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
 points = PoolVector2Array( -12, 0, -128, -235, 128, -235, 12, 0 )
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 45.5756
 
 [node name="prison_guard" type="KinematicBody2D" index="0"]
 
@@ -22,6 +27,7 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 PATROL_ROUTE = null
+NAVMESH_PATH = null
 WALK_SPEED = 60
 CHASE_SPEED = 120
 CLOSE_ENOUGH = 5
@@ -38,6 +44,7 @@ editor/display_folded = true
 
 [node name="area_2d" type="Area2D" parent="cone" index="0"]
 
+editor/display_folded = true
 scale = Vector2( 2, 2 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -50,6 +57,10 @@ audio_bus_name = "Master"
 [node name="collision_shape_2d" type="CollisionShape2D" parent="cone/area_2d" index="0"]
 
 shape = SubResource( 2 )
+
+[node name="collision_shape_2d2" type="CollisionShape2D" parent="cone/area_2d" index="1"]
+
+shape = SubResource( 3 )
 
 [node name="sprite" type="Sprite" parent="cone" index="1"]
 
