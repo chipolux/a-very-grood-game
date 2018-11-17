@@ -3,9 +3,9 @@ extends KinematicBody2D
 export(NodePath) var PATROL_ROUTE
 export(NodePath) var NAVMESH_PATH
 export(float) var WALK_SPEED = 60
-export(float) var CHASE_SPEED = 120
+export(float) var CHASE_SPEED = 170
 export(float) var CLOSE_ENOUGH = 5
-export(float) var CHASE_DISTANCE = 550
+export(float) var CHASE_DISTANCE = 650
 export(float) var PAUSE_TIME = 3
 var PATROL_POINTS = []
 var NAVMESH
