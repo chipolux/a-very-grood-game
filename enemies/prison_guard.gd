@@ -11,6 +11,7 @@ var PATROL_POINTS = []
 var NAVMESH
 
 onready var pause_timer = get_node("pause_timer")
+onready var hmm_timer = get_node("hmm_timer")
 onready var cone = get_node("cone")
 onready var cone_area = get_node("cone/area_2d")
 onready var anim_player = get_node("anim_player")
@@ -31,6 +32,7 @@ func _ready():
 	pause_timer.set_wait_time(PAUSE_TIME)
 	pause_timer.connect("timeout", self, "_next_patrol_point")
 	pause_timer.start()
+	hmm_timer.connect("timeout", self, "_goto_closest_point")
 
 func _process(delta):
 	var new_anim = current_anim
@@ -68,11 +70,11 @@ func _physics_process(delta):
 		if distance >= CHASE_DISTANCE:
 			# too far away, forget about em
 			target = null
-			_goto_closest_point()
+			hmm_timer.start()
 		elif distance >= CLOSE_ENOUGH:
 			# not close enough, chase em!
 			velocity -= ((global_position - target.global_position).normalized() * CHASE_SPEED)
-	elif current_point and path_to_point:
+	elif current_point and path_to_point and hmm_timer.is_stopped():
 		# walk along path towards the next patrol point
 		var point = path_to_point[0]
 		var distance = global_position.distance_to(point)
@@ -81,7 +83,7 @@ func _physics_process(delta):
 		elif distance >= CLOSE_ENOUGH:
 			# not to the patrol point yet, keep going
 			velocity -= ((global_position - point).normalized() * WALK_SPEED)
-	elif current_point and not path_to_point and pause_timer.is_stopped():
+	elif current_point and not path_to_point and pause_timer.is_stopped() and hmm_timer.is_stopped():
 		# we've just exhausted our path to the current_point, start waiting
 		pause_timer.start()
 	if velocity:
@@ -112,6 +114,7 @@ func _set_current_point(new_point):
 func _body_entered_view(body):
 	if body.get_name() == "player" and target != body:
 		target = body
+		hmm_timer.stop()
 		if not alert_audio.playing:
 			alert_audio.play()
 
