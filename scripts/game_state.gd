@@ -46,7 +46,7 @@ var player_spells = []
 var player_spell = null
 
 
-enum CHARACTERS { GALE, MANNY }
+enum CHARACTERS { GALE, MANNY, SKELE, SPODER }
 var CHARACTER_DATA = {
 	CHARACTERS.GALE: {
 		"name": "Gale",
@@ -55,6 +55,14 @@ var CHARACTER_DATA = {
 	CHARACTERS.MANNY: {
 		"name": "Manny",
 		"texture": load("res://images/manny.png"),
+	},
+	CHARACTERS.SKELE: {
+		"name": "Skele",
+		"texture": load("res://images/skele.png"),
+	},
+	CHARACTERS.SPODER: {
+		"name": "Spoder",
+		"texture": load("res://images/spidermang.png"),
 	},
 }
 var player_character = CHARACTERS.GALE
