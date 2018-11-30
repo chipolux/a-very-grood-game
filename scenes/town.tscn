@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/town.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/town-tileset.tres" type="TileSet" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://tilesets/overworld-tileset.tres" type="TileSet" id=6]
 [ext_resource path="res://scripts/transition.gd" type="Script" id=7]
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 287.5, 10 )
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -84,33 +89,7 @@ format = 1
 tile_data = PoolIntArray( 262167, 16, 0, 262168, 17, 0, 262169, 18, 0, 262170, 19, 0, 458763, 40, 0, 458764, 41, 0, 458765, 42, 0, 458766, 43, 0, 458767, 44, 0, 458768, 45, 0, 458769, 46, 0, 458770, 47, 0, 458771, 24, 0, 458772, 25, 0, 458773, 26, 0, 458774, 27, 0, 458775, 28, 0, 458776, 29, 0, 458777, 30, 0, 458778, 31, 0 )
 _sections_unfolded = [ "Cell", "Transform" ]
 
-[node name="player" parent="." index="3" instance=ExtResource( 5 )]
-
-position = Vector2( 979.215, 547.622 )
-
-[node name="fence behind" type="TileMap" parent="." index="4"]
-
-scale = Vector2( 4, 4 )
-mode = 0
-tile_set = ExtResource( 4 )
-cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = true
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
-format = 1
-tile_data = PoolIntArray( 196619, 0, 0, 196631, 14, 0, 196632, 15, 0, 196633, 3, 0, 196634, 4, 0, 393227, 32, 0, 393228, 33, 0, 393229, 34, 0, 393230, 35, 0, 393231, 36, 0, 393232, 37, 0, 393233, 38, 0, 393234, 39, 0, 393235, 10, 0, 393236, 11, 0, 393237, 12, 0, 393238, 13, 0, 393239, 20, 0, 393240, 21, 0, 393241, 22, 0, 393242, 23, 0 )
-_sections_unfolded = [ "Cell", "Transform" ]
-
-[node name="TileMap2" type="TileMap" parent="." index="5"]
+[node name="TileMap2" type="TileMap" parent="." index="3"]
 
 scale = Vector2( 4, 4 )
 mode = 0
@@ -134,6 +113,32 @@ _sections_unfolded = [ "Cell", "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="player" parent="." index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 979.215, 547.622 )
+
+[node name="fence behind" type="TileMap" parent="." index="5"]
+
+scale = Vector2( 4, 4 )
+mode = 0
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = true
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 196619, 0, 0, 196631, 14, 0, 196632, 15, 0, 196633, 3, 0, 196634, 4, 0, 393227, 32, 0, 393228, 33, 0, 393229, 34, 0, 393230, 35, 0, 393231, 36, 0, 393232, 37, 0, 393233, 38, 0, 393234, 39, 0, 393235, 10, 0, 393236, 11, 0, 393237, 12, 0, 393238, 13, 0, 393239, 20, 0, 393240, 21, 0, 393241, 22, 0, 393242, 23, 0 )
+_sections_unfolded = [ "Cell", "Transform" ]
 
 [node name="TileMap3" type="TileMap" parent="." index="6"]
 
@@ -185,7 +190,108 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="walls" type="StaticBody2D" parent="." index="8"]
+[node name="static_body_2d5" type="StaticBody2D" parent="." index="8"]
+
+scale = Vector2( 4, 4 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="static_body_2d5" index="0"]
+
+position = Vector2( 402.25, -12.5 )
+scale = Vector2( 1.39501, 1 )
+shape = SubResource( 4 )
+
+[node name="collision_shape_2d2" type="CollisionShape2D" parent="static_body_2d5" index="1"]
+
+position = Vector2( 397.5, 537.5 )
+scale = Vector2( 1.39501, 1 )
+shape = SubResource( 4 )
+
+[node name="collision_shape_2d3" type="CollisionShape2D" parent="static_body_2d5" index="2"]
+
+position = Vector2( 820, 267.5 )
+scale = Vector2( 0.0606714, 27.9808 )
+shape = SubResource( 4 )
+
+[node name="collision_shape_2d4" type="CollisionShape2D" parent="static_body_2d5" index="3"]
+
+position = Vector2( -20, 260 )
+scale = Vector2( 0.0606714, 27.9808 )
+shape = SubResource( 4 )
+
+[node name="static_body_2d3" type="StaticBody2D" parent="." index="9"]
+
+scale = Vector2( 4, 4 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="collision_polygon_2d" type="CollisionPolygon2D" parent="static_body_2d3" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 465, 2.5, 465.609, 59.3491, 510.842, 59.6892, 512.202, 52.2071, 527.166, 52.5472, 529.207, 60.0293, 589.743, 59.009, 590.764, 52.2071, 608.789, 52.2071, 610.829, 59.6892, 670.345, 59.3491, 670, 2.5, 665, 0, 470, 0 )
+
+[node name="static_body_2d4" type="StaticBody2D" parent="." index="10"]
+
+scale = Vector2( 4, 4 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="collision_polygon_2d" type="CollisionPolygon2D" parent="static_body_2d4" index="0"]
+
+position = Vector2( -345, 272.5 )
+build_mode = 0
+polygon = PoolVector2Array( 512.5, 65, 495, 70, 490, 85, 490, 95, 480, 105, 480, 110, 495, 100, 505, 107.5, 522.5, 107.5, 535, 97.5, 547.5, 110, 547.5, 102.5, 537.5, 90, 535, 77.5, 532.5, 70 )
+
+[node name="static_body_2d" type="StaticBody2D" parent="." index="11"]
+
+scale = Vector2( 4, 4 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="collision_polygon_2d" type="CollisionPolygon2D" parent="static_body_2d" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 17.5, 52.5, 16.7279, 108.194, 62.4611, 108.808, 62.5, 102.5, 80, 102.5, 81.491, 108.501, 142.5, 110, 142.5, 52.5, 140, 47.5, 20, 47.5 )
+
+[node name="static_body_2d2" type="StaticBody2D" parent="." index="12"]
+
+scale = Vector2( 4, 4 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="collision_polygon_2d" type="CollisionPolygon2D" parent="static_body_2d2" index="0"]
+
+position = Vector2( 336.139, 95.9588 )
+build_mode = 0
+polygon = PoolVector2Array( 16.361, 51.5412, 16.7279, 108.194, 62.4611, 108.808, 63.8612, 101.541, 81.3612, 101.541, 81.491, 108.501, 141.957, 109.115, 143.861, 51.5412, 138.861, 46.5412, 21.361, 46.5412 )
+
+[node name="walls" type="StaticBody2D" parent="." index="13"]
 
 input_pickable = false
 collision_layer = 1
@@ -201,7 +307,7 @@ position = Vector2( 0.323486, 0.323547 )
 build_mode = 0
 polygon = PoolVector2Array( 761, 479, 1163.97, 480.45, 1163.93, 439.677, 731.943, 441.247, 732.62, 252.025, 764.795, 251.628, 804.913, 217.07, 863.701, 217.865, 897.067, 244.478, 924.923, 252.669, 931.227, 270.694, 1150.39, 274.789, 1153.98, 297.015, 1186.24, 297.374, 1175.49, 203.451, 1247.9, 203.451, 1239.66, 297.374, 1270.13, 296.298, 1273.35, 280.167, 1499.92, 276.94, 1499.13, 263.15, 1692.18, 263.598, 1692.05, 277.092, 1692.01, 440.747, 1259.96, 439.475, 1260.17, 479.974, 1691.28, 479.973, 1703.94, 480.362, 1704.02, 263.631, 1703.92, 222.913, 1498.34, 222.093, 1500.04, 70.1013, 1556.23, 53.8905, 1444.92, -55.2622, 944.16, 0.074105, 924.982, 23.7069, 786.478, 23.3195, 756.259, 48.6957, 756.169, 119.952, 768.161, 119.321, 768.014, 228.172, 733.226, 228.595, 719.855, 246.354, 719.941, 445.929, 720.094, 480.156 )
 
-[node name="to_prison_1" type="Area2D" parent="." index="9"]
+[node name="to_prison_1" type="Area2D" parent="." index="14"]
 
 editor/display_folded = true
 position = Vector2( 285.339, 479.605 )
@@ -246,7 +352,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="to_prison_2" type="Area2D" parent="." index="10"]
+[node name="to_prison_2" type="Area2D" parent="." index="15"]
 
 editor/display_folded = true
 position = Vector2( 1632.8, 863.836 )
@@ -291,7 +397,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="to_bridge" type="Area2D" parent="." index="11"]
+[node name="to_bridge" type="Area2D" parent="." index="16"]
 
 position = Vector2( 3161.95, 671.935 )
 input_pickable = true
