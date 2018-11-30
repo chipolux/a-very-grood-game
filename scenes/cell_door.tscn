@@ -18,7 +18,7 @@ extents = Vector2( 10, 10 )
 [sub_resource type="Animation" id=3]
 
 resource_name = "open"
-length = 0.8
+length = 0.6
 loop = false
 step = 0.05
 tracks/0/type = "value"
@@ -28,7 +28,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 226, 229, 232, 235 ]
@@ -40,7 +40,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.6, 0.8 ),
+"times": PoolRealArray( 0, 0.45, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, true, false ]
@@ -52,7 +52,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.6, 0.8 ),
+"times": PoolRealArray( 0, 0.45, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 1, 1, 0 ]
@@ -64,13 +64,13 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.6, 0.8 ),
+"times": PoolRealArray( 0, 0.45, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 1, 1, 0 ]
 }
 
-[node name="cell_door" type="Node2D"]
+[node name="cell_door" type="Node2D" index="0"]
 
 position = Vector2( 416, 2528 )
 script = ExtResource( 1 )
