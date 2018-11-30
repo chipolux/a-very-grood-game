@@ -97,7 +97,14 @@ wait_time = 3.0
 one_shot = true
 autostart = false
 
-[node name="anim_player" type="AnimationPlayer" parent="." index="4"]
+[node name="hmm_timer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 1.5
+one_shot = true
+autostart = false
+
+[node name="anim_player" type="AnimationPlayer" parent="." index="5"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -114,7 +121,7 @@ anims/walk_right = ExtResource( 10 )
 anims/walk_up = ExtResource( 11 )
 blend_times = [  ]
 
-[node name="alert_audio" type="AudioStreamPlayer2D" parent="." index="5"]
+[node name="alert_audio" type="AudioStreamPlayer2D" parent="." index="6"]
 
 stream = ExtResource( 12 )
 volume_db = -5.0
