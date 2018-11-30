@@ -13,11 +13,13 @@ var NAVMESH
 onready var pause_timer = get_node("pause_timer")
 onready var cone = get_node("cone")
 onready var cone_area = get_node("cone/area_2d")
+onready var anim_player = get_node("anim_player")
 
 var target
 var current_point
 var path_to_point
 var velocity
+var current_anim = "standing_up"
 export(float) var direction = 0
 
 func _ready():
@@ -28,6 +30,35 @@ func _ready():
 	pause_timer.set_wait_time(PAUSE_TIME)
 	pause_timer.connect("timeout", self, "_next_patrol_point")
 	pause_timer.start()
+
+func _process(delta):
+	var new_anim = current_anim
+	if abs(velocity.x) > abs(velocity.y):
+		if velocity.x < 0:
+			direction = 270
+			new_anim = "walk_left"
+		else:
+			direction = 90
+			new_anim = "walk_right"
+	elif abs(velocity.x) < abs(velocity.y):
+		if velocity.y < 0:
+			direction = 0
+			new_anim = "walk_up"
+		else:
+			direction = 180
+			new_anim = "walk_down"
+	elif not velocity:
+		if direction == 270:
+			new_anim = "standing_left"
+		elif direction == 90:
+			new_anim = "standing_right"
+		elif direction == 0:
+			new_anim = "standing_up"
+		elif direction == 180:
+			new_anim = "standing_down"
+	if (new_anim != current_anim):
+		current_anim = new_anim
+		anim_player.play(current_anim)
 
 func _physics_process(delta):
 	velocity = Vector2()
@@ -52,16 +83,6 @@ func _physics_process(delta):
 	elif current_point and not path_to_point and pause_timer.is_stopped():
 		# we've just exhausted our path to the current_point, start waiting
 		pause_timer.start()
-	if abs(velocity.x) > abs(velocity.y):
-		if velocity.x < 0:
-			direction = 270
-		else:
-			direction = 90
-	elif abs(velocity.x) < abs(velocity.y):
-		if velocity.y < 0:
-			direction = 0
-		else:
-			direction = 180
 	if velocity:
 		cone.rotation_degrees = rad2deg(velocity.angle()) + 90
 	else:
