@@ -1,0 +1,156 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/door.gd" type="Script" id=1]
+[ext_resource path="res://tilesets/dungeon-tileset.png" type="Texture" id=2]
+[ext_resource path="res://sounds/door-open.wav" type="AudioStream" id=3]
+[ext_resource path="res://sounds/door-close.wav" type="AudioStream" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 27.2018, 24.6926 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "open"
+length = 0.8
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("door:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 226, 229, 232, 235 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("door:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body:collision_layer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 1, 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body:collision_mask")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 1, 0 ]
+}
+
+[node name="cell_door" type="Node2D"]
+
+position = Vector2( 416, 2528 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+open = false
+locked = false
+
+[node name="door" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+vframes = 25
+hframes = 25
+frame = 226
+region_rect = Rect2( 16, 144, 16, 16 )
+_sections_unfolded = [ "Animation", "Offset", "Transform", "Visibility" ]
+
+[node name="body" type="StaticBody2D" parent="." index="1"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="shape" type="CollisionShape2D" parent="body" index="0"]
+
+position = Vector2( -0.349731, -11.8882 )
+shape = SubResource( 1 )
+
+[node name="button" type="Area2D" parent="." index="2"]
+
+editor/display_folded = true
+position = Vector2( 0.0072937, 28.9512 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="shape" type="CollisionShape2D" parent="button" index="0"]
+
+shape = SubResource( 2 )
+
+[node name="anim_player" type="AnimationPlayer" parent="." index="3"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/open = SubResource( 3 )
+blend_times = [  ]
+
+[node name="open_audio" type="AudioStreamPlayer2D" parent="." index="4"]
+
+stream = ExtResource( 3 )
+volume_db = -20.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 800.0
+attenuation = 1.0
+bus = "fx"
+area_mask = 1
+
+[node name="close_audio" type="AudioStreamPlayer2D" parent="." index="5"]
+
+stream = ExtResource( 4 )
+volume_db = -20.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 800.0
+attenuation = 1.0
+bus = "fx"
+area_mask = 1
+
+
