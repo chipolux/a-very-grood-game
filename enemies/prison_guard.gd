@@ -14,6 +14,7 @@ onready var pause_timer = get_node("pause_timer")
 onready var cone = get_node("cone")
 onready var cone_area = get_node("cone/area_2d")
 onready var anim_player = get_node("anim_player")
+onready var alert_audio = get_node("alert_audio")
 
 var target
 var current_point
@@ -109,8 +110,10 @@ func _set_current_point(new_point):
 			path_to_point.append(NAVMESH.to_global(point))
 
 func _body_entered_view(body):
-	if body.get_name() == "player":
+	if body.get_name() == "player" and target != body:
 		target = body
+		if not alert_audio.playing:
+			alert_audio.play()
 
 func _goto_closest_point():
 	logger.debug("_goto_closest_point")
