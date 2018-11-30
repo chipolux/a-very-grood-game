@@ -29,10 +29,11 @@ script = ExtResource( 1 )
 PATROL_ROUTE = null
 NAVMESH_PATH = null
 WALK_SPEED = 60
-CHASE_SPEED = 120
+CHASE_SPEED = 170
 CLOSE_ENOUGH = 5
-CHASE_DISTANCE = 550
+CHASE_DISTANCE = 650
 PAUSE_TIME = 3
+direction = 0
 
 [node name="body" type="CollisionShape2D" parent="." index="0"]
 
@@ -41,6 +42,7 @@ shape = SubResource( 1 )
 [node name="cone" type="Node2D" parent="." index="1"]
 
 editor/display_folded = true
+visible = false
 
 [node name="area_2d" type="Area2D" parent="cone" index="0"]
 

@@ -16,8 +16,9 @@ onready var cone_area = get_node("cone/area_2d")
 
 var target
 var current_point
-var velocity
 var path_to_point
+var velocity
+export(float) var direction = 0
 
 func _ready():
 	if PATROL_ROUTE:
@@ -32,29 +33,39 @@ func _physics_process(delta):
 	velocity = Vector2()
 	if target:
 		var distance = global_position.distance_to(target.global_position)
-		var direction = (global_position - target.global_position).normalized()
-		cone.rotation = direction.angle() - 1.57
 		if distance >= CHASE_DISTANCE:
 			# too far away, forget about em
 			target = null
 			_goto_closest_point()
 		elif distance >= CLOSE_ENOUGH:
 			# not close enough, chase em!
-			velocity -= (direction * CHASE_SPEED)
+			velocity -= ((global_position - target.global_position).normalized() * CHASE_SPEED)
 	elif current_point and path_to_point:
 		# walk along path towards the next patrol point
 		var point = path_to_point[0]
 		var distance = global_position.distance_to(point)
-		var direction = (global_position - point).normalized()
-		cone.rotation = direction.angle() - 1.57
 		if distance <= CLOSE_ENOUGH:
 			path_to_point.pop_front()
 		elif distance >= CLOSE_ENOUGH:
 			# not to the patrol point yet, keep going
-			velocity -= (direction * WALK_SPEED)
+			velocity -= ((global_position - point).normalized() * WALK_SPEED)
 	elif current_point and not path_to_point and pause_timer.is_stopped():
 		# we've just exhausted our path to the current_point, start waiting
 		pause_timer.start()
+	if abs(velocity.x) > abs(velocity.y):
+		if velocity.x < 0:
+			direction = 270
+		else:
+			direction = 90
+	elif abs(velocity.x) < abs(velocity.y):
+		if velocity.y < 0:
+			direction = 0
+		else:
+			direction = 180
+	if velocity:
+		cone.rotation_degrees = rad2deg(velocity.angle()) + 90
+	else:
+		cone.rotation_degrees = direction
 	move_and_slide(velocity)
 
 func _next_patrol_point():
