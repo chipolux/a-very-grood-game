@@ -20,7 +20,7 @@ onready var alert_audio = get_node("alert_audio")
 var target
 var current_point
 var path_to_point
-var velocity
+var velocity = Vector2()
 var current_anim = "standing_up"
 export(float) var direction = 0
 
