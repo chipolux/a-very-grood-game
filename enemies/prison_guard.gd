@@ -73,7 +73,7 @@ func _physics_process(delta):
 			hmm_timer.start()
 		elif distance >= CLOSE_ENOUGH:
 			# not close enough, chase em!
-			velocity -= ((global_position - target.global_position).normalized() * CHASE_SPEED)
+			velocity -= ((global_position - _get_chase_point()).normalized() * CHASE_SPEED)
 	elif current_point and path_to_point and hmm_timer.is_stopped():
 		# walk along path towards the next patrol point
 		var point = path_to_point[0]
@@ -101,6 +101,11 @@ func _next_patrol_point():
 	else:
 		var i = (PATROL_POINTS.find(current_point) + 1) % len(PATROL_POINTS)
 		_set_current_point(PATROL_POINTS[i])
+
+func _get_chase_point():
+	var start = NAVMESH.to_local(global_position)
+	var end = NAVMESH.to_local(target.global_position)
+	return NAVMESH.to_global(NAVMESH.get_simple_path(start, end)[1])
 
 func _set_current_point(new_point):
 	current_point = new_point
