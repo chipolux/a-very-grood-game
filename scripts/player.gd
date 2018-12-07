@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 const MOVEMENT_SPEED = 250
+const SPRINT_MULTIPLIER = 2
 
 onready var ui = get_node("ui")
 var current_anim = "stand_down"
@@ -27,6 +28,8 @@ func _physics_process(delta):
 		velocity.y += MOVEMENT_SPEED
 	if Input.is_action_pressed("ui_up"):
 		velocity.y -= MOVEMENT_SPEED
+	if Input.is_key_pressed(KEY_SHIFT) and game_state.player_can_sprint:
+		velocity *= SPRINT_MULTIPLIER
 	move_and_slide(velocity)
 
 
