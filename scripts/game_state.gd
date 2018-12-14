@@ -71,6 +71,7 @@ var player_character = CHARACTERS.GALE
 var player_name
 var player_max_hp = 100
 var player_hp = 100
+var player_can_sprint = true
 
 var player_level = 1
 var player_max_xp = 20
