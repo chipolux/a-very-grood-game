@@ -3,7 +3,7 @@
 [ext_resource path="res://tilesets/generate-tiles.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/Town O' Jail-io.png" type="Texture" id=2]
 
-[node name="town" type="Node" index="0"]
+[node name="town" type="Node"]
 
 script = ExtResource( 1 )
 reset = false
@@ -541,5 +541,33 @@ position = Vector2( 216, 136 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 208, 128, 16, 16 )
+
+[node name="248" type="Sprite" parent="." index="76"]
+
+position = Vector2( 136, 104 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 128, 96, 16, 16 )
+
+[node name="249" type="Sprite" parent="." index="77"]
+
+position = Vector2( 152, 104 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 144, 96, 16, 16 )
+
+[node name="288" type="Sprite" parent="." index="78"]
+
+position = Vector2( 136, 120 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 128, 112, 16, 16 )
+
+[node name="289" type="Sprite" parent="." index="79"]
+
+position = Vector2( 152, 120 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 144, 112, 16, 16 )
 
 
