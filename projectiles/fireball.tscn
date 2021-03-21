@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://projectiles/fireball.gd" type="Script" id=1]
 [ext_resource path="res://projectiles/fireball.png" type="Texture" id=2]
@@ -6,11 +6,11 @@
 [ext_resource path="res://sounds/fireball-fizzle.wav" type="AudioStream" id=4]
 [ext_resource path="res://sounds/fireball-explosion.wav" type="AudioStream" id=5]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
 
-resource_name = "explode"
+[sub_resource type="Animation" id=2]
 length = 0.5
-loop = false
 step = 0.04
 tracks/0/type = "method"
 tracks/0/path = NodePath("explode")
@@ -80,12 +80,8 @@ tracks/4/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=2]
-
-resource_name = "fizzle"
+[sub_resource type="Animation" id=3]
 length = 0.4
-loop = false
-step = 0.1
 tracks/0/type = "method"
 tracks/0/path = NodePath("fizzle")
 tracks/0/interp = 1
@@ -130,11 +126,9 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
-
+[sub_resource type="Animation" id=4]
 length = 0.3
 loop = true
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
@@ -148,10 +142,8 @@ tracks/0/keys = {
 "values": [ 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=4]
-
+[sub_resource type="Animation" id=5]
 length = 0.1
-loop = false
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite:frame")
@@ -216,89 +208,55 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="CircleShape2D" id=5]
-
-custom_solver_bias = 0.0
+[sub_resource type="CircleShape2D" id=6]
 radius = 10.683
 
-[node name="fireball" type="RigidBody2D" index="0" groups=[
+[node name="fireball" type="RigidBody2D" groups=[
 "fireballs",
 "projectiles",
 ]]
-
-input_pickable = false
 collision_layer = 0
 collision_mask = 2
-mode = 0
 mass = 0.01
-friction = 0.0
-bounce = 0.0
+physics_material_override = SubResource( 1 )
 gravity_scale = 0.0
-custom_integrator = false
-continuous_cd = 0
 contacts_reported = 1
 contact_monitor = true
-sleeping = false
 can_sleep = false
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
 
-[node name="sprite" type="Sprite" parent="." index="0"]
-
+[node name="sprite" type="Sprite" parent="."]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 0, -1.5 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
-vframes = 2
 hframes = 2
+vframes = 2
 frame = 1
-_sections_unfolded = [ "Animation", "Transform", "Visibility" ]
 
-[node name="explosion" type="Sprite" parent="." index="1"]
-
+[node name="explosion" type="Sprite" parent="."]
 scale = Vector2( 12, 12 )
 texture = ExtResource( 3 )
-vframes = 4
 hframes = 2
+vframes = 4
 frame = 7
-_sections_unfolded = [ "Animation", "Transform", "Visibility" ]
 
-[node name="anim_player" type="AnimationPlayer" parent="." index="2"]
+[node name="anim_player" type="AnimationPlayer" parent="."]
+anims/explode = SubResource( 2 )
+anims/fizzle = SubResource( 3 )
+anims/fly = SubResource( 4 )
+anims/spawn = SubResource( 5 )
 
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
-anims/explode = SubResource( 1 )
-anims/fizzle = SubResource( 2 )
-anims/fly = SubResource( 3 )
-anims/spawn = SubResource( 4 )
-blend_times = [  ]
+[node name="collider" type="CollisionShape2D" parent="."]
+shape = SubResource( 6 )
 
-[node name="collider" type="CollisionShape2D" parent="." index="3"]
-
-shape = SubResource( 5 )
-
-[node name="fizzle" type="AudioStreamPlayer" parent="." index="4"]
-
+[node name="fizzle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -30.0
-autoplay = false
-mix_target = 0
 bus = "fx"
 
-[node name="explode" type="AudioStreamPlayer" parent="." index="5"]
-
+[node name="explode" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -20.0
-autoplay = false
-mix_target = 0
 bus = "fx"
-
-

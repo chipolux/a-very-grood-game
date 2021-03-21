@@ -1,4 +1,4 @@
-extends Node2D
+extends RigidBody2D
 
 const SPEED = 450
 const MAX_DISTANCE = 350
